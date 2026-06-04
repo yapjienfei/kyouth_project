@@ -38,6 +38,10 @@
         <label>Minimum monthly salary (RM):</label>
         <input type="number" id="salaryThreshold" value="0" step="500">
         <button onclick="updateSalaryThreshold()">Apply</button>
+        <br><br>
+        <label>
+            <input type="checkbox" id="includeUndisclosed"> Include jobs with undisclosed salary
+        </label>
     </div>
 
     <div class="section">
@@ -124,12 +128,14 @@
         }
 
         async function getSuggestions() {
+            const includeUndisclosed = document.getElementById('includeUndisclosed').checked;
             const response = await fetch('/suggest', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     skills: Array.from(currentSelectedSkills),
-                    salary_threshold: salaryThreshold
+                    salary_threshold: salaryThreshold,
+                    include_undisclosed: includeUndisclosed
                 })
             });
             const allRoles = await response.json();
@@ -163,13 +169,15 @@
                 alert('Select a target role');
                 return;
             }
+            const includeUndisclosed = document.getElementById('includeUndisclosed').checked;
             const response = await fetch('/find_paths', {
                 method: 'POST',
                 headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({ 
+                body: JSON.stringify({
                     skills: Array.from(currentSelectedSkills),
                     target_title: target,
-                    salary_threshold: salaryThreshold
+                    salary_threshold: salaryThreshold,
+                    include_undisclosed: includeUndisclosed
                 })
             });
             const data = await response.json();

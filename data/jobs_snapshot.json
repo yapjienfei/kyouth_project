@@ -5,7 +5,12 @@
     "description": "Provide technical support for hardware, software, and network issues. Manage Windows/Linux OS, basic networking, and ticketing systems. Skills: Windows, Linux, troubleshooting, customer service, basic networking, Active Directory.",
     "salary_display": "RM 2800 - 4000",
     "salary_min": 2800,
-    "salary_max": 4000
+    "salary_max": 4000,
+    "skills_ai": [
+      "windows",
+      "linux",
+      "active directory"
+    ]
   },
   {
     "title": "Junior Web Developer",
@@ -13,7 +18,15 @@
     "description": "Build responsive websites using HTML, CSS, JavaScript. Basic knowledge of React or Vue. Version control with Git. Skills: HTML, CSS, JavaScript, React, Git, responsive design.",
     "salary_display": "RM 3000 - 4500",
     "salary_min": 3000,
-    "salary_max": 4500
+    "salary_max": 4500,
+    "skills_ai": [
+      "html",
+      "css",
+      "javascript",
+      "react",
+      "vue",
+      "git"
+    ]
   },
   {
     "title": "Junior Software Engineer",
@@ -21,7 +34,13 @@
     "description": "Develop and maintain web applications using Python and Django. Write unit tests, participate in code reviews. Skills: Python, Django, SQL, Git, problem-solving.",
     "salary_display": "RM 3500 - 5000",
     "salary_min": 3500,
-    "salary_max": 5000
+    "salary_max": 5000,
+    "skills_ai": [
+      "python",
+      "django",
+      "sql",
+      "git"
+    ]
   },
   {
     "title": "QA Tester",
@@ -29,7 +48,14 @@
     "description": "Manual and automated testing of web/mobile apps. Write test cases, use JIRA for bug tracking. Basic scripting with Python or JavaScript. Skills: manual testing, JIRA, Python, Selenium, attention to detail.",
     "salary_display": "RM 3500 - 5000",
     "salary_min": 3500,
-    "salary_max": 5000
+    "salary_max": 5000,
+    "skills_ai": [
+      "manual testing",
+      "jira",
+      "python",
+      "javascript",
+      "selenium"
+    ]
   },
   {
     "title": "System Administrator",
@@ -37,7 +63,13 @@
     "description": "Manage Linux and Windows servers, automate tasks with bash/Python, monitor system health, manage backups. Skills: Linux, Windows Server, bash, Python, monitoring, backup/recovery.",
     "salary_display": "RM 4500 - 6500",
     "salary_min": 4500,
-    "salary_max": 6500
+    "salary_max": 6500,
+    "skills_ai": [
+      "linux",
+      "windows server",
+      "bash",
+      "python"
+    ]
   },
   {
     "title": "Frontend Developer",
@@ -45,7 +77,16 @@
     "description": "Build responsive web interfaces using React, Redux, and modern CSS. Collaborate with backend teams. Skills: React, Redux, HTML, CSS, JavaScript, REST APIs, Git.",
     "salary_display": "RM 5000 - 7000",
     "salary_min": 5000,
-    "salary_max": 7000
+    "salary_max": 7000,
+    "skills_ai": [
+      "react",
+      "redux",
+      "html",
+      "css",
+      "javascript",
+      "rest apis",
+      "git"
+    ]
   },
   {
     "title": "Backend Developer",
@@ -53,7 +94,15 @@
     "description": "Design and implement RESTful APIs using Node.js, Express, and PostgreSQL. Optimize database queries. Skills: Node.js, Express, SQL, PostgreSQL, REST API design, Git.",
     "salary_display": "RM 5500 - 8000",
     "salary_min": 5500,
-    "salary_max": 8000
+    "salary_max": 8000,
+    "skills_ai": [
+      "node.js",
+      "express",
+      "sql",
+      "postgresql",
+      "rest api design",
+      "git"
+    ]
   },
   {
     "title": "Full Stack Developer",
@@ -61,7 +110,15 @@
     "description": "End-to-end development using React, Node.js, MongoDB, and AWS. Deploy and maintain applications. Skills: React, Node.js, MongoDB, AWS, Docker, Git.",
     "salary_display": "RM 6000 - 9000",
     "salary_min": 6000,
-    "salary_max": 9000
+    "salary_max": 9000,
+    "skills_ai": [
+      "react",
+      "node.js",
+      "mongodb",
+      "aws",
+      "docker",
+      "git"
+    ]
   },
   {
     "title": "Software Engineer",
@@ -69,7 +126,15 @@
     "description": "Full-stack development with Python, Django, and PostgreSQL. Implement CI/CD pipelines. Skills: Python, Django, PostgreSQL, Docker, Jenkins, Git.",
     "salary_display": "RM 6000 - 8500",
     "salary_min": 6000,
-    "salary_max": 8500
+    "salary_max": 8500,
+    "skills_ai": [
+      "python",
+      "django",
+      "postgresql",
+      "docker",
+      "jenkins",
+      "git"
+    ]
   },
   {
     "title": "Data Analyst",
@@ -77,7 +142,16 @@
     "description": "Analyze data using SQL, Python (Pandas, NumPy), create dashboards in Power BI or Tableau. Present insights to stakeholders. Skills: SQL, Python, Pandas, Power BI, Tableau, statistics.",
     "salary_display": "RM 4500 - 6500",
     "salary_min": 4500,
-    "salary_max": 6500
+    "salary_max": 6500,
+    "skills_ai": [
+      "sql",
+      "python",
+      "pandas",
+      "numpy",
+      "power bi",
+      "tableau",
+      "statistics"
+    ]
   },
   {
     "title": "Data Engineer",
@@ -85,7 +159,19 @@
     "description": "Build ETL pipelines using Spark, Kafka, and AWS Glue. Manage data warehouses (Redshift, BigQuery). Skills: Python, SQL, Spark, Kafka, AWS, data modeling.",
     "salary_display": "RM 7000 - 10000",
     "salary_min": 7000,
-    "salary_max": 10000
+    "salary_max": 10000,
+    "skills_ai": [
+      "etl",
+      "spark",
+      "kafka",
+      "aws glue",
+      "redshift",
+      "bigquery",
+      "python",
+      "sql",
+      "aws",
+      "data modeling"
+    ]
   },
   {
     "title": "Data Scientist",
@@ -93,7 +179,19 @@
     "description": "Develop machine learning models with scikit-learn, TensorFlow, or PyTorch. Perform feature engineering, model evaluation, and deployment. Skills: Python, scikit-learn, TensorFlow, SQL, statistics, data visualization.",
     "salary_display": "RM 9000 - 13000",
     "salary_min": 9000,
-    "salary_max": 13000
+    "salary_max": 13000,
+    "skills_ai": [
+      "machine learning",
+      "scikit-learn",
+      "tensorflow",
+      "pytorch",
+      "feature engineering",
+      "model evaluation",
+      "python",
+      "sql",
+      "statistics",
+      "data visualization"
+    ]
   },
   {
     "title": "Cloud Engineer",
@@ -101,7 +199,17 @@
     "description": "Design and manage AWS infrastructure using Terraform, CloudFormation. Implement CI/CD pipelines with Jenkins. Skills: AWS, Terraform, Jenkins, Docker, Linux, Python.",
     "salary_display": "RM 7000 - 9500",
     "salary_min": 7000,
-    "salary_max": 9500
+    "salary_max": 9500,
+    "skills_ai": [
+      "aws",
+      "terraform",
+      "cloudformation",
+      "ci/cd",
+      "jenkins",
+      "docker",
+      "linux",
+      "python"
+    ]
   },
   {
     "title": "Senior Cloud Engineer",
@@ -109,7 +217,16 @@
     "description": "Lead cloud architecture, multi-cloud (AWS, Azure, GCP), Kubernetes orchestration, infrastructure as code, cost optimization. Skills: AWS, Azure, GCP, Kubernetes, Terraform, Python, Go, leadership.",
     "salary_display": "RM 11000 - 16000",
     "salary_min": 11000,
-    "salary_max": 16000
+    "salary_max": 16000,
+    "skills_ai": [
+      "aws",
+      "azure",
+      "gcp",
+      "kubernetes",
+      "terraform",
+      "python",
+      "go"
+    ]
   },
   {
     "title": "DevOps Engineer",
@@ -117,7 +234,18 @@
     "description": "Build and maintain CI/CD pipelines, manage Kubernetes clusters, monitoring with Prometheus/Grafana, scripting in Bash/Python. Skills: Docker, Kubernetes, Jenkins, Prometheus, Bash, Python, AWS.",
     "salary_display": "RM 8000 - 12000",
     "salary_min": 8000,
-    "salary_max": 12000
+    "salary_max": 12000,
+    "skills_ai": [
+      "ci/cd",
+      "kubernetes",
+      "prometheus",
+      "grafana",
+      "bash",
+      "python",
+      "docker",
+      "jenkins",
+      "aws"
+    ]
   },
   {
     "title": "Senior DevOps Engineer",
@@ -125,7 +253,15 @@
     "description": "Lead DevOps transformation, implement GitOps with ArgoCD, manage multi-cluster Kubernetes, SRE practices. Skills: Kubernetes, ArgoCD, Terraform, AWS, Python, Go, incident management.",
     "salary_display": "RM 12000 - 17000",
     "salary_min": 12000,
-    "salary_max": 17000
+    "salary_max": 17000,
+    "skills_ai": [
+      "kubernetes",
+      "argocd",
+      "terraform",
+      "aws",
+      "python",
+      "go"
+    ]
   },
   {
     "title": "Mobile Developer (iOS)",
@@ -133,7 +269,14 @@
     "description": "Develop native iOS apps using Swift and SwiftUI. Integrate REST APIs and Firebase. Skills: Swift, SwiftUI, REST APIs, Git, iOS design patterns.",
     "salary_display": "RM 6000 - 9000",
     "salary_min": 6000,
-    "salary_max": 9000
+    "salary_max": 9000,
+    "skills_ai": [
+      "swift",
+      "swiftui",
+      "rest apis",
+      "firebase",
+      "git"
+    ]
   },
   {
     "title": "Mobile Developer (Android)",
@@ -141,7 +284,15 @@
     "description": "Build Android apps using Kotlin and Jetpack Compose. Work with Firebase, Room database. Skills: Kotlin, Jetpack Compose, Firebase, REST APIs, Git.",
     "salary_display": "RM 6000 - 9000",
     "salary_min": 6000,
-    "salary_max": 9000
+    "salary_max": 9000,
+    "skills_ai": [
+      "kotlin",
+      "jetpack compose",
+      "firebase",
+      "room database",
+      "rest apis",
+      "git"
+    ]
   },
   {
     "title": "Senior Mobile Developer",
@@ -149,7 +300,14 @@
     "description": "Lead mobile development, architecture decisions, cross-platform (Flutter/React Native), mentor juniors. Skills: Flutter, React Native, Swift, Kotlin, CI/CD for mobile, leadership.",
     "salary_display": "RM 10000 - 14000",
     "salary_min": 10000,
-    "salary_max": 14000
+    "salary_max": 14000,
+    "skills_ai": [
+      "flutter",
+      "react native",
+      "swift",
+      "kotlin",
+      "ci/cd"
+    ]
   },
   {
     "title": "QA Engineer (Automation)",
@@ -157,7 +315,14 @@
     "description": "Automated testing using Selenium WebDriver, PyTest, and Cypress. Integrate tests into CI/CD pipelines. Skills: Python, Selenium, Cypress, Jenkins, test frameworks.",
     "salary_display": "RM 5500 - 8000",
     "salary_min": 5500,
-    "salary_max": 8000
+    "salary_max": 8000,
+    "skills_ai": [
+      "python",
+      "selenium",
+      "cypress",
+      "jenkins",
+      "pytest"
+    ]
   },
   {
     "title": "Senior QA Engineer",
@@ -165,7 +330,14 @@
     "description": "Define QA strategy, lead automation framework development, performance testing with JMeter. Skills: automation frameworks, JMeter, CI/CD, team leadership, Python, Java.",
     "salary_display": "RM 9000 - 13000",
     "salary_min": 9000,
-    "salary_max": 13000
+    "salary_max": 13000,
+    "skills_ai": [
+      "automation frameworks",
+      "jmeter",
+      "ci/cd",
+      "python",
+      "java"
+    ]
   },
   {
     "title": "Network Engineer",
@@ -173,7 +345,15 @@
     "description": "Configure and manage Cisco routers/switches, firewalls, VPN, and network monitoring tools. Skills: Cisco, routing, switching, firewalls, VPN, network security.",
     "salary_display": "RM 5500 - 8000",
     "salary_min": 5500,
-    "salary_max": 8000
+    "salary_max": 8000,
+    "skills_ai": [
+      "cisco",
+      "routing",
+      "switching",
+      "firewalls",
+      "vpn",
+      "network security"
+    ]
   },
   {
     "title": "Senior Network Engineer",
@@ -181,7 +361,14 @@
     "description": "Design and implement complex network solutions, SD-WAN, network automation with Python/Ansible. Skills: Cisco, SD-WAN, Python, Ansible, network security, leadership.",
     "salary_display": "RM 9000 - 13000",
     "salary_min": 9000,
-    "salary_max": 13000
+    "salary_max": 13000,
+    "skills_ai": [
+      "cisco",
+      "sd-wan",
+      "python",
+      "ansible",
+      "network security"
+    ]
   },
   {
     "title": "Security Analyst",
@@ -189,7 +376,13 @@
     "description": "Monitor security events, conduct vulnerability assessments, use SIEM tools (Splunk, QRadar). Skills: SIEM, vulnerability assessment, incident response, networking, Linux.",
     "salary_display": "RM 6500 - 9500",
     "salary_min": 6500,
-    "salary_max": 9500
+    "salary_max": 9500,
+    "skills_ai": [
+      "siem",
+      "vulnerability assessment",
+      "incident response",
+      "linux"
+    ]
   },
   {
     "title": "Cybersecurity Engineer",
@@ -197,7 +390,15 @@
     "description": "Implement security controls, penetration testing, OWASP top 10, firewalls, IDS/IPS. Skills: penetration testing, OWASP, firewalls, IDS/IPS, Python, Kali Linux.",
     "salary_display": "RM 9000 - 13500",
     "salary_min": 9000,
-    "salary_max": 13500
+    "salary_max": 13500,
+    "skills_ai": [
+      "penetration testing",
+      "owasp",
+      "firewalls",
+      "ids/ips",
+      "python",
+      "kali linux"
+    ]
   },
   {
     "title": "Senior Cybersecurity Engineer",
@@ -205,7 +406,14 @@
     "description": "Lead security architecture, red team exercises, compliance (ISO 27001, GDPR), security automation. Skills: security architecture, red teaming, ISO 27001, Python, cloud security.",
     "salary_display": "RM 13000 - 18000",
     "salary_min": 13000,
-    "salary_max": 18000
+    "salary_max": 18000,
+    "skills_ai": [
+      "security architecture",
+      "red teaming",
+      "iso 27001",
+      "python",
+      "cloud security"
+    ]
   },
   {
     "title": "Database Administrator",
@@ -213,7 +421,15 @@
     "description": "Manage MySQL, PostgreSQL, and MongoDB databases. Performance tuning, backup/recovery, query optimization. Skills: SQL, MySQL, PostgreSQL, MongoDB, database tuning, backup.",
     "salary_display": "RM 6000 - 9000",
     "salary_min": 6000,
-    "salary_max": 9000
+    "salary_max": 9000,
+    "skills_ai": [
+      "sql",
+      "mysql",
+      "postgresql",
+      "mongodb",
+      "database tuning",
+      "backup"
+    ]
   },
   {
     "title": "Senior Database Administrator",
@@ -221,7 +437,14 @@
     "description": "Lead database strategy, high availability, replication, data warehousing, automation with Python. Skills: high availability, replication, data warehousing, Python, cloud databases.",
     "salary_display": "RM 10000 - 14000",
     "salary_min": 10000,
-    "salary_max": 14000
+    "salary_max": 14000,
+    "skills_ai": [
+      "high availability",
+      "replication",
+      "data warehousing",
+      "python",
+      "cloud databases"
+    ]
   },
   {
     "title": "Technical Project Manager",
@@ -229,7 +452,12 @@
     "description": "Agile project management, JIRA/Confluence, stakeholder communication, risk management. Technical background required. Skills: Agile, Scrum, JIRA, risk management, communication, leadership.",
     "salary_display": "RM 10000 - 15000",
     "salary_min": 10000,
-    "salary_max": 15000
+    "salary_max": 15000,
+    "skills_ai": [
+      "agile",
+      "scrum",
+      "jira"
+    ]
   },
   {
     "title": "Product Manager",
@@ -237,7 +465,13 @@
     "description": "Define product roadmap, gather requirements, work with engineering teams, market analysis. Skills: product management, market research, user stories, data analysis, communication.",
     "salary_display": "RM 11000 - 16000",
     "salary_min": 11000,
-    "salary_max": 16000
+    "salary_max": 16000,
+    "skills_ai": [
+      "product management",
+      "market research",
+      "user stories",
+      "data analysis"
+    ]
   },
   {
     "title": "Senior Software Engineer",
@@ -245,7 +479,14 @@
     "description": "Lead technical design, microservices architecture, mentor juniors, code reviews. Tech stack: Python, Go, Docker, Kubernetes. Skills: microservices, Docker, Kubernetes, Python, Go, leadership.",
     "salary_display": "RM 10000 - 14000",
     "salary_min": 10000,
-    "salary_max": 14000
+    "salary_max": 14000,
+    "skills_ai": [
+      "microservices",
+      "python",
+      "go",
+      "docker",
+      "kubernetes"
+    ]
   },
   {
     "title": "Lead Software Engineer",
@@ -253,7 +494,12 @@
     "description": "Lead multiple teams, system architecture, technical strategy, hiring, and performance reviews. Skills: architecture, team leadership, system design, cloud, agile at scale.",
     "salary_display": "RM 14000 - 19000",
     "salary_min": 14000,
-    "salary_max": 19000
+    "salary_max": 19000,
+    "skills_ai": [
+      "system architecture",
+      "system design",
+      "cloud"
+    ]
   },
   {
     "title": "Engineering Manager",
@@ -261,7 +507,10 @@
     "description": "Manage engineering teams, project delivery, career development, cross-team collaboration. Skills: people management, project delivery, agile, technical background, budgeting.",
     "salary_display": "RM 15000 - 21000",
     "salary_min": 15000,
-    "salary_max": 21000
+    "salary_max": 21000,
+    "skills_ai": [
+      "agile"
+    ]
   },
   {
     "title": "IT Consultant",
@@ -269,7 +518,8 @@
     "description": "Advise clients on IT strategy, digital transformation, system selection, and implementation. Skills: consulting, business analysis, IT strategy, communication, problem-solving.",
     "salary_display": "RM 8000 - 12000",
     "salary_min": 8000,
-    "salary_max": 12000
+    "salary_max": 12000,
+    "skills_ai": []
   },
   {
     "title": "Senior IT Consultant",
@@ -277,7 +527,10 @@
     "description": "Lead large-scale transformation projects, manage client relationships, pre-sales support. Skills: project leadership, client management, solution architecture, business development.",
     "salary_display": "RM 13000 - 18000",
     "salary_min": 13000,
-    "salary_max": 18000
+    "salary_max": 18000,
+    "skills_ai": [
+      "solution architecture"
+    ]
   },
   {
     "title": "Machine Learning Engineer",
@@ -285,7 +538,16 @@
     "description": "Deploy ML models into production, build MLOps pipelines using Kubeflow, MLflow. Skills: Python, TensorFlow, Docker, Kubernetes, MLflow, AWS SageMaker.",
     "salary_display": "RM 10000 - 15000",
     "salary_min": 10000,
-    "salary_max": 15000
+    "salary_max": 15000,
+    "skills_ai": [
+      "python",
+      "tensorflow",
+      "docker",
+      "kubernetes",
+      "mlflow",
+      "aws sagemaker",
+      "kubeflow"
+    ]
   },
   {
     "title": "Business Intelligence Analyst",
@@ -293,7 +555,13 @@
     "description": "Develop dashboards in Power BI/Tableau, write complex SQL queries, work with stakeholders. Skills: SQL, Power BI, Tableau, data visualization, business communication.",
     "salary_display": "RM 5000 - 7500",
     "salary_min": 5000,
-    "salary_max": 7500
+    "salary_max": 7500,
+    "skills_ai": [
+      "sql",
+      "power bi",
+      "tableau",
+      "data visualization"
+    ]
   },
   {
     "title": "Solutions Architect",
@@ -301,7 +569,13 @@
     "description": "Design end-to-end solutions on AWS/Azure, create architecture diagrams, guide implementation. Skills: cloud architecture, AWS, Azure, solution design, communication, presales.",
     "salary_display": "RM 13000 - 18000",
     "salary_min": 13000,
-    "salary_max": 18000
+    "salary_max": 18000,
+    "skills_ai": [
+      "aws",
+      "azure",
+      "cloud architecture",
+      "solution design"
+    ]
   },
   {
     "title": "Enterprise Architect",
@@ -309,7 +583,11 @@
     "description": "Define enterprise IT strategy, architecture frameworks (TOGAF), governance, technology roadmaps. Skills: TOGAF, enterprise architecture, governance, strategy, stakeholder management.",
     "salary_display": "RM 17000 - 24000",
     "salary_min": 17000,
-    "salary_max": 24000
+    "salary_max": 24000,
+    "skills_ai": [
+      "togaf",
+      "enterprise architecture"
+    ]
   },
   {
     "title": "Site Reliability Engineer (SRE)",
@@ -317,7 +595,16 @@
     "description": "Ensure reliability, scalability, and performance of systems. Implement SLIs/SLOs, incident management, chaos engineering. Skills: Kubernetes, Prometheus, Python, Go, Linux, monitoring.",
     "salary_display": "RM 10000 - 14500",
     "salary_min": 10000,
-    "salary_max": 14500
+    "salary_max": 14500,
+    "skills_ai": [
+      "kubernetes",
+      "prometheus",
+      "python",
+      "go",
+      "linux",
+      "monitoring",
+      "chaos engineering"
+    ]
   },
   {
     "title": "Blockchain Developer",
@@ -325,7 +612,14 @@
     "description": "Develop smart contracts using Solidity, build dApps on Ethereum, integrate with web3.js. Skills: Solidity, Ethereum, web3.js, JavaScript, cryptography.",
     "salary_display": "RM 8000 - 13000",
     "salary_min": 8000,
-    "salary_max": 13000
+    "salary_max": 13000,
+    "skills_ai": [
+      "solidity",
+      "ethereum",
+      "web3.js",
+      "javascript",
+      "cryptography"
+    ]
   },
   {
     "title": "Game Developer",
@@ -333,7 +627,15 @@
     "description": "Develop games using Unity (C#) or Unreal Engine (C++). Implement game mechanics, physics, AI. Skills: Unity, C#, Unreal Engine, C++, game physics, 3D math.",
     "salary_display": "RM 6000 - 10000",
     "salary_min": 6000,
-    "salary_max": 10000
+    "salary_max": 10000,
+    "skills_ai": [
+      "unity",
+      "c#",
+      "unreal engine",
+      "c++",
+      "game physics",
+      "3d math"
+    ]
   },
   {
     "title": "Senior Game Developer",
@@ -341,7 +643,13 @@
     "description": "Lead game architecture, optimize performance, mentor juniors, collaborate with designers. Skills: Unity, Unreal Engine, C++, optimization, team leadership.",
     "salary_display": "RM 11000 - 16000",
     "salary_min": 11000,
-    "salary_max": 16000
+    "salary_max": 16000,
+    "skills_ai": [
+      "unity",
+      "unreal engine",
+      "c++",
+      "optimization"
+    ]
   },
   {
     "title": "IT Risk Manager",
@@ -349,7 +657,11 @@
     "description": "Identify and manage IT risks, ensure compliance with regulations, conduct risk assessments. Skills: risk management, compliance, ISO 31000, audit, communication.",
     "salary_display": "RM 12000 - 17000",
     "salary_min": 12000,
-    "salary_max": 17000
+    "salary_max": 17000,
+    "skills_ai": [
+      "iso 31000",
+      "audit"
+    ]
   },
   {
     "title": "Scrum Master",
@@ -357,7 +669,11 @@
     "description": "Facilitate agile ceremonies, remove impediments, coach teams on Scrum practices. Skills: Scrum, agile coaching, JIRA, conflict resolution, communication.",
     "salary_display": "RM 8000 - 12000",
     "salary_min": 8000,
-    "salary_max": 12000
+    "salary_max": 12000,
+    "skills_ai": [
+      "scrum",
+      "jira"
+    ]
   },
   {
     "title": "Release Manager",
@@ -365,7 +681,12 @@
     "description": "Coordinate software releases, manage release calendars, automate deployment pipelines. Skills: CI/CD, Jenkins, Git, release coordination, change management.",
     "salary_display": "RM 9000 - 13000",
     "salary_min": 9000,
-    "salary_max": 13000
+    "salary_max": 13000,
+    "skills_ai": [
+      "ci/cd",
+      "jenkins",
+      "git"
+    ]
   },
   {
     "title": "Technical Writer",
@@ -373,7 +694,12 @@
     "description": "Write documentation for APIs, user guides, and developer portals. Use markdown, Sphinx, or similar. Skills: technical writing, markdown, API documentation, communication.",
     "salary_display": "RM 4500 - 6500",
     "salary_min": 4500,
-    "salary_max": 6500
+    "salary_max": 6500,
+    "skills_ai": [
+      "markdown",
+      "sphinx",
+      "api documentation"
+    ]
   },
   {
     "title": "UX/UI Designer",
@@ -381,7 +707,15 @@
     "description": "Design user interfaces, wireframes, prototypes using Figma, Sketch. Conduct user research. Skills: Figma, UI design, user research, prototyping, HTML/CSS basics.",
     "salary_display": "RM 5000 - 8000",
     "salary_min": 5000,
-    "salary_max": 8000
+    "salary_max": 8000,
+    "skills_ai": [
+      "figma",
+      "sketch",
+      "ui design",
+      "prototyping",
+      "html",
+      "css"
+    ]
   },
   {
     "title": "Senior UX Designer",
@@ -389,6 +723,11 @@
     "description": "Lead UX strategy, conduct usability testing, create design systems, mentor juniors. Skills: UX strategy, design systems, usability testing, Figma, user research.",
     "salary_display": "RM 9000 - 13000",
     "salary_min": 9000,
-    "salary_max": 13000
+    "salary_max": 13000,
+    "skills_ai": [
+      "design systems",
+      "usability testing",
+      "figma"
+    ]
   }
 ]
