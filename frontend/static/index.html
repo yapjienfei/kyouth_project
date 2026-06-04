@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Career Pathway Navigator</title>
+    <style>
+        body { font-family: Arial; max-width: 1000px; margin: 40px auto; padding: 20px; }
+        .section { margin: 30px 0; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
+        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin: 5px; }
+        .skill { display: inline-block; background: #e0e0e0; margin: 5px; padding: 5px 10px; border-radius: 15px; cursor: pointer; }
+        .skill.selected { background: #4caf50; color: white; }
+        .job-card { border: 1px solid #ddd; margin: 10px 0; padding: 10px; border-radius: 6px; }
+        .path-step { margin-left: 20px; border-left: 2px solid #ccc; padding-left: 15px; }
+        .skill-dropdown { max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin: 10px 0; border-radius: 4px; }
+        .skill-option { margin: 5px; }
+        input, select { margin: 5px; padding: 8px; }
+    </style>
+</head>
+<body>
+    <h1>🧭 Career Pathway Navigator (Malaysia IT Jobs)</h1>
+    
+    <div class="section">
+        <h2>1. Upload your resume (PDF)</h2>
+        <input type="file" id="resumeFile" accept=".pdf">
+        <button onclick="extractSkills()">Extract Skills</button>
+        <div id="skillsResult"></div>
+    </div>
+
+    <div class="section">
+        <h2>2. Edit Your Skills (Add/Remove)</h2>
+        <p>Click skills below to add/remove. Extracted skills are pre‑selected.</p>
+        <div id="skillSelector" class="skill-dropdown"></div>
+        <button onclick="updateSelectedSkills()">Refresh Suggestions & Paths</button>
+    </div>
+
+    <div class="section">
+        <h2>3. Salary Filter</h2>
+        <label>Minimum monthly salary (RM):</label>
+        <input type="number" id="salaryThreshold" value="0" step="500">
+        <button onclick="updateSalaryThreshold()">Apply</button>
+    </div>
+
+    <div class="section">
+        <h2>4. Suggested Next Roles (with salary filter)</h2>
+        <div id="suggestionsResult"></div>
+    </div>
+
+    <div class="section">
+        <h2>5. Plan a Multi‑Step Career Path to a Target Role</h2>
+        <select id="targetRole"></select>
+        <button onclick="findPaths()">Find Paths</button>
+        <div id="pathsResult"></div>
+    </div>
+
+    <script>
+        let extractedSkills = [];
+        let allSkillsList = [];
+        let salaryThreshold = 0;
+        let currentSelectedSkills = new Set();
+
+        async function extractSkills() {
+            const fileInput = document.getElementById('resumeFile');
+            if (!fileInput.files.length) {
+                alert('Please select a PDF file');
+                return;
+            }
+            const formData = new FormData();
+            formData.append('resume', fileInput.files[0]);
+            
+            const response = await fetch('/extract_skills', { method: 'POST', body: formData });
+            const data = await response.json();
+            if (data.error) {
+                alert(data.error);
+                return;
+            }
+            extractedSkills = data.skills;
+            currentSelectedSkills = new Set(extractedSkills);
+            document.getElementById('skillsResult').innerHTML = `
+                <h3>Extracted Skills:</h3>
+                ${extractedSkills.map(s => `<span class="skill">${s}</span>`).join('')}
+            `;
+            await loadAllSkills();
+            renderSkillSelector();
+            loadJobTitles();
+            getSuggestions();
+        }
+
+        async function loadAllSkills() {
+            const response = await fetch('/all_skills');
+            allSkillsList = await response.json();
+        }
+
+        function renderSkillSelector() {
+            const container = document.getElementById('skillSelector');
+            container.innerHTML = '';
+            allSkillsList.forEach(skill => {
+                const isSelected = currentSelectedSkills.has(skill);
+                const span = document.createElement('span');
+                span.textContent = skill;
+                span.className = `skill ${isSelected ? 'selected' : ''}`;
+                span.onclick = () => toggleSkill(skill);
+                container.appendChild(span);
+            });
+        }
+
+        function toggleSkill(skill) {
+            if (currentSelectedSkills.has(skill)) {
+                currentSelectedSkills.delete(skill);
+            } else {
+                currentSelectedSkills.add(skill);
+            }
+            renderSkillSelector();
+            updateSelectedSkills();
+        }
+
+        function updateSelectedSkills() {
+            getSuggestions();
+            // Also automatically refresh paths if target selected? We'll call getSuggestions only.
+        }
+
+        async function updateSalaryThreshold() {
+            salaryThreshold = parseInt(document.getElementById('salaryThreshold').value) || 0;
+            getSuggestions();
+        }
+
+        async function getSuggestions() {
+            const response = await fetch('/suggest', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    skills: Array.from(currentSelectedSkills),
+                    salary_threshold: salaryThreshold
+                })
+            });
+            const allRoles = await response.json();
+            if (!allRoles.length) {
+                document.getElementById('suggestionsResult').innerHTML = '<p>No jobs above salary threshold with your skills.</p>';
+                return;
+            }
+            let html = '<h3>All IT Roles (sorted by match, filtered by salary)</h3>';
+            allRoles.forEach(job => {
+                const reachableBadge = job.reachable ? '✅ Reachable' : '⚠️ Not reachable yet';
+                html += `<div class="job-card">
+                    <strong>${job.title}</strong> at ${job.company}<br>
+                    Salary: RM ${job.salary_min} - ${job.salary_max}<br>
+                    Match: ${(job.match_ratio * 100).toFixed(0)}% (${job.reachable ? 'good fit' : 'needs work'})<br>
+                    Missing skills: ${job.missing_skills.length ? job.missing_skills.join(', ') : 'None! You are ready.'}<br>
+                    <span style="font-size:0.9em; color:${job.reachable ? 'green' : 'orange'}">${reachableBadge}</span>
+                </div>`;
+            });
+            document.getElementById('suggestionsResult').innerHTML = html;
+        }
+
+        async function loadJobTitles() {
+            const response = await fetch('/job_titles');
+            const titles = await response.json();
+            const select = document.getElementById('targetRole');
+            select.innerHTML = titles.map(t => `<option value="${t}">${t}</option>`).join('');
+        }
+        async function findPaths() {
+            const target = document.getElementById('targetRole').value;
+            if (!target) {
+                alert('Select a target role');
+                return;
+            }
+            const response = await fetch('/find_paths', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({ 
+                    skills: Array.from(currentSelectedSkills),
+                    target_title: target,
+                    salary_threshold: salaryThreshold
+                })
+            });
+            const data = await response.json();
+            if (data.error) {
+                document.getElementById('pathsResult').innerHTML = `<p>❌ ${data.error}</p>`;
+                return;
+            }
+            const paths = data.paths;
+            if (!paths.length) {
+                document.getElementById('pathsResult').innerHTML = '<p>No paths found. Try lowering salary threshold or adding more skills.</p>';
+                return;
+            }
+            let html = '<h3>Career Paths (fastest first)</h3>';
+            paths.forEach((path, idx) => {
+                html += `<div class="job-card">
+                    <strong>Path ${idx+1}</strong> – Total upskilling: ${path.total_weeks} weeks, Final salary: RM ${path.final_salary}<br>
+                    <div class="path-step">`;
+                // Display each step, skip steps with no missing skills (weeks=0) except the final target
+                path.steps.forEach((step, stepIdx) => {
+                    if (step.missing && step.missing.length > 0) {
+                        html += `<div><strong>${step.title}</strong><br>↳ Learn: ${step.missing.join(', ')} (${step.weeks} weeks)</div>`;
+                    } else if (step.title === target) {
+                        html += `<div><strong>${step.title}</strong> – Ready! (no new skills needed)</div>`;
+                    } else if (step.title !== "Current (your skills)" && step.missing && step.missing.length === 0) {
+                        // This is an intermediate step that required no learning – skip showing?
+                        // We'll skip to reduce clutter.
+                    } else if (step.title === "Current (your skills)") {
+                        if (step.missing && step.missing.length > 0) {
+                            html += `<div><strong>${step.title}</strong><br>↳ Learn: ${step.missing.join(', ')} (${step.weeks} weeks)</div>`;
+                        } else {
+                            html += `<div><strong>${step.title}</strong> – No skills missing.</div>`;
+                        }
+                    }
+                });
+                html += `</div></div>`;
+            });
+            document.getElementById('pathsResult').innerHTML = html;
+        }
+
+    </script>
+</body>
+</html>
