@@ -22,6 +22,83 @@
         .importance-high { color: #d9534f; font-weight: bold; }
         .importance-mid { color: #f0ad4e; }
         .importance-low { color: #5cb85c; }
+        .active {
+            background: #0056b3;
+            transform: scale(0.98);
+        }
+        .skill-demand-grid {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            margin-top: 15px;
+        }
+        .demand-card {
+            background: #ffffff;
+            border-radius: 12px;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
+            overflow: hidden;
+            transition: all 0.2s;
+        }
+        .demand-card:hover {
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+        .demand-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            padding: 12px 16px 4px 16px;
+            flex-wrap: wrap;
+        }
+        .demand-skill {
+            font-weight: 700;
+            font-size: 1.1rem;
+            color: #1e3c72;
+        }
+        .demand-count {
+            background: #e9ecef;
+            padding: 4px 10px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: #2c3e66;
+        }
+        .demand-bar-container {
+            background: #e9ecef;
+            height: 8px;
+            margin: 8px 16px;
+            border-radius: 4px;
+            overflow: hidden;
+        }
+        .demand-bar {
+            background: linear-gradient(90deg, #007bff, #00b4d8);
+            height: 100%;
+            width: 0%;
+            border-radius: 4px;
+            transition: width 0.3s ease;
+        }
+        .demand-footer {
+            padding: 8px 16px 12px 16px;
+            display: flex;
+            gap: 16px;
+            font-size: 0.8rem;
+            color: #6c757d;
+            border-top: 1px solid #f0f0f0;
+            margin-top: 4px;
+        }
+        .ai-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+        }
+        .ai-score {
+            font-weight: 600;
+            padding: 2px 8px;
+            border-radius: 20px;
+            background: #f8f9fa;
+        }
+        .score-high { color: #2b8c4e; }
+        .score-mid { color: #e67e22; }
+        .score-low { color: #c0392b; }
     </style>
 </head>
 <body>
@@ -46,7 +123,7 @@
             <span>Min monthly salary (RM):</span>
             <input type="range" id="salaryThreshold" min="0" max="20000" step="500" value="0">
             <span id="salaryValue">0</span>
-            <label style="margin-left: 20px;">
+            <label style="margin-left: 10px;">
                 <input type="checkbox" id="includeUndisclosed"> Include undisclosed salaries
             </label>
         </div>
@@ -63,6 +140,18 @@
         <select id="targetRole"></select>
         <button onclick="findPaths()">Find Paths</button>
         <div id="pathsResult"></div>
+    </div>
+
+    <div class="section">
+        <h2>6. 📊 Skill Demand (High‑Paying Jobs)</h2>
+        <p>Skills that appear most often in jobs <strong>with salary ≥</strong></p>
+        <div class="salary-slider" style="margin: 10px 0;">
+            <span>RM</span>
+            <input type="range" id="demandThreshold" min="0" max="20000" step="1000" value="7000">
+            <span id="thresholdValue" style="font-weight: bold;">7000</span>
+            <span>per month</span>
+        </div>
+        <div id="demandResult" class="skill-demand-grid"></div>
     </div>
 
     <script>
@@ -110,6 +199,57 @@
         async function loadAllSkills() {
             const response = await fetch('/all_skills');
             allSkillsList = await response.json();
+        }
+
+        let currentDemandThreshold = 7000;
+
+        document.getElementById('demandThreshold').addEventListener('input', (e) => {
+            currentDemandThreshold = parseInt(e.target.value);
+            document.getElementById('thresholdValue').innerText = currentDemandThreshold;
+            loadSkillDemand();
+        });
+
+        async function loadSkillDemand() {
+            const url = `/skill_demand?threshold=${currentDemandThreshold}&limit=30`;
+            const response = await fetch(url);
+            const data = await response.json();
+            if (data.error) {
+                document.getElementById('demandResult').innerHTML = `<p>❌ ${data.error}</p>`;
+                return;
+            }
+            renderDemand(data.skills);
+        }
+
+        function renderDemand(skills) {
+            if (!skills.length) {
+                document.getElementById('demandResult').innerHTML = '<p>No skills found at this salary threshold.</p>';
+                return;
+            }
+            const maxDemand = Math.max(...skills.map(s => s.demand_count));
+            let html = '';
+            skills.forEach(skill => {
+                const barWidth = (skill.demand_count / maxDemand) * 100;
+                let scoreClass = '';
+                if (skill.ai_replaceability_score >= 7) scoreClass = 'score-high';
+                else if (skill.ai_replaceability_score <= 3) scoreClass = 'score-low';
+                else scoreClass = 'score-mid';
+                html += `
+                    <div class="demand-card">
+                        <div class="demand-header">
+                            <span class="demand-skill">${skill.skill}</span>
+                            <span class="demand-count">${skill.demand_count} job${skill.demand_count !== 1 ? 's' : ''}</span>
+                        </div>
+                        <div class="demand-bar-container">
+                            <div class="demand-bar" style="width: ${barWidth}%;"></div>
+                        </div>
+                        <div class="demand-footer">
+                            <span class="ai-badge">🤖 AI‑Proof: <span class="ai-score ${scoreClass}">${skill.ai_replaceability_score}/10</span></span>
+                            <span>📂 ${skill.skill_category}</span>
+                        </div>
+                    </div>
+                `;
+            });
+            document.getElementById('demandResult').innerHTML = html;
         }
 
         function renderSkillSelector() {
@@ -338,6 +478,7 @@
         loadAllSkills().then(() => {
             renderSkillSelector();
             loadJobTitles();
+            loadSkillDemand();
         });
     </script>
 </body>

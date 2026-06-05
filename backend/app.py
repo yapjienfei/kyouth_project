@@ -380,5 +380,45 @@ def find_paths():
         return jsonify({'error': error}), 404
     return jsonify({'paths': paths})
 
+# Load skill intelligence data
+INTELLIGENCE_PATH = Path(__file__).parent.parent / "data" / "skill_intelligence.json"
+if INTELLIGENCE_PATH.exists():
+    with open(INTELLIGENCE_PATH) as f:
+        skill_intelligence = json.load(f)
+else:
+    skill_intelligence = {}
+    print("Warning: skill_intelligence.json not found, intelligence features disabled.")
+
+@app.route('/skill_demand', methods=['GET'])
+def skill_demand():
+    """Return top skills by demand in jobs with salary >= threshold."""
+    sort_by = request.args.get('sort', 'demand')   # only 'demand' now
+    limit = int(request.args.get('limit', 30))
+    threshold = int(request.args.get('threshold', 7000))
+
+    demand = defaultdict(int)
+    for node in job_nodes:
+        if node.salary_min >= threshold:
+            for skill in node.skills:
+                demand[skill] += 1
+
+    result = []
+    for skill, count in demand.items():
+        intel = skill_intelligence.get(skill, {})
+        result.append({
+            'skill': skill,
+            'demand_count': count,
+            'ai_replaceability_score': intel.get('ai_replaceability_score', 5),
+            'skill_category': intel.get('skill_category', 'Other')
+        })
+
+    result.sort(key=lambda x: -x['demand_count'])
+    return jsonify({
+        'skills': result[:limit],
+        'total': len(result),
+        'sort_by': sort_by,
+        'threshold': threshold
+    })
+
 if __name__ == '__main__':
     app.run(host='0.0.0.0', port=8001, debug=True)

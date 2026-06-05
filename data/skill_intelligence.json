@@ -1,0 +1,717 @@
+{
+  "3d math": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 6,
+    "skill_category": "Software Development"
+  },
+  "active directory": {
+    "salary_premium": 800,
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "agile": {
+    "salary_premium": 1000,
+    "ai_replaceability_score": 9,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "ansible": {
+    "salary_premium": 2200,
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "api documentation": {
+    "salary_premium": 600,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "argocd": {
+    "salary_premium": 2800,
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "audit": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 8,
+    "skill_category": "Cybersecurity"
+  },
+  "automation frameworks": {
+    "salary_premium": 1800,
+    "ai_replaceability_score": 5,
+    "skill_category": "Software Development"
+  },
+  "aws": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 6,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "aws glue": {
+    "salary_premium": 2200,
+    "ai_replaceability_score": 5,
+    "skill_category": "Data & AI"
+  },
+  "aws sagemaker": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 6,
+    "skill_category": "Data & AI"
+  },
+  "azure": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 6,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "backup": {
+    "salary_premium": 700,
+    "ai_replaceability_score": 2,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "bash": {
+    "salary_premium": 1000,
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "bigquery": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 5,
+    "skill_category": "Data & AI"
+  },
+  "c#": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 6,
+    "skill_category": "Software Development"
+  },
+  "c++": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 7,
+    "skill_category": "Software Development"
+  },
+  "chaos engineering": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 9,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "ci/cd": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "cisco": {
+    "salary_premium": 1800,
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "cloud": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "cloud architecture": {
+    "salary_premium": 3500,
+    "ai_replaceability_score": 10,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "cloud databases": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 5,
+    "skill_category": "Data & AI"
+  },
+  "cloud security": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 9,
+    "skill_category": "Cybersecurity"
+  },
+  "cloudformation": {
+    "salary_premium": 2200,
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "cryptography": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 9,
+    "skill_category": "Cybersecurity"
+  },
+  "css": {
+    "salary_premium": 500,
+    "ai_replaceability_score": 2,
+    "skill_category": "Software Development"
+  },
+  "cypress": {
+    "salary_premium": 1000,
+    "ai_replaceability_score": 3,
+    "skill_category": "Software Development"
+  },
+  "dart": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "data analysis": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Data & AI"
+  },
+  "data modeling": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 7,
+    "skill_category": "Data & AI"
+  },
+  "data visualization": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Data & AI"
+  },
+  "data warehousing": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 6,
+    "skill_category": "Data & AI"
+  },
+  "database tuning": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 6,
+    "skill_category": "Data & AI"
+  },
+  "design systems": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "django": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "docker": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "enterprise architecture": {
+    "salary_premium": 3500,
+    "ai_replaceability_score": 10,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "ethereum": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 7,
+    "skill_category": "Software Development"
+  },
+  "etl": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 5,
+    "skill_category": "Data & AI"
+  },
+  "express": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "feature engineering": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 7,
+    "skill_category": "Data & AI"
+  },
+  "figma": {
+    "salary_premium": 1000,
+    "ai_replaceability_score": 3,
+    "skill_category": "Other"
+  },
+  "firebase": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "firewalls": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 7,
+    "skill_category": "Cybersecurity"
+  },
+  "flutter": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "game physics": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 6,
+    "skill_category": "Other"
+  },
+  "gcp": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 6,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "git": {
+    "salary_premium": 500,
+    "ai_replaceability_score": 2,
+    "skill_category": "Software Development"
+  },
+  "go": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Software Development"
+  },
+  "grafana": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 6,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "high availability": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 8,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "html": {
+    "salary_premium": 500,
+    "ai_replaceability_score": 2,
+    "skill_category": "Software Development"
+  },
+  "ids/ips": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Cybersecurity"
+  },
+  "incident response": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 9,
+    "skill_category": "Cybersecurity"
+  },
+  "iso 27001": {
+    "salary_premium": 2800,
+    "ai_replaceability_score": 10,
+    "skill_category": "Cybersecurity"
+  },
+  "iso 31000": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 10,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "java": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "javascript": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 3,
+    "skill_category": "Software Development"
+  },
+  "jenkins": {
+    "salary_premium": 2200,
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "jetpack compose": {
+    "salary_premium": 1800,
+    "ai_replaceability_score": 5,
+    "skill_category": "Software Development"
+  },
+  "jira": {
+    "salary_premium": 800,
+    "ai_replaceability_score": 2,
+    "skill_category": "Other"
+  },
+  "jmeter": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "kafka": {
+    "salary_premium": 2800,
+    "ai_replaceability_score": 6,
+    "skill_category": "Data & AI"
+  },
+  "kali linux": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 5,
+    "skill_category": "Cybersecurity"
+  },
+  "kotlin": {
+    "salary_premium": 1800,
+    "ai_replaceability_score": 5,
+    "skill_category": "Software Development"
+  },
+  "kubeflow": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 7,
+    "skill_category": "Data & AI"
+  },
+  "kubernetes": {
+    "salary_premium": 3500,
+    "ai_replaceability_score": 7,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "linux": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "machine learning": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 7,
+    "skill_category": "Data & AI"
+  },
+  "manual testing": {
+    "salary_premium": 500,
+    "ai_replaceability_score": 1,
+    "skill_category": "Software Development"
+  },
+  "markdown": {
+    "salary_premium": 500,
+    "ai_replaceability_score": 1,
+    "skill_category": "Other"
+  },
+  "market research": {
+    "salary_premium": 1000,
+    "ai_replaceability_score": 7,
+    "skill_category": "Other"
+  },
+  "micro-frontends": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 6,
+    "skill_category": "Software Development"
+  },
+  "microservices": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 7,
+    "skill_category": "Software Development"
+  },
+  "mlflow": {
+    "salary_premium": 2200,
+    "ai_replaceability_score": 6,
+    "skill_category": "Data & AI"
+  },
+  "model evaluation": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 7,
+    "skill_category": "Data & AI"
+  },
+  "mongodb": {
+    "salary_premium": 1000,
+    "ai_replaceability_score": 3,
+    "skill_category": "Software Development"
+  },
+  "monitoring": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "mysql": {
+    "salary_premium": 800,
+    "ai_replaceability_score": 2,
+    "skill_category": "Software Development"
+  },
+  "network security": {
+    "salary_premium": 2800,
+    "ai_replaceability_score": 8,
+    "skill_category": "Cybersecurity"
+  },
+  "networking": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "node.js": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "numpy": {
+    "salary_premium": 1000,
+    "ai_replaceability_score": 3,
+    "skill_category": "Data & AI"
+  },
+  "optimization": {
+    "salary_premium": 1800,
+    "ai_replaceability_score": 6,
+    "skill_category": "Data & AI"
+  },
+  "owasp": {
+    "salary_premium": 2200,
+    "ai_replaceability_score": 7,
+    "skill_category": "Cybersecurity"
+  },
+  "pandas": {
+    "salary_premium": 1000,
+    "ai_replaceability_score": 3,
+    "skill_category": "Data & AI"
+  },
+  "penetration testing": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 9,
+    "skill_category": "Cybersecurity"
+  },
+  "postgresql": {
+    "salary_premium": 1000,
+    "ai_replaceability_score": 2,
+    "skill_category": "Software Development"
+  },
+  "power bi": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Data & AI"
+  },
+  "product management": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 9,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "prometheus": {
+    "salary_premium": 2200,
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "prototyping": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 5,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "pytest": {
+    "salary_premium": 1000,
+    "ai_replaceability_score": 3,
+    "skill_category": "Software Development"
+  },
+  "python": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 3,
+    "skill_category": "Software Development"
+  },
+  "pytorch": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 6,
+    "skill_category": "Data & AI"
+  },
+  "react": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "react native": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "red teaming": {
+    "salary_premium": 3500,
+    "ai_replaceability_score": 10,
+    "skill_category": "Cybersecurity"
+  },
+  "redis": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "redshift": {
+    "salary_premium": 2200,
+    "ai_replaceability_score": 6,
+    "skill_category": "Data & AI"
+  },
+  "redux": {
+    "salary_premium": 800,
+    "ai_replaceability_score": 3,
+    "skill_category": "Software Development"
+  },
+  "replication": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "rest api design": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "rest apis": {
+    "salary_premium": 800,
+    "ai_replaceability_score": 3,
+    "skill_category": "Software Development"
+  },
+  "room database": {
+    "salary_premium": 600,
+    "ai_replaceability_score": 3,
+    "skill_category": "Software Development"
+  },
+  "routing": {
+    "salary_premium": 1800,
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "scikit-learn": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 5,
+    "skill_category": "Data & AI"
+  },
+  "scrum": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 8,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "sd-wan": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 6,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "security": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 8,
+    "skill_category": "Cybersecurity"
+  },
+  "security architecture": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 10,
+    "skill_category": "Cybersecurity"
+  },
+  "selenium": {
+    "salary_premium": 1000,
+    "ai_replaceability_score": 2,
+    "skill_category": "Software Development"
+  },
+  "siem": {
+    "salary_premium": 2800,
+    "ai_replaceability_score": 7,
+    "skill_category": "Cybersecurity"
+  },
+  "sketch": {
+    "salary_premium": 800,
+    "ai_replaceability_score": 4,
+    "skill_category": "Other"
+  },
+  "solidity": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 6,
+    "skill_category": "Software Development"
+  },
+  "solution architecture": {
+    "salary_premium": 3500,
+    "ai_replaceability_score": 10,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "solution design": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 9,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "spark": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Data & AI"
+  },
+  "sphinx": {
+    "salary_premium": 500,
+    "ai_replaceability_score": 2,
+    "skill_category": "Other"
+  },
+  "sql": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 3,
+    "skill_category": "Data & AI"
+  },
+  "statistics": {
+    "salary_premium": 1800,
+    "ai_replaceability_score": 7,
+    "skill_category": "Data & AI"
+  },
+  "swift": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "swiftui": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "switching": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "system architecture": {
+    "salary_premium": 3500,
+    "ai_replaceability_score": 10,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "system design": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 9,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "tableau": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Data & AI"
+  },
+  "tensorflow": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Data & AI"
+  },
+  "terraform": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 6,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "togaf": {
+    "salary_premium": 3500,
+    "ai_replaceability_score": 9,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "typescript": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 3,
+    "skill_category": "Software Development"
+  },
+  "ui design": {
+    "salary_premium": 1000,
+    "ai_replaceability_score": 3,
+    "skill_category": "Other"
+  },
+  "unity": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Software Development"
+  },
+  "unreal engine": {
+    "salary_premium": 2000,
+    "ai_replaceability_score": 5,
+    "skill_category": "Software Development"
+  },
+  "usability testing": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 7,
+    "skill_category": "Other"
+  },
+  "user stories": {
+    "salary_premium": 800,
+    "ai_replaceability_score": 6,
+    "skill_category": "Soft Skills & Architecture"
+  },
+  "vpn": {
+    "salary_premium": 500,
+    "ai_replaceability_score": 2,
+    "skill_category": "Cybersecurity"
+  },
+  "vue": {
+    "salary_premium": 1200,
+    "ai_replaceability_score": 3,
+    "skill_category": "Software Development"
+  },
+  "vulnerability assessment": {
+    "salary_premium": 3000,
+    "ai_replaceability_score": 8,
+    "skill_category": "Cybersecurity"
+  },
+  "web3.js": {
+    "salary_premium": 2500,
+    "ai_replaceability_score": 5,
+    "skill_category": "Software Development"
+  },
+  "windows": {
+    "salary_premium": 500,
+    "ai_replaceability_score": 2,
+    "skill_category": "Cloud & Infrastructure"
+  },
+  "windows server": {
+    "salary_premium": 1500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & Infrastructure"
+  }
+}
