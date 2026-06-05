@@ -109,8 +109,8 @@ def main():
         
         # Wait between batches to respect rate limit (e.g., 10 seconds)
         if i + BATCH_SIZE < total:
-            print(f"  Waiting 10s before next batch...")
-            time.sleep(10)
+            print(f"  Waiting 2s before next batch...")
+            time.sleep(2)
     
     print(f"\n✅ Done! Updated {data_path} with 'skills_ai' fields for all jobs.")
 

@@ -32,6 +32,7 @@ class JobNode:
         self.salary_max = job_dict.get("salary_max", 0)
         self.salary_median = (self.salary_min + self.salary_max) / 2
         # Use pre‑computed skills_ai; fallback to empty list if missing
+        self.salary_display = job_dict.get("salary_display", "Undisclosed")
         self.skills = set(job_dict.get("skills_ai", []))
         self.raw = job_dict
 
@@ -57,7 +58,7 @@ for a in job_nodes:
             continue
         missing_skills = b.skills - a.skills
         transition_cost = len(missing_skills) / len(b.skills)
-        if transition_cost < 0.6:
+        if transition_cost < 0.8:   # changed from 0.6 to 0.8
             edges[a.title].append((b.title, transition_cost, missing_skills))
 
 ALL_SKILLS = sorted(set(skill for node in job_nodes for skill in node.skills))
@@ -87,8 +88,8 @@ def find_paths_to_target(user_skills, target_title, salary_threshold=0, include_
 
     direct_path = {
         "steps": [
-            {"title": "Current (your skills)", "missing": list(missing_to_target), "weeks": len(missing_to_target)*2},
-            {"title": target_title, "missing": [], "weeks": 0}
+            {"title": "Current (your skills)", "missing": list(missing_to_target), "weeks": len(missing_to_target)*2, "salary": None},
+            {"title": target_title, "missing": [], "weeks": 0, "salary": target_node.salary_display, "salary_min": target_node.salary_min, "salary_max": target_node.salary_max}
         ],
         "total_missing_skills": len(missing_to_target),
         "total_weeks": len(missing_to_target)*2,
@@ -96,10 +97,8 @@ def find_paths_to_target(user_skills, target_title, salary_threshold=0, include_
         "type": "direct"
     }
 
-    if direct_match_ratio >= 0.6:
-        return [direct_path], None
-
-    # Find starting jobs that are reachable with at least 40% match
+    # Always try to find multi-step paths – do NOT return early even if direct match is high
+    # Find starting jobs that are reachable with at least 30% match (lowered threshold for more paths)
     reachable_starts = []
     for node in job_nodes:
         if node.salary_min == 0:
@@ -109,19 +108,21 @@ def find_paths_to_target(user_skills, target_title, salary_threshold=0, include_
             if node.salary_min < salary_threshold:
                 continue
         ratio = match_ratio(user_skills_set, node.skills)
-        if ratio >= 0.4:
-            # Compute missing from current to this job
+        if ratio >= 0.3:   # lowered from 0.4 to allow more starting points
             missing = node.skills - user_skills_set
             reachable_starts.append((node.title, missing))
-
-    if not reachable_starts:
-        return [direct_path], None
 
     from collections import deque
     queue = deque()
     for start_title, missing in reachable_starts:
-        # Create first step: from current to start job
-        step = {"title": start_title, "missing": list(missing), "weeks": len(missing)*2}
+        step = {
+            "title": start_title,
+            "missing": list(missing),
+            "weeks": len(missing)*2,
+            "salary": job_index[start_title].salary_display,
+            "salary_min": job_index[start_title].salary_min,
+            "salary_max": job_index[start_title].salary_max
+        }
         cumulative_skills = user_skills_set.union(missing)
         total_weeks = len(missing)*2
         queue.append((start_title, [step], cumulative_skills, total_weeks))
@@ -135,9 +136,6 @@ def find_paths_to_target(user_skills, target_title, salary_threshold=0, include_
             continue
 
         if current_title == target_title:
-            # Reached target; steps already include the target as the last step? Actually we add target when we transition,
-            # so the last step in steps is the target job. Good.
-            # Create signature: titles of jobs in steps (excluding any "Current" which we don't have)
             sig = tuple(step["title"] for step in steps)
             if sig not in seen_signatures:
                 seen_signatures.add(sig)
@@ -150,8 +148,7 @@ def find_paths_to_target(user_skills, target_title, salary_threshold=0, include_
                 })
             continue
 
-        # Expand to neighbors
-        for neighbor_title, cost, _ in edges.get(current_title, []):  # we ignore precomputed missing; recompute
+        for neighbor_title, cost, _ in edges.get(current_title, []):
             neighbor_node = job_index[neighbor_title]
             if neighbor_node.salary_min == 0:
                 if not include_undisclosed:
@@ -159,30 +156,39 @@ def find_paths_to_target(user_skills, target_title, salary_threshold=0, include_
             else:
                 if neighbor_node.salary_min < salary_threshold:
                     continue
-            # Avoid cycles
             if any(step["title"] == neighbor_title for step in steps):
                 continue
-            # Compute missing skills from current cumulative skills to neighbor
             missing = neighbor_node.skills - cumulative_skills
-            # Only allow transition if missing is not too large? We can use a threshold, e.g., missing <= 70% of neighbor skills
-            if missing and len(missing) / len(neighbor_node.skills) > 0.7:
-                continue  # too big gap, skip
+            # Allow larger gaps (up to 90% of neighbor skills) to encourage multi-step
+            if missing and len(missing) / len(neighbor_node.skills) > 0.9:
+                continue
             new_skills = cumulative_skills.union(missing)
             new_weeks = total_weeks + len(missing)*2
-            new_step = {"title": neighbor_title, "missing": list(missing), "weeks": len(missing)*2}
+            new_step = {
+                "title": neighbor_title,
+                "missing": list(missing),
+                "weeks": len(missing)*2,
+                "salary": neighbor_node.salary_display,
+                "salary_min": neighbor_node.salary_min,
+                "salary_max": neighbor_node.salary_max
+            }
             new_steps = steps + [new_step]
             queue.append((neighbor_title, new_steps, new_skills, new_weeks))
 
-    # Separate multi-step and direct
+    # Combine multi-step and direct paths
     multi_paths = found_paths
     multi_paths.sort(key=lambda x: x["total_weeks"])
 
     result_paths = []
     result_paths.extend(multi_paths[:3])
-    # Add direct path if not already present as a single-step path
-    direct_sig = (target_title,)  # direct path has only one job step after current
+    # Include direct path only if it's not already present (e.g., as a single-step path)
+    direct_sig = (target_title,)
     if not any(tuple(step["title"] for step in p["steps"]) == direct_sig for p in result_paths):
         result_paths.append(direct_path)
+
+    # If no multi-step paths were found, still return at least the direct path
+    if not result_paths:
+        result_paths = [direct_path]
 
     return result_paths[:3], None
 

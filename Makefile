@@ -13,8 +13,10 @@ logs:
 	docker compose logs -f
 
 clean:
-	docker compose down -v
-	docker system prune -f
+	-docker compose down -v 2>/dev/null
+	-docker container stop $$(docker container ls -aq) 2>/dev/null
+	-docker container rm $$(docker container ls -aq) 2>/dev/null
+	docker system prune -a --volumes -f
 
 shell-backend:
 	docker compose exec backend /bin/bash
@@ -22,4 +24,4 @@ shell-backend:
 shell-frontend:
 	docker compose exec frontend /bin/sh
 
-restart: down build up
+restart: clean build up

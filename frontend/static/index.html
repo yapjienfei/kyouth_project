@@ -14,6 +14,9 @@
         .skill-dropdown { max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin: 10px 0; border-radius: 4px; }
         .skill-option { margin: 5px; }
         input, select { margin: 5px; padding: 8px; }
+        .pagination { margin-top: 15px; display: flex; gap: 10px; align-items: center; }
+        .salary-slider { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
+        .salary-slider input { flex: 1; min-width: 200px; }
     </style>
 </head>
 <body>
@@ -30,23 +33,25 @@
         <h2>2. Edit Your Skills (Add/Remove)</h2>
         <p>Click skills below to add/remove. Extracted skills are pre‑selected.</p>
         <div id="skillSelector" class="skill-dropdown"></div>
-        <button onclick="updateSelectedSkills()">Refresh Suggestions & Paths</button>
+        <!-- No refresh button – auto updates -->
     </div>
 
     <div class="section">
         <h2>3. Salary Filter</h2>
-        <label>Minimum monthly salary (RM):</label>
-        <input type="number" id="salaryThreshold" value="0" step="500">
-        <button onclick="updateSalaryThreshold()">Apply</button>
-        <br><br>
-        <label>
-            <input type="checkbox" id="includeUndisclosed"> Include jobs with undisclosed salary
-        </label>
+        <div class="salary-slider">
+            <span>Min monthly salary (RM):</span>
+            <input type="range" id="salaryThreshold" min="0" max="20000" step="500" value="0">
+            <span id="salaryValue">0</span>
+            <label style="margin-left: 20px;">
+                <input type="checkbox" id="includeUndisclosed"> Include undisclosed salaries
+            </label>
+        </div>
     </div>
 
     <div class="section">
         <h2>4. Suggested Next Roles (with salary filter)</h2>
         <div id="suggestionsResult"></div>
+        <div id="suggestionsPagination" class="pagination"></div>
     </div>
 
     <div class="section">
@@ -61,6 +66,17 @@
         let allSkillsList = [];
         let salaryThreshold = 0;
         let currentSelectedSkills = new Set();
+        let allSuggestions = [];          // store all suggested jobs
+        let suggestionsPage = 1;
+        const PAGE_SIZE = 20;
+
+        // ---- UI helpers ----
+        function updateSalaryDisplay() {
+            const slider = document.getElementById('salaryThreshold');
+            salaryThreshold = parseInt(slider.value) || 0;
+            document.getElementById('salaryValue').innerText = salaryThreshold;
+            if (allSkillsList.length) getSuggestions();   // auto refresh suggestions
+        }
 
         async function extractSkills() {
             const fileInput = document.getElementById('resumeFile');
@@ -86,7 +102,7 @@
             await loadAllSkills();
             renderSkillSelector();
             loadJobTitles();
-            getSuggestions();
+            getSuggestions();      // auto update
         }
 
         async function loadAllSkills() {
@@ -114,17 +130,12 @@
                 currentSelectedSkills.add(skill);
             }
             renderSkillSelector();
-            updateSelectedSkills();
-        }
-
-        function updateSelectedSkills() {
+            // Auto refresh suggestions and paths (if target selected)
             getSuggestions();
-            // Also automatically refresh paths if target selected? We'll call getSuggestions only.
-        }
-
-        async function updateSalaryThreshold() {
-            salaryThreshold = parseInt(document.getElementById('salaryThreshold').value) || 0;
-            getSuggestions();
+            const targetSelect = document.getElementById('targetRole');
+            if (targetSelect.value) {
+                findPaths();  // refresh paths when skills change
+            }
         }
 
         async function getSuggestions() {
@@ -138,13 +149,24 @@
                     include_undisclosed: includeUndisclosed
                 })
             });
-            const allRoles = await response.json();
-            if (!allRoles.length) {
+            allSuggestions = await response.json();
+            suggestionsPage = 1;
+            renderSuggestionsPage();
+        }
+
+        function renderSuggestionsPage() {
+            const start = (suggestionsPage - 1) * PAGE_SIZE;
+            const pageSuggestions = allSuggestions.slice(start, start + PAGE_SIZE);
+            const totalPages = Math.ceil(allSuggestions.length / PAGE_SIZE);
+            
+            if (!allSuggestions.length) {
                 document.getElementById('suggestionsResult').innerHTML = '<p>No jobs above salary threshold with your skills.</p>';
+                document.getElementById('suggestionsPagination').innerHTML = '';
                 return;
             }
+            
             let html = '<h3>All IT Roles (sorted by match, filtered by salary)</h3>';
-            allRoles.forEach(job => {
+            pageSuggestions.forEach(job => {
                 const reachableBadge = job.reachable ? '✅ Reachable' : '⚠️ Not reachable yet';
                 html += `<div class="job-card">
                     <strong>${job.title}</strong> at ${job.company}<br>
@@ -155,6 +177,21 @@
                 </div>`;
             });
             document.getElementById('suggestionsResult').innerHTML = html;
+            
+            // Pagination controls
+            let paginationHtml = `<span>Page ${suggestionsPage} of ${totalPages}</span>`;
+            if (suggestionsPage > 1) {
+                paginationHtml += `<button onclick="changePage(-1)">◀ Previous</button>`;
+            }
+            if (suggestionsPage < totalPages) {
+                paginationHtml += `<button onclick="changePage(1)">Next ▶</button>`;
+            }
+            document.getElementById('suggestionsPagination').innerHTML = paginationHtml;
+        }
+
+        function changePage(delta) {
+            suggestionsPage += delta;
+            renderSuggestionsPage();
         }
 
         async function loadJobTitles() {
@@ -163,6 +200,7 @@
             const select = document.getElementById('targetRole');
             select.innerHTML = titles.map(t => `<option value="${t}">${t}</option>`).join('');
         }
+        
         async function findPaths() {
             const target = document.getElementById('targetRole').value;
             if (!target) {
@@ -195,20 +233,27 @@
                 html += `<div class="job-card">
                     <strong>Path ${idx+1}</strong> – Total upskilling: ${path.total_weeks} weeks, Final salary: RM ${path.final_salary}<br>
                     <div class="path-step">`;
-                // Display each step, skip steps with no missing skills (weeks=0) except the final target
-                path.steps.forEach((step, stepIdx) => {
-                    if (step.missing && step.missing.length > 0) {
-                        html += `<div><strong>${step.title}</strong><br>↳ Learn: ${step.missing.join(', ')} (${step.weeks} weeks)</div>`;
-                    } else if (step.title === target) {
-                        html += `<div><strong>${step.title}</strong> – Ready! (no new skills needed)</div>`;
-                    } else if (step.title !== "Current (your skills)" && step.missing && step.missing.length === 0) {
-                        // This is an intermediate step that required no learning – skip showing?
-                        // We'll skip to reduce clutter.
-                    } else if (step.title === "Current (your skills)") {
+                path.steps.forEach((step) => {
+                    if (step.title === "Current (your skills)") {
                         if (step.missing && step.missing.length > 0) {
-                            html += `<div><strong>${step.title}</strong><br>↳ Learn: ${step.missing.join(', ')} (${step.weeks} weeks)</div>`;
+                            html += `<div><strong>${step.title}</strong><br>↳ Learn first: ${step.missing.join(', ')} (${step.weeks} weeks)</div>`;
                         } else {
                             html += `<div><strong>${step.title}</strong> – No skills missing.</div>`;
+                        }
+                    } else {
+                        // Display salary for the role (if available)
+                        let salaryInfo = '';
+                        if (step.salary && step.salary !== 'Undisclosed') {
+                            salaryInfo = ` (${step.salary})`;
+                        } else if (step.salary_min && step.salary_min > 0) {
+                            salaryInfo = ` (RM ${step.salary_min} - ${step.salary_max})`;
+                        } else {
+                            salaryInfo = ` (salary undisclosed)`;
+                        }
+                        if (step.missing && step.missing.length > 0) {
+                            html += `<div><strong>→ ${step.title}${salaryInfo}</strong><br>↳ Learn: ${step.missing.join(', ')} (${step.weeks} weeks)</div>`;
+                        } else {
+                            html += `<div><strong>→ ${step.title}${salaryInfo}</strong> – Ready! (no new skills needed)</div>`;
                         }
                     }
                 });
@@ -217,6 +262,21 @@
             document.getElementById('pathsResult').innerHTML = html;
         }
 
+        // Event listeners
+        document.getElementById('salaryThreshold').addEventListener('input', () => {
+            updateSalaryDisplay();
+            if (document.getElementById('targetRole').value) findPaths();
+        });
+        document.getElementById('includeUndisclosed').addEventListener('change', () => {
+            getSuggestions();
+            if (document.getElementById('targetRole').value) findPaths();
+        });
+
+        // Initial load
+        loadAllSkills().then(() => {
+            renderSkillSelector();
+            loadJobTitles();
+        });
     </script>
 </body>
 </html>

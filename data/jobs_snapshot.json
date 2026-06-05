@@ -729,5 +729,203 @@
       "usability testing",
       "figma"
     ]
+  },
+  {
+    "title": "Junior Cloud Engineer",
+    "company": "CloudStart MY",
+    "description": "Assist in managing cloud infrastructure on AWS. Basic Linux, Docker, and scripting. Skills: AWS basics, Linux, Docker, bash, Python basics.",
+    "salary_display": "RM 4000 - 5500",
+    "salary_min": 4000,
+    "salary_max": 5500,
+    "skills_ai": ["aws", "linux", "docker", "bash", "python"]
+  },
+  {
+    "title": "Cloud Support Associate",
+    "company": "SkyCloud Sdn Bhd",
+    "description": "Provide technical support for cloud customers. Troubleshoot basic cloud issues, IAM, networking. Skills: AWS, IAM, cloud networking, Linux.",
+    "salary_display": "Undisclosed",
+    "salary_min": 0,
+    "salary_max": 0,
+    "skills_ai": ["aws", "linux", "networking", "bash"]
+  },
+  {
+    "title": "Intermediate Cloud Engineer",
+    "company": "CloudTech MY",
+    "description": "Deploy and maintain AWS infrastructure using Terraform. Automate tasks with Python. Skills: AWS, Terraform, Python, CI/CD basics.",
+    "salary_display": "RM 6500 - 8500",
+    "salary_min": 6500,
+    "salary_max": 8500,
+    "skills_ai": ["aws", "terraform", "python", "jenkins", "docker"]
+  },
+  {
+    "title": "Junior DevOps Engineer",
+    "company": "DevOps Academy",
+    "description": "Support CI/CD pipelines, containerize apps with Docker, basic Kubernetes. Skills: Docker, Jenkins, Git, Linux, Python.",
+    "salary_display": "RM 5000 - 7000",
+    "salary_min": 5000,
+    "salary_max": 7000,
+    "skills_ai": ["docker", "jenkins", "git", "linux", "python"]
+  },
+  {
+    "title": "DevOps Specialist",
+    "company": "AutoDeploy Sdn Bhd",
+    "description": "Manage Kubernetes clusters, set up monitoring with Prometheus/Grafana, automate with Ansible. Skills: Kubernetes, Prometheus, Ansible, AWS, Python.",
+    "salary_display": "RM 9000 - 12000",
+    "salary_min": 9000,
+    "salary_max": 12000,
+    "skills_ai": ["kubernetes", "prometheus", "ansible", "aws", "python"]
+  },
+  {
+    "title": "Junior Security Analyst",
+    "company": "SecureNet MY",
+    "description": "Monitor security alerts, perform vulnerability scans, basic incident response. Skills: Linux, networking, SIEM basics, scripting (Python).",
+    "salary_display": "Undisclosed",
+    "salary_min": 0,
+    "salary_max": 0,
+    "skills_ai": ["linux", "networking", "python", "siem"]
+  },
+  {
+    "title": "Security Engineer (Mid-Level)",
+    "company": "CyberDefense MY",
+    "description": "Implement security controls, conduct penetration tests, manage firewalls/IDS. Skills: penetration testing, firewalls, IDS/IPS, Python, Kali Linux.",
+    "salary_display": "RM 8000 - 11000",
+    "salary_min": 8000,
+    "salary_max": 11000,
+    "skills_ai": ["penetration testing", "firewalls", "ids/ips", "python", "kali linux"]
+  },
+  {
+    "title": "Junior Data Engineer",
+    "company": "DataFlow Sdn Bhd",
+    "description": "Build simple ETL pipelines, work with SQL and Python, manage data warehouses. Skills: SQL, Python, ETL basics, PostgreSQL.",
+    "salary_display": "RM 4500 - 6000",
+    "salary_min": 4500,
+    "salary_max": 6000,
+    "skills_ai": ["sql", "python", "etl", "postgresql"]
+  },
+  {
+    "title": "Intermediate Data Engineer",
+    "company": "BigData Labs",
+    "description": "Design and maintain ETL pipelines using Spark and Kafka. Optimize data storage. Skills: Spark, Kafka, Python, SQL, AWS S3.",
+    "salary_display": "RM 7000 - 9500",
+    "salary_min": 7000,
+    "salary_max": 9500,
+    "skills_ai": ["spark", "kafka", "python", "sql", "aws"]
+  },
+  {
+    "title": "Junior Data Scientist",
+    "company": "AI Academy",
+    "description": "Build machine learning models, clean data, use scikit-learn and TensorFlow. Skills: Python, scikit-learn, pandas, SQL, statistics.",
+    "salary_display": "RM 6000 - 8000",
+    "salary_min": 6000,
+    "salary_max": 8000,
+    "skills_ai": ["python", "scikit-learn", "pandas", "sql", "statistics"]
+  },
+  {
+    "title": "Intermediate Data Scientist",
+    "company": "AI Malaysia",
+    "description": "Deploy ML models, work with big data tools, use TensorFlow/PyTorch. Skills: TensorFlow, PyTorch, Python, Docker, SQL.",
+    "salary_display": "RM 9000 - 12000",
+    "salary_min": 9000,
+    "salary_max": 12000,
+    "skills_ai": ["tensorflow", "pytorch", "python", "docker", "sql"]
+  },
+  {
+    "title": "Frontend Engineer (Mid-Level)",
+    "company": "WebStudio Sdn Bhd",
+    "description": "Build complex React apps with Redux, optimize performance, work with REST APIs. Skills: React, Redux, JavaScript, CSS, Git, REST APIs.",
+    "salary_display": "RM 6000 - 8500",
+    "salary_min": 6000,
+    "salary_max": 8500,
+    "skills_ai": ["react", "redux", "javascript", "css", "git", "rest apis"]
+  },
+  {
+    "title": "Senior Frontend Architect",
+    "company": "Creative Web",
+    "description": "Lead frontend architecture, design systems, micro-frontends, mentor juniors. Skills: React, TypeScript, micro-frontends, performance tuning, leadership.",
+    "salary_display": "Undisclosed",
+    "salary_min": 0,
+    "salary_max": 0,
+    "skills_ai": ["react", "typescript", "micro-frontends", "javascript", "css"]
+  },
+  {
+    "title": "Backend Engineer (Mid-Level)",
+    "company": "APIBuilder MY",
+    "description": "Design scalable REST APIs, optimize database queries, use Node.js/Express or Python/Django. Skills: Node.js, Express, PostgreSQL, Redis, Docker.",
+    "salary_display": "RM 6500 - 9000",
+    "salary_min": 6500,
+    "salary_max": 9000,
+    "skills_ai": ["node.js", "express", "postgresql", "redis", "docker"]
+  },
+  {
+    "title": "Senior Backend Engineer",
+    "company": "ServerSide Solutions",
+    "description": "Design microservices, implement message queues (Kafka), lead backend team. Skills: microservices, Kafka, Node.js, Go, Kubernetes.",
+    "salary_display": "RM 11000 - 15000",
+    "salary_min": 11000,
+    "salary_max": 15000,
+    "skills_ai": ["microservices", "kafka", "node.js", "go", "kubernetes"]
+  },
+  {
+    "title": "Junior Mobile Developer (Cross-Platform)",
+    "company": "AppWorks MY",
+    "description": "Develop mobile apps using Flutter or React Native. Basic Firebase integration. Skills: Flutter, React Native, Dart, JavaScript, Firebase.",
+    "salary_display": "RM 5000 - 7000",
+    "salary_min": 5000,
+    "salary_max": 7000,
+    "skills_ai": ["flutter", "react native", "dart", "javascript", "firebase"]
+  },
+  {
+    "title": "Senior Mobile Architect",
+    "company": "AppCraft Malaysia",
+    "description": "Lead mobile app architecture, optimize performance, manage app store releases. Skills: Swift, Kotlin, Flutter, CI/CD for mobile, security best practices.",
+    "salary_display": "RM 13000 - 18000",
+    "salary_min": 13000,
+    "salary_max": 18000,
+    "skills_ai": ["swift", "kotlin", "flutter", "ci/cd", "security"]
+  },
+  {
+    "title": "Junior Network Administrator",
+    "company": "NetConnect Sdn Bhd",
+    "description": "Configure and troubleshoot routers/switches, basic firewall rules, monitor network. Skills: Cisco basics, routing, switching, firewalls, Linux.",
+    "salary_display": "Undisclosed",
+    "salary_min": 0,
+    "salary_max": 0,
+    "skills_ai": ["cisco", "routing", "switching", "firewalls", "linux"]
+  },
+  {
+    "title": "Senior Network Architect",
+    "company": "Connectivity Solutions",
+    "description": "Design enterprise networks, SD-WAN, network automation, lead projects. Skills: SD-WAN, Cisco, Python, Ansible, network security, leadership.",
+    "salary_display": "RM 12000 - 17000",
+    "salary_min": 12000,
+    "salary_max": 17000,
+    "skills_ai": ["sd-wan", "cisco", "python", "ansible", "network security"]
+  },
+  {
+    "title": "Junior QA Engineer (Manual)",
+    "company": "TestWorks MY",
+    "description": "Write test cases, perform manual testing, report bugs in JIRA. Skills: manual testing, JIRA, SQL basics, communication.",
+    "salary_display": "RM 3000 - 4500",
+    "salary_min": 3000,
+    "salary_max": 4500,
+    "skills_ai": ["manual testing", "jira", "sql"]
+  },
+  {
+    "title": "QA Automation Engineer",
+    "company": "AutoTest Sdn Bhd",
+    "description": "Build automated test suites using Selenium, PyTest, Jenkins integration. Skills: Python, Selenium, PyTest, Jenkins, Git.",
+    "salary_display": "RM 6000 - 8500",
+    "salary_min": 6000,
+    "salary_max": 8500,
+    "skills_ai": ["python", "selenium", "pytest", "jenkins", "git"]
+  },
+  {
+    "title": "Site Reliability Engineer (Mid-Level)",
+    "company": "ReliableOps MY",
+    "description": "Implement SLIs/SLOs, manage incident response, automate operations. Skills: Kubernetes, Prometheus, Python, Go, Linux.",
+    "salary_display": "RM 9000 - 12500",
+    "salary_min": 9000,
+    "salary_max": 12500,
+    "skills_ai": ["kubernetes", "prometheus", "python", "go", "linux"]
   }
 ]
