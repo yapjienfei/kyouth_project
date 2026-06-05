@@ -1,6 +1,7 @@
 import json
 import tempfile
 import os
+import time
 from pathlib import Path
 from flask import Flask, request, jsonify, send_from_directory
 from flask_cors import CORS
@@ -19,6 +20,19 @@ JOBS_PATH = Path(__file__).parent.parent / "data" / "jobs_snapshot.json"
 with open(JOBS_PATH) as f:
     JOBS = json.load(f)
 
+# Load pre‑computed skill learning times (weeks)
+LEARNING_TIMES_PATH = Path(__file__).parent.parent / "data" / "skill_learning_times.json"
+if LEARNING_TIMES_PATH.exists():
+    with open(LEARNING_TIMES_PATH) as f:
+        skill_learning_times = json.load(f)
+else:
+    skill_learning_times = {}
+    print("Warning: skill_learning_times.json not found, defaulting to 4 weeks per skill.")
+
+def get_learning_weeks(skill):
+    """Return estimated weeks to learn a skill, default 4."""
+    return skill_learning_times.get(skill.lower(), 4)
+
 def extract_text_from_pdf(pdf_path):
     with pdfplumber.open(pdf_path) as pdf:
         return "\n".join(page.extract_text() or "" for page in pdf.pages)
@@ -30,8 +44,7 @@ class JobNode:
         self.company = job_dict["company"]
         self.salary_min = job_dict.get("salary_min", 0)
         self.salary_max = job_dict.get("salary_max", 0)
-        self.salary_median = (self.salary_min + self.salary_max) / 2
-        # Use pre‑computed skills_ai; fallback to empty list if missing
+        self.salary_median = (self.salary_min + self.salary_max) / 2 if self.salary_max > 0 else 0
         self.salary_display = job_dict.get("salary_display", "Undisclosed")
         self.skills = set(job_dict.get("skills_ai", []))
         self.raw = job_dict
@@ -58,7 +71,7 @@ for a in job_nodes:
             continue
         missing_skills = b.skills - a.skills
         transition_cost = len(missing_skills) / len(b.skills)
-        if transition_cost < 0.8:   # changed from 0.6 to 0.8
+        if transition_cost < 0.8:
             edges[a.title].append((b.title, transition_cost, missing_skills))
 
 ALL_SKILLS = sorted(set(skill for node in job_nodes for skill in node.skills))
@@ -68,6 +81,10 @@ def match_ratio(user_skills, job_skills):
         return 0
     overlap = len(user_skills & job_skills)
     return overlap / len(job_skills)
+
+def total_learning_weeks(skills_list):
+    """Sum of weeks for a list of skills."""
+    return sum(get_learning_weeks(s) for s in skills_list)
 
 def find_paths_to_target(user_skills, target_title, salary_threshold=0, include_undisclosed=False, max_depth=5):
     if target_title not in job_index:
@@ -84,21 +101,34 @@ def find_paths_to_target(user_skills, target_title, salary_threshold=0, include_
     user_skills_set = set(user_skills)
     target_skills = target_node.skills
     missing_to_target = target_skills - user_skills_set
-    direct_match_ratio = match_ratio(user_skills_set, target_skills)
+    direct_weeks = total_learning_weeks(missing_to_target)
 
     direct_path = {
         "steps": [
-            {"title": "Current (your skills)", "missing": list(missing_to_target), "weeks": len(missing_to_target)*2, "salary": None},
-            {"title": target_title, "missing": [], "weeks": 0, "salary": target_node.salary_display, "salary_min": target_node.salary_min, "salary_max": target_node.salary_max}
+            {
+                "title": "Current (your skills)",
+                "missing": list(missing_to_target),
+                "missing_with_weeks": [{'skill': s, 'weeks': get_learning_weeks(s)} for s in missing_to_target],
+                "weeks": direct_weeks,
+                "salary": None
+            },
+            {
+                "title": target_title,
+                "missing": [],
+                "missing_with_weeks": [],
+                "weeks": 0,
+                "salary": target_node.salary_display,
+                "salary_min": target_node.salary_min,
+                "salary_max": target_node.salary_max
+            }
         ],
         "total_missing_skills": len(missing_to_target),
-        "total_weeks": len(missing_to_target)*2,
+        "total_weeks": direct_weeks,
         "final_salary": target_node.salary_min,
         "type": "direct"
     }
 
-    # Always try to find multi-step paths – do NOT return early even if direct match is high
-    # Find starting jobs that are reachable with at least 30% match (lowered threshold for more paths)
+    # Find starting jobs reachable with at least 30% match
     reachable_starts = []
     for node in job_nodes:
         if node.salary_min == 0:
@@ -108,23 +138,24 @@ def find_paths_to_target(user_skills, target_title, salary_threshold=0, include_
             if node.salary_min < salary_threshold:
                 continue
         ratio = match_ratio(user_skills_set, node.skills)
-        if ratio >= 0.3:   # lowered from 0.4 to allow more starting points
+        if ratio >= 0.3:
             missing = node.skills - user_skills_set
             reachable_starts.append((node.title, missing))
 
-    from collections import deque
     queue = deque()
     for start_title, missing in reachable_starts:
+        weeks = total_learning_weeks(missing)
         step = {
             "title": start_title,
             "missing": list(missing),
-            "weeks": len(missing)*2,
+            "missing_with_weeks": [{'skill': s, 'weeks': get_learning_weeks(s)} for s in missing],
+            "weeks": weeks,
             "salary": job_index[start_title].salary_display,
             "salary_min": job_index[start_title].salary_min,
             "salary_max": job_index[start_title].salary_max
         }
         cumulative_skills = user_skills_set.union(missing)
-        total_weeks = len(missing)*2
+        total_weeks = weeks
         queue.append((start_title, [step], cumulative_skills, total_weeks))
 
     found_paths = []
@@ -159,15 +190,16 @@ def find_paths_to_target(user_skills, target_title, salary_threshold=0, include_
             if any(step["title"] == neighbor_title for step in steps):
                 continue
             missing = neighbor_node.skills - cumulative_skills
-            # Allow larger gaps (up to 90% of neighbor skills) to encourage multi-step
             if missing and len(missing) / len(neighbor_node.skills) > 0.9:
                 continue
+            weeks = total_learning_weeks(missing)
             new_skills = cumulative_skills.union(missing)
-            new_weeks = total_weeks + len(missing)*2
+            new_weeks = total_weeks + weeks
             new_step = {
                 "title": neighbor_title,
                 "missing": list(missing),
-                "weeks": len(missing)*2,
+                "missing_with_weeks": [{'skill': s, 'weeks': get_learning_weeks(s)} for s in missing],
+                "weeks": weeks,
                 "salary": neighbor_node.salary_display,
                 "salary_min": neighbor_node.salary_min,
                 "salary_max": neighbor_node.salary_max
@@ -175,24 +207,75 @@ def find_paths_to_target(user_skills, target_title, salary_threshold=0, include_
             new_steps = steps + [new_step]
             queue.append((neighbor_title, new_steps, new_skills, new_weeks))
 
-    # Combine multi-step and direct paths
     multi_paths = found_paths
     multi_paths.sort(key=lambda x: x["total_weeks"])
 
     result_paths = []
     result_paths.extend(multi_paths[:3])
-    # Include direct path only if it's not already present (e.g., as a single-step path)
     direct_sig = (target_title,)
     if not any(tuple(step["title"] for step in p["steps"]) == direct_sig for p in result_paths):
         result_paths.append(direct_path)
 
-    # If no multi-step paths were found, still return at least the direct path
     if not result_paths:
         result_paths = [direct_path]
 
     return result_paths[:3], None
 
-# Flask endpoints
+# --- Explanation cache (in‑memory, 24h TTL) ---
+explanation_cache = {}
+CACHE_TTL = 86400
+
+@app.route('/explain_path', methods=['POST'])
+def explain_path():
+    data = request.get_json()
+    target_title = data.get('target_title')
+    missing_skills = data.get('missing_skills', [])
+    if not target_title or not missing_skills:
+        return jsonify({'error': 'Missing target_title or missing_skills'}), 400
+
+    cache_key = f"{target_title}_{'_'.join(sorted(missing_skills))}"
+    now = time.time()
+    if cache_key in explanation_cache:
+        cached = explanation_cache[cache_key]
+        if now - cached['timestamp'] < CACHE_TTL:
+            return jsonify(cached['data'])
+
+    skills_list = ", ".join(missing_skills)
+    prompt = f"""
+You are a career advisor for IT professionals in Malaysia. For the target role **{target_title}**, the user is missing the following skills: {skills_list}.
+
+For each missing skill, provide:
+- importance_score: integer from 1 to 10 (10 = critical for this role)
+- explanation: one short sentence explaining WHY this skill is needed for {target_title} (max 20 words)
+- suggested_order: integer (1 = learn first, then 2, etc.) based on logical prerequisites
+
+Output ONLY valid JSON in this format:
+{{
+  "skills": [
+    {{"skill": "skill_name", "importance_score": 8, "explanation": "Needed for infrastructure automation.", "suggested_order": 1}},
+    ...
+  ]
+}}
+No extra text, no URLs.
+"""
+    try:
+        response = gemini_model.generate_content(prompt)
+        raw = response.text.strip()
+        if raw.startswith("```json"):
+            raw = raw[7:]
+        if raw.endswith("```"):
+            raw = raw[:-3]
+        result = json.loads(raw)
+        if 'skills' in result and isinstance(result['skills'], list):
+            explanation_cache[cache_key] = {'timestamp': now, 'data': result}
+            return jsonify(result)
+        else:
+            return jsonify({'error': 'Invalid AI response format'}), 500
+    except Exception as e:
+        print(f"Explain path error: {e}")
+        return jsonify({'error': str(e)}), 500
+
+# --- Flask endpoints ---
 @app.route('/')
 def index():
     return send_from_directory('../frontend/static', 'index.html')
@@ -211,18 +294,17 @@ def extract_skills_endpoint():
         text = extract_text_from_pdf(tmp_path)
         if not text.strip():
             return jsonify({'skills': []})
-        # Call Gemini
         prompt = f"""
 Extract only **technical skills** from the following resume text.
 Rules:
 - Return as a JSON list of strings, e.g., ["python", "docker", "aws"].
-- Normalise synonyms: "K8s" → "kubernetes", "JS" → "javascript", "ReactJS" → "react", "Postgres" → "postgresql".
+- Normalise synonyms: "K8s" → "kubernetes", "JS" → "javascript", "ReactJS" → "react", "Postgres" → "postgresql","CSS3" → "css", "HTML5" → "html", "css3" → "css", "html5" → "html".
 - Exclude all soft skills (e.g., communication, leadership, problem-solving, team player).
 - Keep skills lowercased.
 - Output ONLY valid JSON – no extra text.
 
 Resume text:
-{text[:4000]}   # truncate
+{text[:4000]}
 """
         response = gemini_model.generate_content(prompt)
         raw = response.text.strip()
@@ -236,7 +318,7 @@ Resume text:
         return jsonify({'skills': skills})
     except Exception as e:
         print(f"Gemini error: {e}")
-        return jsonify({'skills': []})   # fallback to empty list
+        return jsonify({'skills': []})
     finally:
         os.unlink(tmp_path)
 
@@ -257,9 +339,6 @@ def suggest():
     include_undisclosed = data.get('include_undisclosed', False)
     all_roles = []
     for node in job_nodes:
-        # Salary filter:
-        # - If job has salary_min > 0, require >= threshold
-        # - If job has salary_min == 0 (undisclosed), include only if include_undisclosed is True
         if node.salary_min == 0:
             if not include_undisclosed:
                 continue
@@ -272,13 +351,17 @@ def suggest():
             continue
         overlap = len(user_skills & job_skills)
         ratio = overlap / len(job_skills) if job_skills else 0
+        missing = job_skills - user_skills
+        missing_weeks = total_learning_weeks(missing)
         all_roles.append({
             'title': node.title,
             'company': node.company,
             'salary_min': node.salary_min,
             'salary_max': node.salary_max,
             'match_ratio': ratio,
-            'missing_skills': list(job_skills - user_skills),
+            'missing_skills': list(missing),
+            'missing_skills_with_weeks': [{'skill': s, 'weeks': get_learning_weeks(s)} for s in missing],
+            'missing_weeks': missing_weeks,
             'reachable': ratio >= 0.6,
             'undisclosed': node.salary_min == 0
         })
@@ -291,7 +374,7 @@ def find_paths():
     user_skills = set(data.get('skills', []))
     target_title = data.get('target_title', '')
     salary_threshold = data.get('salary_threshold', 0)
-    include_undisclosed = data.get('include_undisclosed', False)   # new
+    include_undisclosed = data.get('include_undisclosed', False)
     paths, error = find_paths_to_target(user_skills, target_title, salary_threshold, include_undisclosed)
     if error:
         return jsonify({'error': error}), 404

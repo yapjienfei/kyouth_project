@@ -17,6 +17,11 @@
         .pagination { margin-top: 15px; display: flex; gap: 10px; align-items: center; }
         .salary-slider { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
         .salary-slider input { flex: 1; min-width: 200px; }
+        .explanation-box { margin-top: 10px; padding: 10px; background: #f9f9f9; border-left: 4px solid #007bff; border-radius: 4px; }
+        .explanation-skill { margin: 8px 0; }
+        .importance-high { color: #d9534f; font-weight: bold; }
+        .importance-mid { color: #f0ad4e; }
+        .importance-low { color: #5cb85c; }
     </style>
 </head>
 <body>
@@ -33,7 +38,6 @@
         <h2>2. Edit Your Skills (Add/Remove)</h2>
         <p>Click skills below to add/remove. Extracted skills are pre‑selected.</p>
         <div id="skillSelector" class="skill-dropdown"></div>
-        <!-- No refresh button – auto updates -->
     </div>
 
     <div class="section">
@@ -66,16 +70,15 @@
         let allSkillsList = [];
         let salaryThreshold = 0;
         let currentSelectedSkills = new Set();
-        let allSuggestions = [];          // store all suggested jobs
+        let allSuggestions = [];
         let suggestionsPage = 1;
         const PAGE_SIZE = 20;
 
-        // ---- UI helpers ----
         function updateSalaryDisplay() {
             const slider = document.getElementById('salaryThreshold');
             salaryThreshold = parseInt(slider.value) || 0;
             document.getElementById('salaryValue').innerText = salaryThreshold;
-            if (allSkillsList.length) getSuggestions();   // auto refresh suggestions
+            if (allSkillsList.length) getSuggestions();
         }
 
         async function extractSkills() {
@@ -86,7 +89,6 @@
             }
             const formData = new FormData();
             formData.append('resume', fileInput.files[0]);
-            
             const response = await fetch('/extract_skills', { method: 'POST', body: formData });
             const data = await response.json();
             if (data.error) {
@@ -102,7 +104,7 @@
             await loadAllSkills();
             renderSkillSelector();
             loadJobTitles();
-            getSuggestions();      // auto update
+            getSuggestions();
         }
 
         async function loadAllSkills() {
@@ -130,11 +132,10 @@
                 currentSelectedSkills.add(skill);
             }
             renderSkillSelector();
-            // Auto refresh suggestions and paths (if target selected)
             getSuggestions();
             const targetSelect = document.getElementById('targetRole');
             if (targetSelect.value) {
-                findPaths();  // refresh paths when skills change
+                findPaths();
             }
         }
 
@@ -168,17 +169,23 @@
             let html = '<h3>All IT Roles (sorted by match, filtered by salary)</h3>';
             pageSuggestions.forEach(job => {
                 const reachableBadge = job.reachable ? '✅ Reachable' : '⚠️ Not reachable yet';
+                let missingDisplay = '';
+                if (job.missing_skills_with_weeks && job.missing_skills_with_weeks.length) {
+                    missingDisplay = job.missing_skills_with_weeks.map(m => `${m.skill} (${m.weeks} weeks)`).join(', ');
+                    missingDisplay += `<br><strong>Total time needed: ${job.missing_weeks} weeks</strong>`;
+                } else {
+                    missingDisplay = 'None! You are ready.';
+                }
                 html += `<div class="job-card">
                     <strong>${job.title}</strong> at ${job.company}<br>
                     Salary: RM ${job.salary_min} - ${job.salary_max}<br>
                     Match: ${(job.match_ratio * 100).toFixed(0)}% (${job.reachable ? 'good fit' : 'needs work'})<br>
-                    Missing skills: ${job.missing_skills.length ? job.missing_skills.join(', ') : 'None! You are ready.'}<br>
+                    Missing skills: ${missingDisplay}<br>
                     <span style="font-size:0.9em; color:${job.reachable ? 'green' : 'orange'}">${reachableBadge}</span>
                 </div>`;
             });
             document.getElementById('suggestionsResult').innerHTML = html;
             
-            // Pagination controls
             let paginationHtml = `<span>Page ${suggestionsPage} of ${totalPages}</span>`;
             if (suggestionsPage > 1) {
                 paginationHtml += `<button onclick="changePage(-1)">◀ Previous</button>`;
@@ -200,7 +207,7 @@
             const select = document.getElementById('targetRole');
             select.innerHTML = titles.map(t => `<option value="${t}">${t}</option>`).join('');
         }
-        
+
         async function findPaths() {
             const target = document.getElementById('targetRole').value;
             if (!target) {
@@ -230,18 +237,27 @@
             }
             let html = '<h3>Career Paths (fastest first)</h3>';
             paths.forEach((path, idx) => {
-                html += `<div class="job-card">
+                const uniqueMissing = new Set();
+                path.steps.forEach(step => {
+                    if (step.missing && step.missing.length > 0) {
+                        step.missing.forEach(s => uniqueMissing.add(s));
+                    }
+                });
+                const missingSkillsArray = Array.from(uniqueMissing);
+                const safeMissing = JSON.stringify(missingSkillsArray).replace(/"/g, '&quot;');
+
+                html += `<div class="job-card" id="path-${idx}">
                     <strong>Path ${idx+1}</strong> – Total upskilling: ${path.total_weeks} weeks, Final salary: RM ${path.final_salary}<br>
                     <div class="path-step">`;
                 path.steps.forEach((step) => {
                     if (step.title === "Current (your skills)") {
-                        if (step.missing && step.missing.length > 0) {
-                            html += `<div><strong>${step.title}</strong><br>↳ Learn first: ${step.missing.join(', ')} (${step.weeks} weeks)</div>`;
+                        if (step.missing_with_weeks && step.missing_with_weeks.length > 0) {
+                            const skillsWithWeeks = step.missing_with_weeks.map(m => `${m.skill} (${m.weeks} weeks)`).join(', ');
+                            html += `<div><strong>${step.title}</strong><br>↳ Learn first: ${skillsWithWeeks}</div>`;
                         } else {
                             html += `<div><strong>${step.title}</strong> – No skills missing.</div>`;
                         }
                     } else {
-                        // Display salary for the role (if available)
                         let salaryInfo = '';
                         if (step.salary && step.salary !== 'Undisclosed') {
                             salaryInfo = ` (${step.salary})`;
@@ -250,16 +266,62 @@
                         } else {
                             salaryInfo = ` (salary undisclosed)`;
                         }
-                        if (step.missing && step.missing.length > 0) {
-                            html += `<div><strong>→ ${step.title}${salaryInfo}</strong><br>↳ Learn: ${step.missing.join(', ')} (${step.weeks} weeks)</div>`;
+                        if (step.missing_with_weeks && step.missing_with_weeks.length > 0) {
+                            const skillsWithWeeks = step.missing_with_weeks.map(m => `${m.skill} (${m.weeks} weeks)`).join(', ');
+                            html += `<div><strong>→ ${step.title}${salaryInfo}</strong><br>↳ Learn: ${skillsWithWeeks}</div>`;
                         } else {
                             html += `<div><strong>→ ${step.title}${salaryInfo}</strong> – Ready! (no new skills needed)</div>`;
                         }
                     }
                 });
-                html += `</div></div>`;
+                html += `</div>
+                    <button onclick="explainPath('${target}', ${safeMissing}, ${idx})">💡 Explain this path</button>
+                    <div id="explanation-${idx}" class="explanation-box" style="display:none;"></div>
+                </div>`;
             });
             document.getElementById('pathsResult').innerHTML = html;
+        }
+
+        async function explainPath(targetTitle, missingSkills, pathIndex) {
+            const container = document.getElementById(`explanation-${pathIndex}`);
+            container.style.display = 'block';
+            if (!missingSkills || missingSkills.length === 0) {
+                    container.innerHTML = '<p>✅ No missing skills to explain – you are already ready for this role!</p>';
+                    return;
+                }
+            container.innerHTML = '<em>Loading explanation...</em>';
+            const response = await fetch('/explain_path', {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify({
+                    target_title: targetTitle,
+                    missing_skills: missingSkills
+                })
+            });
+            const data = await response.json();
+            if (data.error) {
+                container.innerHTML = `<p>❌ Error: ${data.error}</p>`;
+                return;
+            }
+            if (!data.skills || data.skills.length === 0) {
+                container.innerHTML = '<p>No explanation available.</p>';
+                return;
+            }
+            let html = '<strong>Why learn these skills?</strong><ul>';
+            data.skills.forEach(skillInfo => {
+                let importanceClass = '';
+                if (skillInfo.importance_score >= 7) importanceClass = 'importance-high';
+                else if (skillInfo.importance_score >= 4) importanceClass = 'importance-mid';
+                else importanceClass = 'importance-low';
+                html += `<li class="explanation-skill">
+                    <strong>${skillInfo.skill}</strong> 
+                    <span class="${importanceClass}">(importance: ${skillInfo.importance_score}/10)</span><br>
+                    ${skillInfo.explanation}<br>
+                    <em>Suggested learning order: #${skillInfo.suggested_order}</em>
+                </li>`;
+            });
+            html += '</ul>';
+            container.innerHTML = html;
         }
 
         // Event listeners
