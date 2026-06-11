@@ -1,717 +1,3578 @@
 {
-  "3d math": {
-    "salary_premium": 1200,
+  ".net core": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "4d simulation": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "5d simulation": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 25
+  },
+  "802.1x": {
     "ai_replaceability_score": 6,
-    "skill_category": "Software Development"
+    "skill_category": "Security",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "aad": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "abap": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Programming Languages",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "account reconciliation": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "active data guard": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 3
   },
   "active directory": {
-    "salary_premium": 800,
-    "ai_replaceability_score": 3,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 6,
+    "skill_category": "Security",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "ad": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Security",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "adf": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "adfs": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Security",
+    "trend": "declining",
+    "trend_pct": -5
+  },
+  "adls": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "ado": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "adobe creative suite": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "adobe xd": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "adodb": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Programming Languages",
+    "trend": "declining",
+    "trend_pct": -20
   },
   "agile": {
-    "salary_premium": 1000,
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "ai": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 45
+  },
+  "aiops": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 35
+  },
+  "airflow": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "ajax": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Web Frontend",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "aks": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 25
+  },
+  "alm": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "always on": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "amazon cloudwatch": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "analog circuit": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "ancp": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "android": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Mobile",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "android sdk": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Mobile",
+    "trend": "growing",
+    "trend_pct": 7
+  },
+  "angular": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Frontend",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "angular material": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Frontend",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "angularjs": {
     "ai_replaceability_score": 9,
-    "skill_category": "Soft Skills & Architecture"
+    "skill_category": "Web Frontend",
+    "trend": "declining",
+    "trend_pct": -25
   },
   "ansible": {
-    "salary_premium": 2200,
-    "ai_replaceability_score": 5,
-    "skill_category": "Cloud & Infrastructure"
-  },
-  "api documentation": {
-    "salary_premium": 600,
     "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "antivirus": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Security",
+    "trend": "stable",
+    "trend_pct": -5
+  },
+  "anydesk": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "aoms": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "aosp": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Mobile",
+    "trend": "growing",
+    "trend_pct": 6
+  },
+  "apache kafka": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 20
+  },
+  "apache spark": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "api": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "api integration": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 19
+  },
+  "api keys": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 5
+  },
+  "api testing": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "apigee": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "appium": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Mobile",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "apps script": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -5
   },
   "argocd": {
-    "salary_premium": 2800,
-    "ai_replaceability_score": 5,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 35
   },
-  "audit": {
-    "salary_premium": 2000,
-    "ai_replaceability_score": 8,
-    "skill_category": "Cybersecurity"
+  "artifactory": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 2
   },
-  "automation frameworks": {
-    "salary_premium": 1800,
+  "artificial intelligence": {
+    "ai_replaceability_score": 1,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 55
+  },
+  "as400": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "asp.net": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "asp.net core": {
     "ai_replaceability_score": 5,
-    "skill_category": "Software Development"
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "asp.net mvc": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "automated testing": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 25
+  },
+  "automatic payment program": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "automation": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 40
+  },
+  "autosys": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -6
   },
   "aws": {
-    "salary_premium": 3000,
-    "ai_replaceability_score": 6,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "aws cloud formation": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 19
   },
   "aws glue": {
-    "salary_premium": 2200,
-    "ai_replaceability_score": 5,
-    "skill_category": "Data & AI"
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 28
   },
-  "aws sagemaker": {
-    "salary_premium": 2500,
-    "ai_replaceability_score": 6,
-    "skill_category": "Data & AI"
+  "axure rp pro": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": -2
   },
   "azure": {
-    "salary_premium": 3000,
-    "ai_replaceability_score": 6,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 20
   },
-  "backup": {
-    "salary_premium": 700,
+  "azure databricks": {
     "ai_replaceability_score": 2,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 42
+  },
+  "azure devops": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 21
+  },
+  "azure functions": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 24
+  },
+  "azure service bus": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "bank reconciliation": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -18
   },
   "bash": {
-    "salary_premium": 1000,
-    "ai_replaceability_score": 4,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "bdd": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 8
+  },
+  "bi": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "big data": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "stable",
+    "trend_pct": 4
   },
   "bigquery": {
-    "salary_premium": 2000,
     "ai_replaceability_score": 5,
-    "skill_category": "Data & AI"
+    "skill_category": "Databases",
+    "trend": "growing",
+    "trend_pct": 19
+  },
+  "bim": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 11
+  },
+  "bitbucket": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "blue prism": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "bluetooth": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "bootstrap": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Web Frontend",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "bpm": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "bpmn": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "brd": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -25
+  },
+  "btp": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "business requirement document": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -30
+  },
+  "business rule engine": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": -2
+  },
+  "c": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Programming Languages",
+    "trend": "stable",
+    "trend_pct": 0
   },
   "c#": {
-    "salary_premium": 1500,
-    "ai_replaceability_score": 6,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 4,
+    "skill_category": "Programming Languages",
+    "trend": "stable",
+    "trend_pct": 5
   },
   "c++": {
-    "salary_premium": 1500,
-    "ai_replaceability_score": 7,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 2,
+    "skill_category": "Programming Languages",
+    "trend": "growing",
+    "trend_pct": 9
   },
-  "chaos engineering": {
-    "salary_premium": 3000,
+  "cadence allegro": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "captiva": {
     "ai_replaceability_score": 9,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -20
+  },
+  "cash management": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "cdn": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 9
+  },
+  "cfm": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "charm": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 8
   },
   "ci/cd": {
-    "salary_premium": 2500,
-    "ai_replaceability_score": 5,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "cics": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -5
+  },
+  "cilium": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 35
   },
   "cisco": {
-    "salary_premium": 1800,
-    "ai_replaceability_score": 4,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "clarity": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "clash detection": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "clickup": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 18
   },
   "cloud": {
-    "salary_premium": 2500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 20
+  },
+  "cloud computing": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 22
+  },
+  "cloud run": {
     "ai_replaceability_score": 5,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 25
   },
-  "cloud architecture": {
-    "salary_premium": 3500,
-    "ai_replaceability_score": 10,
-    "skill_category": "Soft Skills & Architecture"
+  "cloud sql": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "growing",
+    "trend_pct": 15
   },
-  "cloud databases": {
-    "salary_premium": 2000,
+  "cobol": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Programming Languages",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "cobol400": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Programming Languages",
+    "trend": "declining",
+    "trend_pct": -4
+  },
+  "commodity price management": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "commvault": {
     "ai_replaceability_score": 5,
-    "skill_category": "Data & AI"
+    "skill_category": "Security",
+    "trend": "stable",
+    "trend_pct": 4
   },
-  "cloud security": {
-    "salary_premium": 3000,
+  "confluence": {
     "ai_replaceability_score": 9,
-    "skill_category": "Cybersecurity"
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 5
   },
-  "cloudformation": {
-    "salary_premium": 2200,
+  "container orchestration": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 28
+  },
+  "containerization": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 24
+  },
+  "content server": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -6
+  },
+  "control-m": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "coroutines": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Programming Languages",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "cosmos db": {
     "ai_replaceability_score": 5,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Databases",
+    "trend": "growing",
+    "trend_pct": 18
   },
-  "cryptography": {
-    "salary_premium": 3000,
-    "ai_replaceability_score": 9,
-    "skill_category": "Cybersecurity"
+  "couchbaselite": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "crm": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 8
+  },
+  "crystal reports": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -25
   },
   "css": {
-    "salary_premium": 500,
+    "ai_replaceability_score": 8,
+    "skill_category": "Web Frontend",
+    "trend": "stable",
+    "trend_pct": -2
+  },
+  "cst": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "csv": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": -2
+  },
+  "cvs": {
+    "ai_replaceability_score": 10,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -40
+  },
+  "cybersecurity": {
     "ai_replaceability_score": 2,
-    "skill_category": "Software Development"
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 35
   },
   "cypress": {
-    "salary_premium": 1000,
-    "ai_replaceability_score": 3,
-    "skill_category": "Software Development"
-  },
-  "dart": {
-    "salary_premium": 1200,
-    "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
-  },
-  "data analysis": {
-    "salary_premium": 1500,
     "ai_replaceability_score": 5,
-    "skill_category": "Data & AI"
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 20
+  },
+  "d3.js": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Web Frontend",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "dagger": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 28
+  },
+  "dapr": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Architecture",
+    "trend": "growing",
+    "trend_pct": 32
+  },
+  "data guard": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "data integration": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "data loss prevention": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 22
+  },
+  "data mapping": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Data Science & AI",
+    "trend": "stable",
+    "trend_pct": 4
   },
   "data modeling": {
-    "salary_premium": 2000,
-    "ai_replaceability_score": 7,
-    "skill_category": "Data & AI"
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 19
   },
   "data visualization": {
-    "salary_premium": 1500,
     "ai_replaceability_score": 4,
-    "skill_category": "Data & AI"
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 25
   },
   "data warehousing": {
-    "salary_premium": 2500,
-    "ai_replaceability_score": 6,
-    "skill_category": "Data & AI"
-  },
-  "database tuning": {
-    "salary_premium": 2000,
-    "ai_replaceability_score": 6,
-    "skill_category": "Data & AI"
-  },
-  "design systems": {
-    "salary_premium": 1500,
     "ai_replaceability_score": 5,
-    "skill_category": "Soft Skills & Architecture"
+    "skill_category": "Databases",
+    "trend": "growing",
+    "trend_pct": 12
   },
-  "django": {
-    "salary_premium": 1500,
+  "database administration": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Databases",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "database management": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "database management systems": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "db2": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Databases",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "dbcc": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Databases",
+    "trend": "declining",
+    "trend_pct": -10
+  },
+  "deep learning": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 45
+  },
+  "devops": {
     "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "devsecops": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 28
+  },
+  "dfc": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -5
+  },
+  "dfd": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "dhcp": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "digital circuit": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "digital circuit design": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 7
+  },
+  "digital forensics": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "dlp": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "dmarc": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 10
+  },
+  "dns": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
   },
   "docker": {
-    "salary_premium": 2500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 11
+  },
+  "documentum": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -20
+  },
+  "drc": {
     "ai_replaceability_score": 5,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 4
   },
-  "enterprise architecture": {
-    "salary_premium": 3500,
-    "ai_replaceability_score": 10,
-    "skill_category": "Soft Skills & Architecture"
+  "dynamics 365": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 12
   },
-  "ethereum": {
-    "salary_premium": 3000,
+  "dynatrace": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "ebs": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "eclipse": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "ecm": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "ediscovery": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 9
+  },
+  "efs": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "ejb": {
     "ai_replaceability_score": 7,
-    "skill_category": "Software Development"
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "eks": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 25
+  },
+  "electronics": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "elt": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "email security": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 20
+  },
+  "embedded linux": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 11
+  },
+  "entity framework": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "environmental risk assessment": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "epon": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "erp": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 8
+  },
+  "erps": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "esg reporting": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 30
+  },
+  "ethernet": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
   },
   "etl": {
-    "salary_premium": 2000,
-    "ai_replaceability_score": 5,
-    "skill_category": "Data & AI"
+    "ai_replaceability_score": 6,
+    "skill_category": "Data Science & AI",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "excel": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "exchange": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "expdp": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Databases",
+    "trend": "declining",
+    "trend_pct": -12
   },
   "express": {
-    "salary_premium": 1200,
-    "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 4
   },
-  "feature engineering": {
-    "salary_premium": 2500,
-    "ai_replaceability_score": 7,
-    "skill_category": "Data & AI"
+  "facebook": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
   },
-  "figma": {
-    "salary_premium": 1000,
+  "fastlane": {
     "ai_replaceability_score": 3,
-    "skill_category": "Other"
+    "skill_category": "Mobile",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "filenet": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -15
   },
   "firebase": {
-    "salary_premium": 1200,
     "ai_replaceability_score": 4,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 18
   },
-  "firewalls": {
-    "salary_premium": 2500,
-    "ai_replaceability_score": 7,
-    "skill_category": "Cybersecurity"
+  "flotherm xt": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 7
   },
   "flutter": {
-    "salary_premium": 1500,
     "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
+    "skill_category": "Mobile",
+    "trend": "growing",
+    "trend_pct": 25
   },
-  "game physics": {
-    "salary_premium": 2000,
+  "fortinet": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "fpga": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 20
+  },
+  "frd": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -20
+  },
+  "functional specification document": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -25
+  },
+  "functional testing": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Testing",
+    "trend": "stable",
+    "trend_pct": -5
+  },
+  "gap analysis": {
     "ai_replaceability_score": 6,
-    "skill_category": "Other"
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
   },
   "gcp": {
-    "salary_premium": 3000,
-    "ai_replaceability_score": 6,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 25
+  },
+  "genai": {
+    "ai_replaceability_score": 1,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 85
+  },
+  "geospatial": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "geotagging": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "gherkin": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 9
+  },
+  "gis": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 12
   },
   "git": {
-    "salary_premium": 500,
-    "ai_replaceability_score": 2,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "github": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "github actions": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 28
+  },
+  "gitlab ci": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "gke": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 20
   },
   "go": {
-    "salary_premium": 2500,
+    "ai_replaceability_score": 3,
+    "skill_category": "Programming Languages",
+    "trend": "growing",
+    "trend_pct": 19
+  },
+  "google adwords": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "google ai development kit": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 45
+  },
+  "google analytics": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "google data studio": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 6
+  },
+  "google sheets": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "google tag manager": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "google trends": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "gpon": {
     "ai_replaceability_score": 5,
-    "skill_category": "Software Development"
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 8
   },
   "grafana": {
-    "salary_premium": 2000,
-    "ai_replaceability_score": 6,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 18
   },
-  "high availability": {
-    "salary_premium": 3000,
+  "graphql": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "grpc": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 22
+  },
+  "hana": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": -2
+  },
+  "hana database": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": -3
+  },
+  "hardware": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 11
+  },
+  "hfss": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 8
+  },
+  "hibernate": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -5
+  },
+  "hilt": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Mobile",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "hp alm": {
     "ai_replaceability_score": 8,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Testing",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "hp quality center": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Testing",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "hrsd": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 12
   },
   "html": {
-    "salary_premium": 500,
-    "ai_replaceability_score": 2,
-    "skill_category": "Software Development"
-  },
-  "ids/ips": {
-    "salary_premium": 2500,
-    "ai_replaceability_score": 5,
-    "skill_category": "Cybersecurity"
-  },
-  "incident response": {
-    "salary_premium": 3000,
     "ai_replaceability_score": 9,
-    "skill_category": "Cybersecurity"
+    "skill_category": "Web Frontend",
+    "trend": "stable",
+    "trend_pct": -5
+  },
+  "hugging face": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 45
+  },
+  "huggingface": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 45
+  },
+  "hypervisor": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "iaas": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "iac": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 28
+  },
+  "iam": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 20
+  },
+  "ibm cognos analytics": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Data Science & AI",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "ibm datacap": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": -2
+  },
+  "ibm db2": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "ibm i": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": -1
+  },
+  "ibm mq": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "ibm odm": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -6
+  },
+  "ibm websphere": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -9
+  },
+  "ibm z/os": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "icr": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "ict infrastructure": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "ict services": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "idm": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 8
+  },
+  "ifrs": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "igc brava": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -5
+  },
+  "impdp": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Databases",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "information security": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "information systems": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "instagram": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 10
+  },
+  "integration testing": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "intelli-j": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "invision": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "ip networking": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 4
   },
   "iso 27001": {
-    "salary_premium": 2800,
-    "ai_replaceability_score": 10,
-    "skill_category": "Cybersecurity"
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 12
   },
-  "iso 31000": {
-    "salary_premium": 2500,
-    "ai_replaceability_score": 10,
-    "skill_category": "Soft Skills & Architecture"
+  "itil": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "j2ee": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -10
+  },
+  "jasmine": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Testing",
+    "trend": "stable",
+    "trend_pct": -2
   },
   "java": {
-    "salary_premium": 1500,
     "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
+    "skill_category": "Programming Languages",
+    "trend": "stable",
+    "trend_pct": 2
   },
   "javascript": {
-    "salary_premium": 1200,
-    "ai_replaceability_score": 3,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 5,
+    "skill_category": "Programming Languages",
+    "trend": "growing",
+    "trend_pct": 7
+  },
+  "jboss": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -6
+  },
+  "jcl": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Programming Languages",
+    "trend": "declining",
+    "trend_pct": -12
   },
   "jenkins": {
-    "salary_premium": 2200,
-    "ai_replaceability_score": 4,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 6,
+    "skill_category": "Cloud & DevOps",
+    "trend": "declining",
+    "trend_pct": -8
   },
-  "jetpack compose": {
-    "salary_premium": 1800,
-    "ai_replaceability_score": 5,
-    "skill_category": "Software Development"
+  "jest": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 12
   },
   "jira": {
-    "salary_premium": 800,
-    "ai_replaceability_score": 2,
-    "skill_category": "Other"
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 2
   },
   "jmeter": {
-    "salary_premium": 1500,
+    "ai_replaceability_score": 7,
+    "skill_category": "Testing",
+    "trend": "stable",
+    "trend_pct": -3
+  },
+  "jms": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "jni": {
     "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "jquery": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Web Frontend",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "json": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "junit": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 8
+  },
+  "jvm": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "jwt": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Security",
+    "trend": "stable",
+    "trend_pct": 4
   },
   "kafka": {
-    "salary_premium": 2800,
-    "ai_replaceability_score": 6,
-    "skill_category": "Data & AI"
+    "ai_replaceability_score": 4,
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 18
   },
-  "kali linux": {
-    "salary_premium": 2000,
-    "ai_replaceability_score": 5,
-    "skill_category": "Cybersecurity"
+  "karma": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Testing",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "katalon studio": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Testing",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "kony": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Mobile",
+    "trend": "declining",
+    "trend_pct": -12
   },
   "kotlin": {
-    "salary_premium": 1800,
-    "ai_replaceability_score": 5,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 3,
+    "skill_category": "Mobile",
+    "trend": "growing",
+    "trend_pct": 12
   },
-  "kubeflow": {
-    "salary_premium": 3000,
-    "ai_replaceability_score": 7,
-    "skill_category": "Data & AI"
+  "kotlin multiplatform": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Mobile",
+    "trend": "growing",
+    "trend_pct": 25
   },
   "kubernetes": {
-    "salary_premium": 3500,
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 24
+  },
+  "lacp": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "langchain": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 65
+  },
+  "laravel": {
     "ai_replaceability_score": 7,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "linq": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Programming Languages",
+    "trend": "stable",
+    "trend_pct": 2
   },
   "linux": {
-    "salary_premium": 1500,
-    "ai_replaceability_score": 4,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "livedata": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Mobile",
+    "trend": "stable",
+    "trend_pct": -4
+  },
+  "llama": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 55
+  },
+  "lldp": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "llm": {
+    "ai_replaceability_score": 1,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 145
+  },
+  "loadrunner": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Testing",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "m365": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 8
   },
   "machine learning": {
-    "salary_premium": 2500,
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 38
+  },
+  "macos": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "mariadb": {
     "ai_replaceability_score": 7,
-    "skill_category": "Data & AI"
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 4
   },
-  "manual testing": {
-    "salary_premium": 500,
-    "ai_replaceability_score": 1,
-    "skill_category": "Software Development"
+  "maven": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 1
   },
-  "markdown": {
-    "salary_premium": 500,
-    "ai_replaceability_score": 1,
-    "skill_category": "Other"
+  "mcp": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 95
   },
-  "market research": {
-    "salary_premium": 1000,
+  "mechanical design": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "memcache": {
     "ai_replaceability_score": 7,
-    "skill_category": "Other"
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -8
   },
-  "micro-frontends": {
-    "salary_premium": 2500,
+  "mentor graphics": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "mft": {
     "ai_replaceability_score": 6,
-    "skill_category": "Software Development"
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": -2
   },
   "microservices": {
-    "salary_premium": 3000,
-    "ai_replaceability_score": 7,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 4,
+    "skill_category": "Architecture",
+    "trend": "growing",
+    "trend_pct": 18
   },
-  "mlflow": {
-    "salary_premium": 2200,
+  "microsoft 365": {
     "ai_replaceability_score": 6,
-    "skill_category": "Data & AI"
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 7
   },
-  "model evaluation": {
-    "salary_premium": 2000,
-    "ai_replaceability_score": 7,
-    "skill_category": "Data & AI"
+  "microsoft defender for endpoint": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 25
+  },
+  "microsoft defender for identity": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 22
+  },
+  "microsoft dynamics 365": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "microsoft excel": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "microsoft office": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "mlops": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 35
+  },
+  "mobile application penetration testing": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 18
   },
   "mongodb": {
-    "salary_premium": 1000,
-    "ai_replaceability_score": 3,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "growing",
+    "trend_pct": 15
   },
-  "monitoring": {
-    "salary_premium": 2500,
+  "mq": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "ms sql server": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "ms test": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Testing",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "ms visio": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -5
+  },
+  "mssql": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "mtls": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "multi-threading": {
     "ai_replaceability_score": 5,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Programming Languages",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "multicast": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": -2
+  },
+  "murex": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "mvc": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Architecture",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "mvi": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Mobile",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "mvvm": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Mobile",
+    "trend": "stable",
+    "trend_pct": -4
+  },
+  "mxml": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Web Frontend",
+    "trend": "declining",
+    "trend_pct": -25
+  },
+  "mybatis": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -7
   },
   "mysql": {
-    "salary_premium": 800,
-    "ai_replaceability_score": 2,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 7,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 0
   },
-  "network security": {
-    "salary_premium": 2800,
-    "ai_replaceability_score": 8,
-    "skill_category": "Cybersecurity"
+  "nbu": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": -3
+  },
+  "ndk": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Mobile",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "netconf": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 9
+  },
+  "netsuite": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "netweaver": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -6
   },
   "networking": {
-    "salary_premium": 1500,
-    "ai_replaceability_score": 4,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "nftables": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Security",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "nginx": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "ngrx": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Frontend",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "nixos": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "nlp": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 35
+  },
+  "nlu": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 28
   },
   "node.js": {
-    "salary_premium": 1200,
-    "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 5,
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 10
   },
-  "numpy": {
-    "salary_premium": 1000,
-    "ai_replaceability_score": 3,
-    "skill_category": "Data & AI"
-  },
-  "optimization": {
-    "salary_premium": 1800,
+  "nodejs": {
     "ai_replaceability_score": 6,
-    "skill_category": "Data & AI"
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 4
   },
-  "owasp": {
-    "salary_premium": 2200,
-    "ai_replaceability_score": 7,
-    "skill_category": "Cybersecurity"
+  "nosql": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 5
   },
-  "pandas": {
-    "salary_premium": 1000,
+  "nunit": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Testing",
+    "trend": "stable",
+    "trend_pct": -2
+  },
+  "o365": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "oauth": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "oauth2": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "object-oriented programming": {
     "ai_replaceability_score": 3,
-    "skill_category": "Data & AI"
+    "skill_category": "Programming Languages",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "observability": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 25
+  },
+  "ocr": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Data Science & AI",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "office 365": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "oidc": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "olt": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "ont": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "openai api": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 85
+  },
+  "openshift": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "opentelemetry": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 42
+  },
+  "opentext appworks bpm": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "openvpn": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Security",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "optical transmission": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "oracle": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Databases",
+    "trend": "declining",
+    "trend_pct": -5
+  },
+  "oracle adf": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "oracle apex": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "oracle database": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "oracle dba": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "oracle retail merchandising system": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "oracle weblogic": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -9
+  },
+  "otel": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 45
+  },
+  "paas": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 25
+  },
+  "panaya": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "pega": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 12
   },
   "penetration testing": {
-    "salary_premium": 3000,
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 28
+  },
+  "performance optimization": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Architecture",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "performance testing": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Testing",
+    "trend": "stable",
+    "trend_pct": 6
+  },
+  "performance tuning": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "php": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -10
+  },
+  "pl/sql": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Databases",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "planview": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "pld": {
     "ai_replaceability_score": 9,
-    "skill_category": "Cybersecurity"
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "pon": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 0
   },
   "postgresql": {
-    "salary_premium": 1000,
-    "ai_replaceability_score": 2,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "postman": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "pots": {
+    "ai_replaceability_score": 10,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -20
+  },
+  "power apps": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "power automate": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 25
   },
   "power bi": {
-    "salary_premium": 1500,
-    "ai_replaceability_score": 4,
-    "skill_category": "Data & AI"
+    "ai_replaceability_score": 6,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 15
   },
-  "product management": {
-    "salary_premium": 3000,
+  "power platform": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 22
+  },
+  "powershell": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "pppoe": {
     "ai_replaceability_score": 9,
-    "skill_category": "Soft Skills & Architecture"
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -5
+  },
+  "primeng": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Frontend",
+    "trend": "stable",
+    "trend_pct": 3
   },
   "prometheus": {
-    "salary_premium": 2200,
     "ai_replaceability_score": 4,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 14
   },
-  "prototyping": {
-    "salary_premium": 1200,
+  "prompt engineering": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 85
+  },
+  "pub/sub": {
     "ai_replaceability_score": 5,
-    "skill_category": "Soft Skills & Architecture"
+    "skill_category": "Architecture",
+    "trend": "growing",
+    "trend_pct": 19
+  },
+  "pyspark": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 28
   },
   "pytest": {
-    "salary_premium": 1000,
     "ai_replaceability_score": 3,
-    "skill_category": "Software Development"
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 16
   },
   "python": {
-    "salary_premium": 1500,
     "ai_replaceability_score": 3,
-    "skill_category": "Software Development"
+    "skill_category": "Programming Languages",
+    "trend": "growing",
+    "trend_pct": 25
   },
   "pytorch": {
-    "salary_premium": 2500,
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 42
+  },
+  "qlik": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Data Science & AI",
+    "trend": "stable",
+    "trend_pct": -2
+  },
+  "qos": {
     "ai_replaceability_score": 6,
-    "skill_category": "Data & AI"
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "quality management systems": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 5
+  },
+  "query optimization": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Databases",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "r": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Data Science & AI",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "rabbitmq": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "rac": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "radius": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Security",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "rag": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 85
+  },
+  "rdbms": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "rds": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 15
   },
   "react": {
-    "salary_premium": 1200,
-    "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 5,
+    "skill_category": "Web Frontend",
+    "trend": "growing",
+    "trend_pct": 14
   },
   "react native": {
-    "salary_premium": 1500,
-    "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 6,
+    "skill_category": "Mobile",
+    "trend": "growing",
+    "trend_pct": 18
   },
-  "red teaming": {
-    "salary_premium": 3500,
-    "ai_replaceability_score": 10,
-    "skill_category": "Cybersecurity"
+  "red team exercise": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 25
   },
   "redis": {
-    "salary_premium": 1200,
-    "ai_replaceability_score": 3,
-    "skill_category": "Cloud & Infrastructure"
-  },
-  "redshift": {
-    "salary_premium": 2200,
-    "ai_replaceability_score": 6,
-    "skill_category": "Data & AI"
+    "ai_replaceability_score": 5,
+    "skill_category": "Databases",
+    "trend": "growing",
+    "trend_pct": 12
   },
   "redux": {
-    "salary_premium": 800,
-    "ai_replaceability_score": 3,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Frontend",
+    "trend": "stable",
+    "trend_pct": -2
   },
-  "replication": {
-    "salary_premium": 1500,
+  "regression testing": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Testing",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "release management": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 10
+  },
+  "remedy": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "rest api": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "restful api": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "retrofit": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Mobile",
+    "trend": "stable",
+    "trend_pct": -4
+  },
+  "rf": {
     "ai_replaceability_score": 5,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 3
   },
-  "rest api design": {
-    "salary_premium": 1200,
+  "rhel": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 6
+  },
+  "rman": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "rms": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 8
+  },
+  "robot framework": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "rpa": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "rpg": {
     "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
+    "skill_category": "Programming Languages",
+    "trend": "declining",
+    "trend_pct": -9
   },
-  "rest apis": {
-    "salary_premium": 800,
+  "rtcp": {
     "ai_replaceability_score": 3,
-    "skill_category": "Software Development"
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
   },
-  "room database": {
-    "salary_premium": 600,
+  "rtp": {
     "ai_replaceability_score": 3,
-    "skill_category": "Software Development"
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 0
   },
-  "routing": {
-    "salary_premium": 1800,
+  "ruby": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Programming Languages",
+    "trend": "declining",
+    "trend_pct": -5
+  },
+  "rxjs": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Frontend",
+    "trend": "growing",
+    "trend_pct": 7
+  },
+  "s/4hana": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 25
+  },
+  "s3": {
     "ai_replaceability_score": 4,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 28
+  },
+  "salesforce": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "salesforce crm": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "sap": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "sap activate": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 10
+  },
+  "sap ams": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "sap analytics cloud": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 20
+  },
+  "sap bo": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Data Science & AI",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "sap bpa": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 19
+  },
+  "sap bpc": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -4
+  },
+  "sap btp": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 30
+  },
+  "sap businessobjects": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "sap bw": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "sap bw/4hana": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Databases",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "sap cloud erp": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 28
+  },
+  "sap cpi": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 25
+  },
+  "sap data": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "sap data services": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Data Science & AI",
+    "trend": "stable",
+    "trend_pct": -2
+  },
+  "sap e-invoicing": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 35
+  },
+  "sap ecc": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "sap ewm": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "sap fi/co": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "sap fico": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "sap hana": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Databases",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "sap irpa": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 20
+  },
+  "sap is-oil": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "sap mdg": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 10
+  },
+  "sap mm": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "sap nw java": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -10
+  },
+  "sap pi/po": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -7
+  },
+  "sap pm": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "sap re-fx": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "sap rise": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 35
+  },
+  "sap s/4 sales": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "sap s/4hana": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 28
+  },
+  "sap signavio": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 42
+  },
+  "sap solution manager": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "sap successfactors": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "sap td": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "sap treasury": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 7
+  },
+  "sap tsw": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "sap wm": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -12
   },
   "scikit-learn": {
-    "salary_premium": 2000,
-    "ai_replaceability_score": 5,
-    "skill_category": "Data & AI"
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "scripting": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Programming Languages",
+    "trend": "stable",
+    "trend_pct": 4
   },
   "scrum": {
-    "salary_premium": 1200,
+    "ai_replaceability_score": 3,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "scss": {
     "ai_replaceability_score": 8,
-    "skill_category": "Soft Skills & Architecture"
+    "skill_category": "Web Frontend",
+    "trend": "stable",
+    "trend_pct": 2
   },
-  "sd-wan": {
-    "salary_premium": 2500,
-    "ai_replaceability_score": 6,
-    "skill_category": "Cloud & Infrastructure"
-  },
-  "security": {
-    "salary_premium": 2000,
-    "ai_replaceability_score": 8,
-    "skill_category": "Cybersecurity"
-  },
-  "security architecture": {
-    "salary_premium": 3000,
-    "ai_replaceability_score": 10,
-    "skill_category": "Cybersecurity"
+  "sdlc": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 5
   },
   "selenium": {
-    "salary_premium": 1000,
-    "ai_replaceability_score": 2,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 7,
+    "skill_category": "Testing",
+    "trend": "stable",
+    "trend_pct": -2
+  },
+  "serilog": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 9
+  },
+  "service mesh": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 24
+  },
+  "servicenow": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 19
+  },
+  "sftp": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "sharepoint": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "shell scripting": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 5
   },
   "siem": {
-    "salary_premium": 2800,
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "sip": {
     "ai_replaceability_score": 7,
-    "skill_category": "Cybersecurity"
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -8
   },
   "sketch": {
-    "salary_premium": 800,
-    "ai_replaceability_score": 4,
-    "skill_category": "Other"
+    "ai_replaceability_score": 7,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -15
   },
-  "solidity": {
-    "salary_premium": 2500,
-    "ai_replaceability_score": 6,
-    "skill_category": "Software Development"
+  "smart comm": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "snow": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "snowflake": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Databases",
+    "trend": "growing",
+    "trend_pct": 25
+  },
+  "soap": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -20
+  },
+  "social engineering": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 30
+  },
+  "software": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "software development": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 8
+  },
+  "software specifications": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Architecture",
+    "trend": "growing",
+    "trend_pct": 10
+  },
+  "software testing": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "solaris": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -25
   },
   "solution architecture": {
-    "salary_premium": 3500,
-    "ai_replaceability_score": 10,
-    "skill_category": "Soft Skills & Architecture"
+    "ai_replaceability_score": 2,
+    "skill_category": "Architecture",
+    "trend": "growing",
+    "trend_pct": 12
   },
-  "solution design": {
-    "salary_premium": 3000,
+  "sonar": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 7
+  },
+  "sonarqube": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 9
+  },
+  "source code review": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 11
+  },
+  "sourcetree": {
     "ai_replaceability_score": 9,
-    "skill_category": "Soft Skills & Architecture"
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -12
   },
   "spark": {
-    "salary_premium": 2500,
-    "ai_replaceability_score": 5,
-    "skill_category": "Data & AI"
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 14
   },
-  "sphinx": {
-    "salary_premium": 500,
-    "ai_replaceability_score": 2,
-    "skill_category": "Other"
+  "spf": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Security",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "spring": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 8
+  },
+  "spring boot": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 9
+  },
+  "spring framework": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 8
   },
   "sql": {
-    "salary_premium": 1200,
-    "ai_replaceability_score": 3,
-    "skill_category": "Data & AI"
-  },
-  "statistics": {
-    "salary_premium": 1800,
     "ai_replaceability_score": 7,
-    "skill_category": "Data & AI"
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "sql server": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "ssrs": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Databases",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "sst": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "struts": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -25
+  },
+  "suricata": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "svelte": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Frontend",
+    "trend": "growing",
+    "trend_pct": 20
+  },
+  "svn": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -20
   },
   "swift": {
-    "salary_premium": 1500,
-    "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
-  },
-  "swiftui": {
-    "salary_premium": 1500,
-    "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
-  },
-  "switching": {
-    "salary_premium": 1500,
     "ai_replaceability_score": 5,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Mobile",
+    "trend": "stable",
+    "trend_pct": 4
   },
-  "system architecture": {
-    "salary_premium": 3500,
-    "ai_replaceability_score": 10,
-    "skill_category": "Soft Skills & Architecture"
+  "sybase ase": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Databases",
+    "trend": "declining",
+    "trend_pct": -10
   },
-  "system design": {
-    "salary_premium": 3000,
-    "ai_replaceability_score": 9,
-    "skill_category": "Soft Skills & Architecture"
+  "system integration testing": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 9
   },
   "tableau": {
-    "salary_premium": 1500,
-    "ai_replaceability_score": 4,
-    "skill_category": "Data & AI"
+    "ai_replaceability_score": 6,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 7
+  },
+  "tailwind": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Frontend",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "talend": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Data Science & AI",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "tdd": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "teamviewer": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 0
   },
   "tensorflow": {
-    "salary_premium": 2500,
-    "ai_replaceability_score": 5,
-    "skill_category": "Data & AI"
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 25
   },
   "terraform": {
-    "salary_premium": 3000,
-    "ai_replaceability_score": 6,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 25
   },
-  "togaf": {
-    "salary_premium": 3500,
+  "test automation": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 20
+  },
+  "test cases": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Testing",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "test planning": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Testing",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "test strategy": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 8
+  },
+  "tfs": {
     "ai_replaceability_score": 9,
-    "skill_category": "Soft Skills & Architecture"
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -20
+  },
+  "thermal design": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "tls": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Security",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "tomcat": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": -2
+  },
+  "topaz": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -10
+  },
+  "tosca": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "transformer models": {
+    "ai_replaceability_score": 1,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 45
+  },
+  "transportation management": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 9
+  },
+  "trello": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "trm": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 6
+  },
+  "troubleshooting": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 11
   },
   "typescript": {
-    "salary_premium": 1500,
-    "ai_replaceability_score": 3,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 5,
+    "skill_category": "Programming Languages",
+    "trend": "growing",
+    "trend_pct": 15
   },
-  "ui design": {
-    "salary_premium": 1000,
+  "uat": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Testing",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "ubuntu": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "ui/ux": {
     "ai_replaceability_score": 3,
-    "skill_category": "Other"
+    "skill_category": "Web Frontend",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "uipath": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 20
+  },
+  "uml": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Architecture",
+    "trend": "declining",
+    "trend_pct": -12
   },
   "unity": {
-    "salary_premium": 1500,
     "ai_replaceability_score": 4,
-    "skill_category": "Software Development"
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 15
   },
-  "unreal engine": {
-    "salary_premium": 2000,
+  "unix": {
     "ai_replaceability_score": 5,
-    "skill_category": "Software Development"
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
   },
-  "usability testing": {
-    "salary_premium": 1200,
-    "ai_replaceability_score": 7,
-    "skill_category": "Other"
+  "us gaap": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
+  },
+  "usb": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "user acceptance test": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 5
+  },
+  "user acceptance testing": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 5
   },
   "user stories": {
-    "salary_premium": 800,
+    "ai_replaceability_score": 3,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "uxpin": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "vb": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Programming Languages",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "vb.net": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Programming Languages",
+    "trend": "declining",
+    "trend_pct": -10
+  },
+  "vcs": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "vector database": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 85
+  },
+  "vector databases": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 85
+  },
+  "viewmodel": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Web Frontend",
+    "trend": "stable",
+    "trend_pct": 6
+  },
+  "vlan": {
     "ai_replaceability_score": 6,
-    "skill_category": "Soft Skills & Architecture"
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 0
+  },
+  "vmware": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Cloud & DevOps",
+    "trend": "declining",
+    "trend_pct": -5
+  },
+  "voip": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "vpc": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 14
   },
   "vpn": {
-    "salary_premium": 500,
-    "ai_replaceability_score": 2,
-    "skill_category": "Cybersecurity"
+    "ai_replaceability_score": 6,
+    "skill_category": "Security",
+    "trend": "stable",
+    "trend_pct": 4
   },
   "vue": {
-    "salary_premium": 1200,
-    "ai_replaceability_score": 3,
-    "skill_category": "Software Development"
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Frontend",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "vue.js": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Frontend",
+    "trend": "stable",
+    "trend_pct": 8
   },
   "vulnerability assessment": {
-    "salary_premium": 3000,
-    "ai_replaceability_score": 8,
-    "skill_category": "Cybersecurity"
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 25
   },
-  "web3.js": {
-    "salary_premium": 2500,
+  "vulnerability management": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "waterfall": {
+    "ai_replaceability_score": 2,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "wcf": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -25
+  },
+  "wdk": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -10
+  },
+  "web api": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "web application security": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 20
+  },
+  "web capture": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "web services": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Backend",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "webhooks": {
     "ai_replaceability_score": 5,
-    "skill_category": "Software Development"
+    "skill_category": "Web Backend",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "weblogic": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -8
+  },
+  "webtop": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -12
+  },
+  "wi-fi": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "wildfly": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Web Backend",
+    "trend": "declining",
+    "trend_pct": -5
   },
   "windows": {
-    "salary_premium": 500,
-    "ai_replaceability_score": 2,
-    "skill_category": "Cloud & Infrastructure"
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 1
   },
-  "windows server": {
-    "salary_premium": 1500,
+  "windows batch": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Tools",
+    "trend": "declining",
+    "trend_pct": -20
+  },
+  "windows sql server": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Databases",
+    "trend": "stable",
+    "trend_pct": 3
+  },
+  "wireless security": {
     "ai_replaceability_score": 4,
-    "skill_category": "Cloud & Infrastructure"
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 9
+  },
+  "workday": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Tools",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "wpf": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -10
+  },
+  "xcp": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -18
+  },
+  "xgspon": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 12
+  },
+  "xml": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -15
+  },
+  "xpore": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Data Science & AI",
+    "trend": "growing",
+    "trend_pct": 8
+  },
+  "xslt": {
+    "ai_replaceability_score": 9,
+    "skill_category": "Other",
+    "trend": "declining",
+    "trend_pct": -20
+  },
+  "xstp": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "stable",
+    "trend_pct": 2
+  },
+  "xtensio": {
+    "ai_replaceability_score": 8,
+    "skill_category": "Tools",
+    "trend": "stable",
+    "trend_pct": 5
+  },
+  "xunit": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Testing",
+    "trend": "growing",
+    "trend_pct": 15
+  },
+  "yaml": {
+    "ai_replaceability_score": 7,
+    "skill_category": "Cloud & DevOps",
+    "trend": "growing",
+    "trend_pct": 18
+  },
+  "yang": {
+    "ai_replaceability_score": 5,
+    "skill_category": "Other",
+    "trend": "growing",
+    "trend_pct": 9
+  },
+  "zabbix": {
+    "ai_replaceability_score": 6,
+    "skill_category": "Cloud & DevOps",
+    "trend": "stable",
+    "trend_pct": 4
+  },
+  "zeek": {
+    "ai_replaceability_score": 3,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 14
+  },
+  "zscaler": {
+    "ai_replaceability_score": 4,
+    "skill_category": "Security",
+    "trend": "growing",
+    "trend_pct": 21
   }
 }

@@ -1,485 +1,1059 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <title>Career Pathway Navigator</title>
-    <style>
-        body { font-family: Arial; max-width: 1000px; margin: 40px auto; padding: 20px; }
-        .section { margin: 30px 0; padding: 20px; border: 1px solid #ccc; border-radius: 8px; }
-        button { background: #007bff; color: white; padding: 10px 20px; border: none; border-radius: 4px; cursor: pointer; margin: 5px; }
-        .skill { display: inline-block; background: #e0e0e0; margin: 5px; padding: 5px 10px; border-radius: 15px; cursor: pointer; }
-        .skill.selected { background: #4caf50; color: white; }
-        .job-card { border: 1px solid #ddd; margin: 10px 0; padding: 10px; border-radius: 6px; }
-        .path-step { margin-left: 20px; border-left: 2px solid #ccc; padding-left: 15px; }
-        .skill-dropdown { max-height: 200px; overflow-y: auto; border: 1px solid #ccc; padding: 10px; margin: 10px 0; border-radius: 4px; }
-        .skill-option { margin: 5px; }
-        input, select { margin: 5px; padding: 8px; }
-        .pagination { margin-top: 15px; display: flex; gap: 10px; align-items: center; }
-        .salary-slider { display: flex; align-items: center; gap: 15px; flex-wrap: wrap; }
-        .salary-slider input { flex: 1; min-width: 200px; }
-        .explanation-box { margin-top: 10px; padding: 10px; background: #f9f9f9; border-left: 4px solid #007bff; border-radius: 4px; }
-        .explanation-skill { margin: 8px 0; }
-        .importance-high { color: #d9534f; font-weight: bold; }
-        .importance-mid { color: #f0ad4e; }
-        .importance-low { color: #5cb85c; }
-        .active {
-            background: #0056b3;
-            transform: scale(0.98);
-        }
-        .skill-demand-grid {
-            display: flex;
-            flex-direction: column;
-            gap: 12px;
-            margin-top: 15px;
-        }
-        .demand-card {
-            background: #ffffff;
-            border-radius: 12px;
-            box-shadow: 0 2px 6px rgba(0,0,0,0.05);
-            overflow: hidden;
-            transition: all 0.2s;
-        }
-        .demand-card:hover {
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-        }
-        .demand-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: baseline;
-            padding: 12px 16px 4px 16px;
-            flex-wrap: wrap;
-        }
-        .demand-skill {
-            font-weight: 700;
-            font-size: 1.1rem;
-            color: #1e3c72;
-        }
-        .demand-count {
-            background: #e9ecef;
-            padding: 4px 10px;
-            border-radius: 20px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: #2c3e66;
-        }
-        .demand-bar-container {
-            background: #e9ecef;
-            height: 8px;
-            margin: 8px 16px;
-            border-radius: 4px;
-            overflow: hidden;
-        }
-        .demand-bar {
-            background: linear-gradient(90deg, #007bff, #00b4d8);
-            height: 100%;
-            width: 0%;
-            border-radius: 4px;
-            transition: width 0.3s ease;
-        }
-        .demand-footer {
-            padding: 8px 16px 12px 16px;
-            display: flex;
-            gap: 16px;
-            font-size: 0.8rem;
-            color: #6c757d;
-            border-top: 1px solid #f0f0f0;
-            margin-top: 4px;
-        }
-        .ai-badge {
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-        }
-        .ai-score {
-            font-weight: 600;
-            padding: 2px 8px;
-            border-radius: 20px;
-            background: #f8f9fa;
-        }
-        .score-high { color: #2b8c4e; }
-        .score-mid { color: #e67e22; }
-        .score-low { color: #c0392b; }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Career Pathway Navigator – Malaysia IT</title>
+<style>
+:root {
+  --primary: #2563eb;
+  --primary-dark: #1d4ed8;
+  --success: #16a34a;
+  --warning: #d97706;
+  --danger: #dc2626;
+  --neutral: #64748b;
+  --bg: #f1f5f9;
+  --card: #ffffff;
+  --border: #e2e8f0;
+  --text: #1e293b;
+  --text-muted: #64748b;
+  --radius: 10px;
+}
+* { box-sizing: border-box; margin: 0; padding: 0; }
+body { font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif; background: var(--bg); color: var(--text); min-height: 100vh; }
+a { color: var(--primary); }
+
+/* ── Header ── */
+header { background: var(--primary); color: white; padding: 16px 24px; display: flex; align-items: center; gap: 12px; }
+header h1 { font-size: 1.25rem; font-weight: 700; }
+header span { font-size: 0.85rem; opacity: 0.85; }
+#setup-banner { background: #fef3c7; border-bottom: 1px solid #fde68a; padding: 10px 24px; font-size: 0.875rem; color: #92400e; display: none; }
+
+/* ── Tabs ── */
+nav.tabs { background: white; border-bottom: 2px solid var(--border); padding: 0 24px; display: flex; gap: 4px; }
+nav.tabs button { padding: 12px 18px; border: none; background: none; cursor: pointer; font-size: 0.9rem; color: var(--text-muted); border-bottom: 3px solid transparent; margin-bottom: -2px; transition: all .15s; }
+nav.tabs button.active { color: var(--primary); border-bottom-color: var(--primary); font-weight: 600; }
+nav.tabs button:hover:not(.active) { color: var(--text); background: var(--bg); }
+
+/* ── Layout ── */
+.tab-content { display: none; padding: 24px; max-width: 1100px; margin: 0 auto; }
+.tab-content.active { display: block; }
+.two-col { display: grid; grid-template-columns: 340px 1fr; gap: 20px; }
+
+/* ── Cards ── */
+.card { background: var(--card); border: 1px solid var(--border); border-radius: var(--radius); padding: 20px; }
+.card h3 { font-size: 0.95rem; font-weight: 600; margin-bottom: 14px; color: var(--text); }
+.card-title-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; }
+
+/* ── Buttons ── */
+.btn { display: inline-flex; align-items: center; gap: 6px; padding: 9px 18px; border-radius: 7px; border: none; cursor: pointer; font-size: 0.875rem; font-weight: 500; transition: all .15s; }
+.btn-primary { background: var(--primary); color: white; }
+.btn-primary:hover { background: var(--primary-dark); }
+.btn-secondary { background: white; color: var(--text); border: 1px solid var(--border); }
+.btn-secondary:hover { background: var(--bg); }
+.btn-sm { padding: 5px 12px; font-size: 0.8rem; }
+.btn-ghost { background: transparent; color: var(--primary); border: 1px solid var(--primary); }
+.btn-ghost:hover { background: #eff6ff; }
+.btn:disabled { opacity: 0.5; cursor: not-allowed; }
+
+/* ── Form elements ── */
+input[type=text], input[type=number], select { width: 100%; padding: 8px 12px; border: 1px solid var(--border); border-radius: 7px; font-size: 0.875rem; outline: none; color: var(--text); }
+input:focus, select:focus { border-color: var(--primary); box-shadow: 0 0 0 2px #dbeafe; }
+label { font-size: 0.85rem; font-weight: 500; color: var(--text-muted); display: block; margin-bottom: 4px; }
+.form-row { margin-bottom: 14px; }
+.form-row-inline { display: flex; align-items: center; gap: 10px; margin-bottom: 10px; }
+.form-row-inline label { margin: 0; white-space: nowrap; }
+
+/* ── Drop zone ── */
+.drop-zone { border: 2px dashed var(--border); border-radius: var(--radius); padding: 28px; text-align: center; cursor: pointer; transition: all .15s; color: var(--text-muted); }
+.drop-zone:hover, .drop-zone.drag-over { border-color: var(--primary); background: #eff6ff; color: var(--primary); }
+.drop-zone p { margin-top: 8px; font-size: 0.85rem; }
+
+/* ── Skills ── */
+.skills-wrap { display: flex; flex-wrap: wrap; gap: 7px; min-height: 44px; padding: 8px; border: 1px solid var(--border); border-radius: 7px; background: white; margin-bottom: 10px; }
+.skill-tag { display: inline-flex; align-items: center; gap: 5px; background: #dbeafe; color: #1e40af; padding: 4px 10px; border-radius: 20px; font-size: 0.8rem; }
+.skill-tag .rm { cursor: pointer; opacity: 0.6; }
+.skill-tag .rm:hover { opacity: 1; }
+.skill-search-wrap { position: relative; }
+.skill-suggestions { position: absolute; top: 100%; left: 0; right: 0; background: white; border: 1px solid var(--border); border-radius: 7px; max-height: 200px; overflow-y: auto; z-index: 10; box-shadow: 0 4px 12px rgba(0,0,0,.1); display: none; }
+.skill-suggestions.open { display: block; }
+.skill-sugg-item { padding: 8px 12px; cursor: pointer; font-size: 0.85rem; display: flex; align-items: center; justify-content: space-between; }
+.skill-sugg-item:hover { background: #f1f5f9; }
+.skill-sugg-item .cat { font-size: 0.75rem; color: var(--text-muted); }
+
+/* ── Badges & metrics ── */
+.badge { display: inline-block; font-size: 0.72rem; padding: 2px 8px; border-radius: 12px; font-weight: 500; white-space: nowrap; }
+.badge-blue { background: #dbeafe; color: #1e40af; }
+.badge-green { background: #dcfce7; color: #15803d; }
+.badge-yellow { background: #fef9c3; color: #854d0e; }
+.badge-red { background: #fee2e2; color: #991b1b; }
+.badge-gray { background: #f1f5f9; color: #475569; }
+.badge-source { background: #f8fafc; color: #475569; border: 1px solid #e2e8f0; font-size: 0.7rem; padding: 1px 7px; }
+
+.metric-row { display: flex; flex-wrap: wrap; gap: 12px; margin: 10px 0; }
+.metric-item { font-size: 0.82rem; }
+.metric-item .val { font-weight: 600; font-size: 0.95rem; }
+.metric-item .lbl { color: var(--text-muted); font-size: 0.75rem; }
+
+.confidence-bar { height: 6px; background: #e2e8f0; border-radius: 3px; margin-top: 4px; overflow: hidden; }
+.confidence-fill { height: 100%; border-radius: 3px; transition: width .4s; }
+
+.freshness { font-size: 0.72rem; color: var(--text-muted); margin-top: 2px; }
+
+/* ── Role card ── */
+.role-card { background: white; border: 1px solid var(--border); border-radius: var(--radius); padding: 16px; margin-bottom: 12px; transition: box-shadow .15s; }
+.role-card:hover { box-shadow: 0 2px 8px rgba(0,0,0,.08); }
+.role-card .title-row { display: flex; justify-content: space-between; align-items: flex-start; gap: 8px; margin-bottom: 10px; }
+.role-card .role-title { font-weight: 600; font-size: 1rem; }
+.role-card .salary { font-weight: 600; color: var(--success); font-size: 0.95rem; }
+.role-card .detail-section { margin-top: 12px; padding-top: 12px; border-top: 1px solid var(--border); display: none; }
+.role-card .detail-section.open { display: block; }
+
+/* ── Replaceability gauge ── */
+.repl-bar { height: 8px; border-radius: 4px; background: #e2e8f0; overflow: hidden; width: 100px; display: inline-block; vertical-align: middle; margin-left: 6px; }
+.repl-fill { height: 100%; border-radius: 4px; }
+
+/* ── Path diagram ── */
+.path-diagram { display: flex; align-items: flex-start; gap: 0; overflow-x: auto; padding: 16px 0; }
+.path-node { display: flex; flex-direction: column; align-items: center; min-width: 160px; cursor: pointer; }
+.path-node-box { background: white; border: 2px solid var(--border); border-radius: 10px; padding: 12px; text-align: center; width: 150px; transition: all .2s; }
+.path-node-box:hover, .path-node-box.active { border-color: var(--primary); box-shadow: 0 0 0 3px #dbeafe; }
+.path-node-box .node-title { font-size: 0.82rem; font-weight: 600; margin-bottom: 4px; }
+.path-node-box .node-salary { font-size: 0.78rem; color: var(--success); }
+.path-node-box .node-gap { font-size: 0.72rem; color: var(--text-muted); margin-top: 3px; }
+.path-arrow { display: flex; align-items: center; padding: 0 8px; color: var(--text-muted); font-size: 1.2rem; }
+.path-step-details { margin-top: 16px; }
+
+/* ── Skill demand ── */
+.demand-grid { display: flex; flex-direction: column; gap: 8px; }
+.demand-card { background: white; border: 1px solid var(--border); border-radius: 8px; padding: 12px 16px; display: flex; align-items: center; gap: 12px; }
+.demand-bar-wrap { flex: 1; }
+.demand-bar { height: 8px; background: #e2e8f0; border-radius: 4px; overflow: hidden; }
+.demand-bar-fill { height: 100%; background: var(--primary); border-radius: 4px; transition: width .5s; }
+.trend-up { color: var(--success); font-size: 0.78rem; }
+.trend-down { color: var(--danger); font-size: 0.78rem; }
+.trend-stable { color: var(--neutral); font-size: 0.78rem; }
+
+/* ── Why panel ── */
+.why-btn { background: #eff6ff; color: var(--primary); border: 1px solid #bfdbfe; border-radius: 6px; padding: 4px 12px; font-size: 0.8rem; cursor: pointer; }
+.why-btn:hover { background: #dbeafe; }
+.why-panel { background: #f8fafc; border-left: 4px solid var(--primary); border-radius: 0 8px 8px 0; padding: 14px; margin-top: 10px; display: none; }
+.why-panel.open { display: block; }
+.why-skill-row { margin: 8px 0; }
+.why-skill-name { font-weight: 600; font-size: 0.85rem; }
+.why-skill-exp { font-size: 0.82rem; color: var(--text-muted); margin-top: 2px; }
+.importance-high { color: var(--danger); }
+.importance-mid { color: var(--warning); }
+.importance-low { color: var(--success); }
+.order-badge { display: inline-block; background: var(--primary); color: white; border-radius: 50%; width: 20px; height: 20px; text-align: center; line-height: 20px; font-size: 0.72rem; margin-right: 6px; }
+
+/* ── Pagination ── */
+.pagination { display: flex; gap: 8px; align-items: center; margin-top: 16px; }
+.page-btn { padding: 5px 12px; border: 1px solid var(--border); border-radius: 6px; background: white; cursor: pointer; font-size: 0.85rem; }
+.page-btn.active { background: var(--primary); color: white; border-color: var(--primary); }
+.page-info { font-size: 0.85rem; color: var(--text-muted); }
+
+/* ── Toast ── */
+#toast { position: fixed; bottom: 24px; right: 24px; background: #1e293b; color: white; padding: 12px 20px; border-radius: 8px; font-size: 0.875rem; z-index: 1000; display: none; box-shadow: 0 4px 16px rgba(0,0,0,.2); }
+#toast.show { display: block; animation: slideUp .2s ease; }
+@keyframes slideUp { from { transform: translateY(20px); opacity: 0; } to { transform: translateY(0); opacity: 1; } }
+
+/* ── Spinner ── */
+.spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid rgba(255,255,255,.3); border-top-color: white; border-radius: 50%; animation: spin .7s linear infinite; }
+@keyframes spin { to { transform: rotate(360deg); } }
+.spinner-dark { border-color: rgba(37,99,235,.2); border-top-color: var(--primary); }
+
+/* ── Misc ── */
+.section-title { font-size: 1rem; font-weight: 700; margin-bottom: 16px; color: var(--text); }
+.empty-state { text-align: center; padding: 40px; color: var(--text-muted); }
+.empty-state .icon { font-size: 2.5rem; margin-bottom: 10px; }
+.results-count { font-size: 0.85rem; color: var(--text-muted); margin-bottom: 12px; }
+.crit-badge { background: #fef9c3; color: #854d0e; font-size: 0.72rem; padding: 2px 7px; border-radius: 10px; }
+
+details.limitations { background: #f8fafc; border: 1px solid var(--border); border-radius: var(--radius); margin: 32px 0 24px; }
+details.limitations summary { padding: 14px 20px; cursor: pointer; font-weight: 600; font-size: 0.9rem; color: var(--text-muted); }
+details.limitations .lim-body { padding: 0 20px 16px; font-size: 0.85rem; color: var(--text-muted); line-height: 1.7; }
+details.limitations .lim-body ul { margin-left: 20px; margin-top: 6px; }
+
+.revalidate-wrap { margin-top: 16px; }
+</style>
 </head>
 <body>
-    <h1>🧭 Career Pathway Navigator (Malaysia IT Jobs)</h1>
-    
-    <div class="section">
-        <h2>1. Upload your resume (PDF)</h2>
-        <input type="file" id="resumeFile" accept=".pdf">
-        <button onclick="extractSkills()">Extract Skills</button>
-        <div id="skillsResult"></div>
-    </div>
 
-    <div class="section">
-        <h2>2. Edit Your Skills (Add/Remove)</h2>
-        <p>Click skills below to add/remove. Extracted skills are pre‑selected.</p>
-        <div id="skillSelector" class="skill-dropdown"></div>
-    </div>
+<header>
+  <svg width="28" height="28" viewBox="0 0 24 24" fill="none" stroke="white" stroke-width="2"><path d="M3 3h6l3 9 4-6h5"/><circle cx="18" cy="18" r="4"/><path d="M18 14v4l2 2"/></svg>
+  <div>
+    <h1>Career Pathway Navigator</h1>
+    <span>Malaysia IT Job Market · Powered by Gemini AI · Data: JobStreet 2025</span>
+  </div>
+</header>
 
-    <div class="section">
-        <h2>3. Salary Filter</h2>
-        <div class="salary-slider">
-            <span>Min monthly salary (RM):</span>
-            <input type="range" id="salaryThreshold" min="0" max="20000" step="500" value="0">
-            <span id="salaryValue">0</span>
-            <label style="margin-left: 10px;">
-                <input type="checkbox" id="includeUndisclosed"> Include undisclosed salaries
-            </label>
+<div id="setup-banner">
+  ⚠️ Job skills not yet extracted. Run: <code>uv run python scripts/extract_job_skills_with_gemini.py</code> for full functionality.
+</div>
+
+<nav class="tabs">
+  <button class="active" onclick="showTab('skills')">Skills Input</button>
+  <button onclick="showTab('explore')">Explore Roles</button>
+  <button onclick="showTab('path')">Career Path</button>
+  <button onclick="showTab('demand')">Market Demand</button>
+</nav>
+
+<!-- ═══════════════════════════════════════════════════════ TAB 1: SKILLS ═══ -->
+<div id="tab-skills" class="tab-content active">
+  <div class="two-col">
+    <div>
+      <div class="card" style="margin-bottom:16px">
+        <h3>📄 Upload Resume (PDF)</h3>
+        <div class="drop-zone" id="drop-zone" onclick="document.getElementById('resume-input').click()">
+          <svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"/><polyline points="14 2 14 8 20 8"/><line x1="12" y1="18" x2="12" y2="12"/><polyline points="9 15 12 12 15 15"/></svg>
+          <p>Click or drag & drop your PDF resume</p>
+          <p style="font-size:.78rem;margin-top:4px">Skills are extracted locally via Gemini AI</p>
         </div>
-    </div>
+        <input type="file" id="resume-input" accept=".pdf" style="display:none">
+        <button class="btn btn-primary" style="margin-top:10px;width:100%" id="extract-btn" onclick="extractSkillsFromResume()">
+          Extract Skills from PDF
+        </button>
+        <div id="extract-status" style="margin-top:8px;font-size:.82rem;color:var(--text-muted)"></div>
+      </div>
 
-    <div class="section">
-        <h2>4. Suggested Next Roles (with salary filter)</h2>
-        <div id="suggestionsResult"></div>
-        <div id="suggestionsPagination" class="pagination"></div>
-    </div>
-
-    <div class="section">
-        <h2>5. Plan a Multi‑Step Career Path to a Target Role</h2>
-        <select id="targetRole"></select>
-        <button onclick="findPaths()">Find Paths</button>
-        <div id="pathsResult"></div>
-    </div>
-
-    <div class="section">
-        <h2>6. 📊 Skill Demand (High‑Paying Jobs)</h2>
-        <p>Skills that appear most often in jobs <strong>with salary ≥</strong></p>
-        <div class="salary-slider" style="margin: 10px 0;">
-            <span>RM</span>
-            <input type="range" id="demandThreshold" min="0" max="20000" step="1000" value="7000">
-            <span id="thresholdValue" style="font-weight: bold;">7000</span>
-            <span>per month</span>
+      <div class="card">
+        <h3>⚙️ Options</h3>
+        <div class="form-row">
+          <label>Current Job Title (for salary delta)</label>
+          <input type="text" id="current-title" placeholder="e.g. Frontend Developer" list="titles-list">
+          <datalist id="titles-list"></datalist>
         </div>
-        <div id="demandResult" class="skill-demand-grid"></div>
+        <div class="form-row">
+          <label>Min salary (RM/month)</label>
+          <div style="display:flex;align-items:center;gap:10px">
+            <input type="range" id="salary-range" min="0" max="15000" step="500" value="0" style="flex:1" oninput="document.getElementById('salary-val').textContent=this.value==0?'Any':'RM '+Number(this.value).toLocaleString()">
+            <span id="salary-val" style="font-size:.85rem;font-weight:600;min-width:80px">Any</span>
+          </div>
+        </div>
+        <div class="form-row-inline">
+          <input type="checkbox" id="incl-undisclosed" style="width:auto">
+          <label for="incl-undisclosed" style="margin:0">Include undisclosed salary roles</label>
+        </div>
+      </div>
     </div>
 
-    <script>
-        let extractedSkills = [];
-        let allSkillsList = [];
-        let salaryThreshold = 0;
-        let currentSelectedSkills = new Set();
-        let allSuggestions = [];
-        let suggestionsPage = 1;
-        const PAGE_SIZE = 20;
+    <div>
+      <div class="card">
+        <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:12px">
+          <h3 style="margin:0">🧠 Your Skills (<span id="skill-count">0</span>)</h3>
+          <button class="btn btn-secondary btn-sm" onclick="clearSkills()">Clear all</button>
+        </div>
+        <div class="skills-wrap" id="skills-wrap"></div>
 
-        function updateSalaryDisplay() {
-            const slider = document.getElementById('salaryThreshold');
-            salaryThreshold = parseInt(slider.value) || 0;
-            document.getElementById('salaryValue').innerText = salaryThreshold;
-            if (allSkillsList.length) getSuggestions();
-        }
+        <div class="skill-search-wrap">
+          <input type="text" id="skill-input" placeholder="Search and add a skill…" autocomplete="off" oninput="onSkillInput()" onkeydown="onSkillKeydown(event)">
+          <div class="skill-suggestions" id="skill-suggestions"></div>
+        </div>
 
-        async function extractSkills() {
-            const fileInput = document.getElementById('resumeFile');
-            if (!fileInput.files.length) {
-                alert('Please select a PDF file');
-                return;
-            }
-            const formData = new FormData();
-            formData.append('resume', fileInput.files[0]);
-            const response = await fetch('/extract_skills', { method: 'POST', body: formData });
-            const data = await response.json();
-            if (data.error) {
-                alert(data.error);
-                return;
-            }
-            extractedSkills = data.skills;
-            currentSelectedSkills = new Set(extractedSkills);
-            document.getElementById('skillsResult').innerHTML = `
-                <h3>Extracted Skills:</h3>
-                ${extractedSkills.map(s => `<span class="skill">${s}</span>`).join('')}
-            `;
-            await loadAllSkills();
-            renderSkillSelector();
-            loadJobTitles();
-            getSuggestions();
-        }
+        <div style="margin-top:16px;display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-primary" onclick="goExplore()">Explore Matching Roles →</button>
+          <button class="btn btn-secondary" onclick="goPath()">Plan Career Path →</button>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
 
-        async function loadAllSkills() {
-            const response = await fetch('/all_skills');
-            allSkillsList = await response.json();
-        }
+<!-- ════════════════════════════════════════════════════ TAB 2: EXPLORE ═══ -->
+<div id="tab-explore" class="tab-content">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px">
+    <div>
+      <div class="section-title" style="margin:0">Matching Roles</div>
+      <div id="explore-meta" class="freshness"></div>
+    </div>
+    <div style="display:flex;gap:8px;align-items:center">
+      <select id="explore-sort" onchange="renderSuggest()" style="width:auto">
+        <option value="match">Sort: Best Match</option>
+        <option value="salary">Sort: Salary</option>
+        <option value="gap">Sort: Easiest Transition</option>
+        <option value="conf">Sort: Confidence</option>
+      </select>
+      <button class="btn btn-primary" onclick="loadSuggest()">
+        <span id="explore-btn-text">Find Roles</span>
+        <span id="explore-spinner" style="display:none" class="spinner"></span>
+      </button>
+    </div>
+  </div>
 
-        let currentDemandThreshold = 7000;
+  <div id="explore-empty" class="empty-state">
+    <div class="icon">🔍</div>
+    <div>Add your skills on the Skills tab, then click Find Roles.</div>
+  </div>
+  <div id="explore-results"></div>
+  <div id="explore-pagination" class="pagination" style="display:none"></div>
+</div>
 
-        document.getElementById('demandThreshold').addEventListener('input', (e) => {
-            currentDemandThreshold = parseInt(e.target.value);
-            document.getElementById('thresholdValue').innerText = currentDemandThreshold;
-            loadSkillDemand();
-        });
+<!-- ═══════════════════════════════════════════════════════ TAB 3: PATH ═══ -->
+<div id="tab-path" class="tab-content">
+  <div class="card" style="margin-bottom:20px">
+    <div style="display:flex;gap:12px;align-items:flex-end;flex-wrap:wrap">
+      <div style="flex:1;min-width:240px">
+        <label>Target Role</label>
+        <input type="text" id="target-title-input" placeholder="e.g. Cloud Engineer" list="path-titles-list">
+        <datalist id="path-titles-list"></datalist>
+      </div>
+      <div>
+        <label>&nbsp;</label>
+        <div class="form-row-inline" style="margin:0">
+          <input type="checkbox" id="path-incl-undisclosed" style="width:auto">
+          <label for="path-incl-undisclosed" style="margin:0;font-size:.85rem">Incl. undisclosed salary</label>
+        </div>
+      </div>
+      <button class="btn btn-primary" onclick="loadPaths()">
+        <span id="path-btn-text">Find Career Path</span>
+        <span id="path-spinner" style="display:none" class="spinner"></span>
+      </button>
+    </div>
+  </div>
 
-        async function loadSkillDemand() {
-            const url = `/skill_demand?threshold=${currentDemandThreshold}&limit=30`;
-            const response = await fetch(url);
-            const data = await response.json();
-            if (data.error) {
-                document.getElementById('demandResult').innerHTML = `<p>❌ ${data.error}</p>`;
-                return;
-            }
-            renderDemand(data.skills);
-        }
+  <div id="path-empty" class="empty-state">
+    <div class="icon">🗺️</div>
+    <div>Enter a target role and click Find Career Path.</div>
+  </div>
+  <div id="path-results"></div>
+</div>
 
-        function renderDemand(skills) {
-            if (!skills.length) {
-                document.getElementById('demandResult').innerHTML = '<p>No skills found at this salary threshold.</p>';
-                return;
-            }
-            const maxDemand = Math.max(...skills.map(s => s.demand_count));
-            let html = '';
-            skills.forEach(skill => {
-                const barWidth = (skill.demand_count / maxDemand) * 100;
-                let scoreClass = '';
-                if (skill.ai_replaceability_score >= 7) scoreClass = 'score-high';
-                else if (skill.ai_replaceability_score <= 3) scoreClass = 'score-low';
-                else scoreClass = 'score-mid';
-                html += `
-                    <div class="demand-card">
-                        <div class="demand-header">
-                            <span class="demand-skill">${skill.skill}</span>
-                            <span class="demand-count">${skill.demand_count} job${skill.demand_count !== 1 ? 's' : ''}</span>
-                        </div>
-                        <div class="demand-bar-container">
-                            <div class="demand-bar" style="width: ${barWidth}%;"></div>
-                        </div>
-                        <div class="demand-footer">
-                            <span class="ai-badge">🤖 AI‑Proof: <span class="ai-score ${scoreClass}">${skill.ai_replaceability_score}/10</span></span>
-                            <span>📂 ${skill.skill_category}</span>
-                        </div>
-                    </div>
-                `;
-            });
-            document.getElementById('demandResult').innerHTML = html;
-        }
+<!-- ════════════════════════════════════════════════════ TAB 4: DEMAND ═══ -->
+<div id="tab-demand" class="tab-content">
+  <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:16px;flex-wrap:wrap;gap:12px">
+    <div>
+      <div class="section-title" style="margin:0">Skill Market Demand</div>
+      <div class="freshness" id="demand-meta"></div>
+    </div>
+    <div style="display:flex;gap:10px;align-items:center;flex-wrap:wrap">
+      <div>
+        <label style="margin-bottom:2px">Min salary threshold</label>
+        <div style="display:flex;align-items:center;gap:6px">
+          <span style="font-size:.85rem">RM</span>
+          <input type="number" id="demand-threshold" value="7000" min="0" step="1000" style="width:100px">
+        </div>
+      </div>
+      <div>
+        <label style="margin-bottom:2px">Show</label>
+        <select id="demand-limit" style="width:100px">
+          <option value="20">Top 20</option>
+          <option value="30" selected>Top 30</option>
+          <option value="50">Top 50</option>
+        </select>
+      </div>
+      <div>
+        <label style="margin-bottom:2px">Category</label>
+        <select id="demand-category" style="width:160px" onchange="renderDemand()">
+          <option value="">All categories</option>
+        </select>
+      </div>
+      <button class="btn btn-primary" onclick="loadDemand()" style="align-self:flex-end">
+        <span id="demand-btn-text">Load Data</span>
+        <span id="demand-spinner" style="display:none" class="spinner"></span>
+      </button>
+    </div>
+  </div>
 
-        function renderSkillSelector() {
-            const container = document.getElementById('skillSelector');
-            container.innerHTML = '';
-            allSkillsList.forEach(skill => {
-                const isSelected = currentSelectedSkills.has(skill);
-                const span = document.createElement('span');
-                span.textContent = skill;
-                span.className = `skill ${isSelected ? 'selected' : ''}`;
-                span.onclick = () => toggleSkill(skill);
-                container.appendChild(span);
-            });
-        }
+  <div id="demand-empty" class="empty-state">
+    <div class="icon">📊</div>
+    <div>Click Load Data to see skill market demand.</div>
+  </div>
+  <div id="demand-results"></div>
+</div>
 
-        function toggleSkill(skill) {
-            if (currentSelectedSkills.has(skill)) {
-                currentSelectedSkills.delete(skill);
-            } else {
-                currentSelectedSkills.add(skill);
-            }
-            renderSkillSelector();
-            getSuggestions();
-            const targetSelect = document.getElementById('targetRole');
-            if (targetSelect.value) {
-                findPaths();
-            }
-        }
+<!-- ══════════════════════════════════════════════ LIMITATIONS (global) ═══ -->
+<div style="max-width:1100px;margin:0 auto;padding:0 24px">
+<details class="limitations">
+  <summary>⚠️ Limitations &amp; Caveats</summary>
+  <div class="lim-body">
+    <p><strong>Data sources &amp; freshness:</strong></p>
+    <ul>
+      <li>Job listings sourced from a static snapshot of ~300 Malaysian IT job postings (2025). Salary data reflects a point-in-time snapshot; actual market rates may differ.</li>
+      <li>Freshness indicators show "0 months old" as this is the initial dataset load. Click <em>Re-validate</em> to simulate a refresh check.</li>
+      <li>AI replaceability scores are derived from WEF Future of Jobs Report 2025 mappings and Gemini-generated analysis — they represent probabilistic risk estimates, not certainties.</li>
+    </ul>
+    <p style="margin-top:10px"><strong>Methodology:</strong></p>
+    <ul>
+      <li>Skill extraction uses Gemini AI with a controlled taxonomy. False positives/negatives may occur, especially for niche skills.</li>
+      <li>Career paths are computed via BFS on a graph where edges require skill transition cost &lt; 80% and upward salary trajectory. Paths reflect average listings, not individual company requirements.</li>
+      <li>Salary delta is computed from median values across all matching job listings. Roles with undisclosed salary are excluded from delta calculations.</li>
+      <li>Confidence scores combine data density, recency (mock: 0 days since refresh), and skill gap ease. They should not be interpreted as hiring probability.</li>
+    </ul>
+    <p style="margin-top:10px"><strong>Limitations:</strong></p>
+    <ul>
+      <li>Does not account for years of experience, education, soft skills, or location preferences.</li>
+      <li>Market trends are mock values for illustration; real trend data requires integration with live job board APIs.</li>
+      <li>Learning time estimates are AI-generated approximations; individual learning pace varies significantly.</li>
+    </ul>
+  </div>
+</details>
+</div>
 
-        async function getSuggestions() {
-            const includeUndisclosed = document.getElementById('includeUndisclosed').checked;
-            const response = await fetch('/suggest', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    skills: Array.from(currentSelectedSkills),
-                    salary_threshold: salaryThreshold,
-                    include_undisclosed: includeUndisclosed
-                })
-            });
-            allSuggestions = await response.json();
-            suggestionsPage = 1;
-            renderSuggestionsPage();
-        }
+<div id="toast"></div>
 
-        function renderSuggestionsPage() {
-            const start = (suggestionsPage - 1) * PAGE_SIZE;
-            const pageSuggestions = allSuggestions.slice(start, start + PAGE_SIZE);
-            const totalPages = Math.ceil(allSuggestions.length / PAGE_SIZE);
-            
-            if (!allSuggestions.length) {
-                document.getElementById('suggestionsResult').innerHTML = '<p>No jobs above salary threshold with your skills.</p>';
-                document.getElementById('suggestionsPagination').innerHTML = '';
-                return;
-            }
-            
-            let html = '<h3>All IT Roles (sorted by match, filtered by salary)</h3>';
-            pageSuggestions.forEach(job => {
-                const reachableBadge = job.reachable ? '✅ Reachable' : '⚠️ Not reachable yet';
-                let missingDisplay = '';
-                if (job.missing_skills_with_weeks && job.missing_skills_with_weeks.length) {
-                    missingDisplay = job.missing_skills_with_weeks.map(m => `${m.skill} (${m.weeks} weeks)`).join(', ');
-                    missingDisplay += `<br><strong>Total time needed: ${job.missing_weeks} weeks</strong>`;
-                } else {
-                    missingDisplay = 'None! You are ready.';
-                }
-                html += `<div class="job-card">
-                    <strong>${job.title}</strong> at ${job.company}<br>
-                    Salary: RM ${job.salary_min} - ${job.salary_max}<br>
-                    Match: ${(job.match_ratio * 100).toFixed(0)}% (${job.reachable ? 'good fit' : 'needs work'})<br>
-                    Missing skills: ${missingDisplay}<br>
-                    <span style="font-size:0.9em; color:${job.reachable ? 'green' : 'orange'}">${reachableBadge}</span>
-                </div>`;
-            });
-            document.getElementById('suggestionsResult').innerHTML = html;
-            
-            let paginationHtml = `<span>Page ${suggestionsPage} of ${totalPages}</span>`;
-            if (suggestionsPage > 1) {
-                paginationHtml += `<button onclick="changePage(-1)">◀ Previous</button>`;
-            }
-            if (suggestionsPage < totalPages) {
-                paginationHtml += `<button onclick="changePage(1)">Next ▶</button>`;
-            }
-            document.getElementById('suggestionsPagination').innerHTML = paginationHtml;
-        }
+<script>
+// ══════════════════════════════════════════════════════════════════════════
+// STATE
+// ══════════════════════════════════════════════════════════════════════════
+const API = 'http://localhost:8001';
+let userSkills = [];
+let allTaxonomySkills = [];
+let allJobTitles = [];
+let suggestResults = [];
+let suggestPage = 0;
+const PAGE_SIZE = 10;
+let demandData = [];
 
-        function changePage(delta) {
-            suggestionsPage += delta;
-            renderSuggestionsPage();
-        }
+// ══════════════════════════════════════════════════════════════════════════
+// INIT
+// ══════════════════════════════════════════════════════════════════════════
+async function init() {
+  try {
+    const [titlesRes, skillsRes, statusRes] = await Promise.all([
+      fetch(`${API}/job_titles`),
+      fetch(`${API}/all_skills`),
+      fetch(`${API}/setup_status`),
+    ]);
+    allJobTitles = await titlesRes.json();
+    allTaxonomySkills = await skillsRes.json();
 
-        async function loadJobTitles() {
-            const response = await fetch('/job_titles');
-            const titles = await response.json();
-            const select = document.getElementById('targetRole');
-            select.innerHTML = titles.map(t => `<option value="${t}">${t}</option>`).join('');
-        }
+    const status = await statusRes.json();
+    if (!status.ready) {
+      document.getElementById('setup-banner').style.display = 'block';
+    }
 
-        async function findPaths() {
-            const target = document.getElementById('targetRole').value;
-            if (!target) {
-                alert('Select a target role');
-                return;
-            }
-            const includeUndisclosed = document.getElementById('includeUndisclosed').checked;
-            const response = await fetch('/find_paths', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    skills: Array.from(currentSelectedSkills),
-                    target_title: target,
-                    salary_threshold: salaryThreshold,
-                    include_undisclosed: includeUndisclosed
-                })
-            });
-            const data = await response.json();
-            if (data.error) {
-                document.getElementById('pathsResult').innerHTML = `<p>❌ ${data.error}</p>`;
-                return;
-            }
-            const paths = data.paths;
-            if (!paths.length) {
-                document.getElementById('pathsResult').innerHTML = '<p>No paths found. Try lowering salary threshold or adding more skills.</p>';
-                return;
-            }
-            let html = '<h3>Career Paths (fastest first)</h3>';
-            paths.forEach((path, idx) => {
-                const uniqueMissing = new Set();
-                path.steps.forEach(step => {
-                    if (step.missing && step.missing.length > 0) {
-                        step.missing.forEach(s => uniqueMissing.add(s));
-                    }
-                });
-                const missingSkillsArray = Array.from(uniqueMissing);
-                const safeMissing = JSON.stringify(missingSkillsArray).replace(/"/g, '&quot;');
+    // Populate datalists
+    const dl1 = document.getElementById('titles-list');
+    const dl2 = document.getElementById('path-titles-list');
+    allJobTitles.forEach(t => {
+      [dl1, dl2].forEach(dl => {
+        const o = document.createElement('option');
+        o.value = t;
+        dl.appendChild(o);
+      });
+    });
+  } catch (e) {
+    showToast('Backend not reachable. Make sure the server is running on port 8001.', 5000);
+  }
+}
 
-                html += `<div class="job-card" id="path-${idx}">
-                    <strong>Path ${idx+1}</strong> – Total upskilling: ${path.total_weeks} weeks, Final salary: RM ${path.final_salary}<br>
-                    <div class="path-step">`;
-                path.steps.forEach((step) => {
-                    if (step.title === "Current (your skills)") {
-                        if (step.missing_with_weeks && step.missing_with_weeks.length > 0) {
-                            const skillsWithWeeks = step.missing_with_weeks.map(m => `${m.skill} (${m.weeks} weeks)`).join(', ');
-                            html += `<div><strong>${step.title}</strong><br>↳ Learn first: ${skillsWithWeeks}</div>`;
-                        } else {
-                            html += `<div><strong>${step.title}</strong> – No skills missing.</div>`;
-                        }
-                    } else {
-                        let salaryInfo = '';
-                        if (step.salary && step.salary !== 'Undisclosed') {
-                            salaryInfo = ` (${step.salary})`;
-                        } else if (step.salary_min && step.salary_min > 0) {
-                            salaryInfo = ` (RM ${step.salary_min} - ${step.salary_max})`;
-                        } else {
-                            salaryInfo = ` (salary undisclosed)`;
-                        }
-                        if (step.missing_with_weeks && step.missing_with_weeks.length > 0) {
-                            const skillsWithWeeks = step.missing_with_weeks.map(m => `${m.skill} (${m.weeks} weeks)`).join(', ');
-                            html += `<div><strong>→ ${step.title}${salaryInfo}</strong><br>↳ Learn: ${skillsWithWeeks}</div>`;
-                        } else {
-                            html += `<div><strong>→ ${step.title}${salaryInfo}</strong> – Ready! (no new skills needed)</div>`;
-                        }
-                    }
-                });
-                html += `</div>
-                    <button onclick="explainPath('${target}', ${safeMissing}, ${idx})">💡 Explain this path</button>
-                    <div id="explanation-${idx}" class="explanation-box" style="display:none;"></div>
-                </div>`;
-            });
-            document.getElementById('pathsResult').innerHTML = html;
-        }
+// ══════════════════════════════════════════════════════════════════════════
+// TABS
+// ══════════════════════════════════════════════════════════════════════════
+function showTab(name) {
+  document.querySelectorAll('.tab-content').forEach(el => el.classList.remove('active'));
+  document.querySelectorAll('nav.tabs button').forEach(b => b.classList.remove('active'));
+  document.getElementById('tab-' + name).classList.add('active');
+  const tabs = ['skills', 'explore', 'path', 'demand'];
+  document.querySelectorAll('nav.tabs button')[tabs.indexOf(name)].classList.add('active');
+}
 
-        async function explainPath(targetTitle, missingSkills, pathIndex) {
-            const container = document.getElementById(`explanation-${pathIndex}`);
-            container.style.display = 'block';
-            if (!missingSkills || missingSkills.length === 0) {
-                    container.innerHTML = '<p>✅ No missing skills to explain – you are already ready for this role!</p>';
-                    return;
-                }
-            container.innerHTML = '<em>Loading explanation...</em>';
-            const response = await fetch('/explain_path', {
-                method: 'POST',
-                headers: { 'Content-Type': 'application/json' },
-                body: JSON.stringify({
-                    target_title: targetTitle,
-                    missing_skills: missingSkills
-                })
-            });
-            const data = await response.json();
-            if (data.error) {
-                container.innerHTML = `<p>❌ Error: ${data.error}</p>`;
-                return;
-            }
-            if (!data.skills || data.skills.length === 0) {
-                container.innerHTML = '<p>No explanation available.</p>';
-                return;
-            }
-            let html = '<strong>Why learn these skills?</strong><ul>';
-            data.skills.forEach(skillInfo => {
-                let importanceClass = '';
-                if (skillInfo.importance_score >= 7) importanceClass = 'importance-high';
-                else if (skillInfo.importance_score >= 4) importanceClass = 'importance-mid';
-                else importanceClass = 'importance-low';
-                html += `<li class="explanation-skill">
-                    <strong>${skillInfo.skill}</strong> 
-                    <span class="${importanceClass}">(importance: ${skillInfo.importance_score}/10)</span><br>
-                    ${skillInfo.explanation}<br>
-                    <em>Suggested learning order: #${skillInfo.suggested_order}</em>
-                </li>`;
-            });
-            html += '</ul>';
-            container.innerHTML = html;
-        }
+function goExplore() { showTab('explore'); loadSuggest(); }
+function goPath()    { showTab('path'); }
 
-        // Event listeners
-        document.getElementById('salaryThreshold').addEventListener('input', () => {
-            updateSalaryDisplay();
-            if (document.getElementById('targetRole').value) findPaths();
-        });
-        document.getElementById('includeUndisclosed').addEventListener('change', () => {
-            getSuggestions();
-            if (document.getElementById('targetRole').value) findPaths();
-        });
+// ══════════════════════════════════════════════════════════════════════════
+// SKILL MANAGEMENT
+// ══════════════════════════════════════════════════════════════════════════
+function renderSkills() {
+  const wrap = document.getElementById('skills-wrap');
+  wrap.innerHTML = '';
+  userSkills.forEach(s => {
+    const tag = document.createElement('span');
+    tag.className = 'skill-tag';
+    tag.innerHTML = `${s} <span class="rm" onclick="removeSkill('${s}')">✕</span>`;
+    wrap.appendChild(tag);
+  });
+  document.getElementById('skill-count').textContent = userSkills.length;
+}
 
-        // Initial load
-        loadAllSkills().then(() => {
-            renderSkillSelector();
-            loadJobTitles();
-            loadSkillDemand();
-        });
-    </script>
+function addSkill(skill) {
+  const s = skill.trim().toLowerCase();
+  if (!s || userSkills.includes(s)) return;
+  userSkills.push(s);
+  renderSkills();
+  document.getElementById('skill-input').value = '';
+  closeSuggestions();
+}
+
+function removeSkill(skill) {
+  userSkills = userSkills.filter(s => s !== skill);
+  renderSkills();
+}
+
+function clearSkills() {
+  userSkills = [];
+  renderSkills();
+}
+
+function onSkillInput() {
+  const q = document.getElementById('skill-input').value.trim().toLowerCase();
+  const box = document.getElementById('skill-suggestions');
+  if (!q) { closeSuggestions(); return; }
+  const matches = allTaxonomySkills.filter(s => s.includes(q)).slice(0, 10);
+  if (!matches.length) { closeSuggestions(); return; }
+  box.innerHTML = matches.map(s => `<div class="skill-sugg-item" onclick="addSkill('${s}')">${s}</div>`).join('');
+  box.classList.add('open');
+}
+
+function onSkillKeydown(e) {
+  if (e.key === 'Enter') {
+    const q = document.getElementById('skill-input').value.trim();
+    if (q) addSkill(q);
+  }
+  if (e.key === 'Escape') closeSuggestions();
+}
+
+function closeSuggestions() {
+  document.getElementById('skill-suggestions').classList.remove('open');
+}
+
+document.addEventListener('click', e => {
+  if (!e.target.closest('.skill-search-wrap')) closeSuggestions();
+});
+
+// ══════════════════════════════════════════════════════════════════════════
+// DRAG & DROP
+// ══════════════════════════════════════════════════════════════════════════
+const dz = document.getElementById('drop-zone');
+dz.addEventListener('dragover', e => { e.preventDefault(); dz.classList.add('drag-over'); });
+dz.addEventListener('dragleave', () => dz.classList.remove('drag-over'));
+dz.addEventListener('drop', e => {
+  e.preventDefault();
+  dz.classList.remove('drag-over');
+  const file = e.dataTransfer.files[0];
+  if (file) processResumeFile(file);
+});
+document.getElementById('resume-input').addEventListener('change', e => {
+  if (e.target.files[0]) processResumeFile(e.target.files[0]);
+});
+
+async function extractSkillsFromResume() {
+  const inp = document.getElementById('resume-input');
+  if (!inp.files[0]) {
+    showToast('Please select a PDF file first.');
+    return;
+  }
+  processResumeFile(inp.files[0]);
+}
+
+async function processResumeFile(file) {
+  const status = document.getElementById('extract-status');
+  const btn = document.getElementById('extract-btn');
+  btn.disabled = true;
+  btn.innerHTML = '<span class="spinner"></span> Extracting…';
+  status.textContent = `Processing ${file.name}…`;
+
+  const fd = new FormData();
+  fd.append('resume', file);
+  try {
+    const res = await fetch(`${API}/extract_skills`, { method: 'POST', body: fd });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    const skills = data.skills || [];
+    let added = 0;
+    skills.forEach(s => { if (!userSkills.includes(s)) { userSkills.push(s); added++; } });
+    renderSkills();
+    status.innerHTML = `<span style="color:var(--success)">✓ Found ${skills.length} skills (${added} new added)</span>`;
+    if (data.warning) status.innerHTML += ` · ${data.warning}`;
+  } catch (e) {
+    status.innerHTML = `<span style="color:var(--danger)">✗ ${e.message}</span>`;
+  } finally {
+    btn.disabled = false;
+    btn.innerHTML = 'Extract Skills from PDF';
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// SUGGEST
+// ══════════════════════════════════════════════════════════════════════════
+async function loadSuggest() {
+  if (!userSkills.length) { showToast('Add some skills first.'); return; }
+  const btn = document.getElementById('explore-btn-text');
+  const sp = document.getElementById('explore-spinner');
+  btn.textContent = 'Loading…'; sp.style.display = 'inline-block';
+
+  try {
+    const res = await fetch(`${API}/suggest`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        skills: userSkills,
+        salary_threshold: parseInt(document.getElementById('salary-range').value) || 0,
+        include_undisclosed: document.getElementById('incl-undisclosed').checked,
+        current_title: document.getElementById('current-title').value.trim(),
+      }),
+    });
+    suggestResults = await res.json();
+    suggestPage = 0;
+    renderSuggest();
+    document.getElementById('explore-meta').textContent =
+      `Source: JobStreet Job Listings 2025 · Data from 2025 – 0 months old`;
+  } catch (e) {
+    showToast('Failed to load roles: ' + e.message);
+  } finally {
+    btn.textContent = 'Find Roles'; sp.style.display = 'none';
+  }
+}
+
+function getSortedResults() {
+  const sort = document.getElementById('explore-sort').value;
+  const copy = [...suggestResults];
+  if (sort === 'salary')  copy.sort((a, b) => b.salary_median - a.salary_median);
+  if (sort === 'gap')     copy.sort((a, b) => a.skill_gap_pct - b.skill_gap_pct);
+  if (sort === 'conf')    copy.sort((a, b) => b.confidence_score - a.confidence_score);
+  // default = match (already sorted by backend)
+  return copy;
+}
+
+function renderSuggest() {
+  const sorted = getSortedResults();
+  const empty = document.getElementById('explore-empty');
+  const results = document.getElementById('explore-results');
+  const pag = document.getElementById('explore-pagination');
+
+  if (!sorted.length) {
+    empty.style.display = 'block'; results.innerHTML = ''; pag.style.display = 'none';
+    return;
+  }
+  empty.style.display = 'none';
+
+  const total = sorted.length;
+  const start = suggestPage * PAGE_SIZE;
+  const page = sorted.slice(start, start + PAGE_SIZE);
+
+  results.innerHTML = page.map(role => renderRoleCard(role)).join('');
+  document.getElementById('explore-empty').insertAdjacentHTML('afterend', `<div class="results-count">${total} roles found</div>`);
+
+  // Pagination
+  const totalPages = Math.ceil(total / PAGE_SIZE);
+  if (totalPages > 1) {
+    pag.style.display = 'flex';
+    pag.innerHTML = `
+      <button class="page-btn" onclick="changePage(-1)" ${suggestPage===0?'disabled':''}>← Prev</button>
+      <span class="page-info">Page ${suggestPage+1} of ${totalPages}</span>
+      <button class="page-btn" onclick="changePage(1)" ${suggestPage===totalPages-1?'disabled':''}>Next →</button>
+    `;
+  } else { pag.style.display = 'none'; }
+}
+
+function changePage(dir) {
+  const sorted = getSortedResults();
+  const total = Math.ceil(sorted.length / PAGE_SIZE);
+  suggestPage = Math.max(0, Math.min(total - 1, suggestPage + dir));
+  renderSuggest();
+}
+
+function renderRoleCard(role) {
+  const replColor = role.ai_replaceability < 35 ? 'var(--success)' : role.ai_replaceability < 65 ? 'var(--warning)' : 'var(--danger)';
+  const salStr = role.undisclosed ? 'Undisclosed' : `RM ${(role.salary_min||0).toLocaleString()} – ${(role.salary_max||0).toLocaleString()}`;
+  const deltaStr = role.salary_delta != null ? (role.salary_delta >= 0 ? `+RM ${Math.round(role.salary_delta).toLocaleString()}` : `-RM ${Math.abs(Math.round(role.salary_delta)).toLocaleString()}`) : 'N/A';
+  const deltaColor = !role.salary_delta ? '' : role.salary_delta >= 0 ? 'color:var(--success)' : 'color:var(--danger)';
+  const matchPct = Math.round(role.match_ratio * 100);
+  const cardId = `role-${encodeURIComponent(role.title).replace(/%/g,'').replace(/[^a-zA-Z0-9]/g,'_')}`;
+  const missingSkillsHtml = role.missing_skills.slice(0, 6).map(s => {
+    const w = (role.missing_skills_with_weeks || []).find(x => x.skill === s);
+    return `<span class="badge badge-gray" style="font-size:.72rem">${s}${w ? ` · ${w.weeks}w` : ''}</span>`;
+  }).join(' ');
+  const trendHtml = (role.skill_trends || []).slice(0, 2).map(t =>
+    `<span class="${t.trend==='growing'?'trend-up':t.trend==='declining'?'trend-down':'trend-stable'}">${t.skill} ${t.trend==='growing'?'↑':'↓'}${Math.abs(t.pct)}%</span>`
+  ).join(' · ');
+
+  return `
+<div class="role-card" id="${cardId}">
+  <div class="title-row">
+    <div>
+      <span class="role-title">${role.title}</span>
+      ${role.is_critical_occupation ? '<span class="crit-badge" style="margin-left:8px">🇲🇾 MyCOL Critical</span>' : ''}
+    </div>
+    <span class="salary">${salStr}</span>
+  </div>
+
+  <div class="metric-row">
+    <div class="metric-item">
+      <div class="val">${matchPct}%</div>
+      <div class="lbl">Skill Match</div>
+      <div class="confidence-bar" style="width:80px"><div class="confidence-fill" style="width:${matchPct}%;background:${matchPct>=80?'var(--success)':matchPct>=60?'var(--warning)':'var(--danger)'}"></div></div>
+    </div>
+    <div class="metric-item">
+      <div class="val" style="${deltaColor}">${deltaStr}</div>
+      <div class="lbl">Salary Delta</div>
+      <div class="freshness">JobStreet 2025</div>
+    </div>
+    <div class="metric-item">
+      <div class="val" style="color:${replColor}">${role.ai_replaceability}%</div>
+      <div class="lbl">AI Replaceability</div>
+      <div class="freshness">WEF 2025</div>
+    </div>
+    <div class="metric-item">
+      <div class="val">${role.confidence_score}%</div>
+      <div class="lbl">Confidence</div>
+      <div class="confidence-bar" style="width:80px"><div class="confidence-fill" style="width:${role.confidence_score}%;background:var(--primary)"></div></div>
+    </div>
+    <div class="metric-item">
+      <div class="val">${role.missing_weeks}w</div>
+      <div class="lbl">Est. Learning</div>
+    </div>
+  </div>
+
+  ${trendHtml ? `<div style="margin-bottom:8px;font-size:.78rem">Trending skills: ${trendHtml}</div>` : ''}
+
+  <div style="margin:6px 0">
+    <span class="badge badge-${matchPct>=60?'green':'yellow'}">${role.reachable ? '✓ Reachable' : '⚡ Needs work'}</span>
+    <span class="badge badge-gray" style="margin-left:6px">${role.job_count} listing${role.job_count!==1?'s':''}</span>
+    <span class="badge-source" style="margin-left:6px">📋 JobStreet 2025</span>
+    <span class="freshness" style="display:inline;margin-left:6px">${role.freshness}</span>
+  </div>
+
+  ${role.missing_skills.length ? `
+  <div style="margin-top:8px">
+    <span style="font-size:.78rem;color:var(--text-muted);margin-right:6px">Missing skills:</span>
+    ${missingSkillsHtml}
+    ${role.missing_skills.length > 6 ? `<span class="badge badge-gray">+${role.missing_skills.length - 6} more</span>` : ''}
+  </div>` : '<div class="badge badge-green" style="margin-top:8px">✓ You have all required skills!</div>'}
+
+  <div style="margin-top:10px;display:flex;gap:8px;flex-wrap:wrap">
+    ${role.missing_skills.length ? `<button class="why-btn" onclick="toggleWhyPanel('${cardId}', '${escapeJs(role.title)}', ${JSON.stringify(role.missing_skills).replace(/'/g, '\\\'')})">💡 Why these skills?</button>` : ''}
+    <button class="btn btn-secondary btn-sm" onclick="useAsTarget('${escapeJs(role.title)}')">Set as Target Role</button>
+    <button class="btn btn-ghost btn-sm revalidate-wrap" onclick="showToast('Data refresh scheduled for ${escapeJs(role.title)}… 0 new postings found (data is current).')">🔄 Re-validate</button>
+  </div>
+
+  <div class="why-panel" id="why-${cardId}">
+    <div style="font-size:.78rem;color:var(--text-muted)">Loading AI explanation…</div>
+  </div>
+</div>`;
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// WHY PANEL
+// ══════════════════════════════════════════════════════════════════════════
+async function toggleWhyPanel(cardId, title, missingSkills) {
+  const panel = document.getElementById(`why-${cardId}`);
+  if (panel.classList.contains('open')) { panel.classList.remove('open'); return; }
+  panel.classList.add('open');
+  panel.innerHTML = '<div style="font-size:.78rem;color:var(--text-muted)"><span class="spinner spinner-dark"></span> Generating AI explanation…</div>';
+
+  try {
+    const res = await fetch(`${API}/explain_path`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ target_title: title, missing_skills: missingSkills }),
+    });
+    const data = await res.json();
+    if (data.error && !data.skills?.length) throw new Error(data.error);
+    renderWhyPanel(panel, title, data);
+  } catch (e) {
+    panel.innerHTML = `<div style="font-size:.82rem;color:var(--danger)">Could not generate explanation: ${e.message}</div>`;
+  }
+}
+
+function renderWhyPanel(panel, title, data) {
+  const skills = data.skills || [];
+  const sources = data.rag_sources || [];
+  const sorted = [...skills].sort((a, b) => (a.suggested_order || 99) - (b.suggested_order || 99));
+
+  let html = `<div style="font-weight:600;font-size:.88rem;margin-bottom:10px">Learning plan for <em>${title}</em></div>`;
+  sorted.forEach(sk => {
+    const imp = sk.importance_score || 5;
+    const cls = imp >= 8 ? 'importance-high' : imp >= 5 ? 'importance-mid' : 'importance-low';
+    html += `
+      <div class="why-skill-row">
+        <div><span class="order-badge">${sk.suggested_order || '?'}</span><span class="why-skill-name">${sk.skill}</span>
+          <span class="${cls}" style="font-size:.78rem;margin-left:8px">Importance: ${imp}/10</span>
+        </div>
+        <div class="why-skill-exp">${sk.explanation || ''}</div>
+      </div>`;
+  });
+  if (sources.length) {
+    html += `<div style="margin-top:12px;font-size:.75rem;color:var(--text-muted)">Sources: ${sources.map(s => `${s.source} p.${s.page}`).join(', ')}</div>`;
+  }
+  html += `<div class="freshness" style="margin-top:6px">AI-generated explanation · Powered by Gemini · Referenced: ${sources.map(s=>s.source).filter((v,i,a)=>a.indexOf(v)===i).join(', ') || 'Job listing data'}</div>`;
+  panel.innerHTML = html;
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// CAREER PATH
+// ══════════════════════════════════════════════════════════════════════════
+function useAsTarget(title) {
+  document.getElementById('target-title-input').value = title;
+  showTab('path');
+  loadPaths();
+}
+
+async function loadPaths() {
+  const target = document.getElementById('target-title-input').value.trim();
+  if (!target) { showToast('Please enter a target role.'); return; }
+  if (!userSkills.length) { showToast('Add your skills on the Skills tab first.'); return; }
+
+  const btn = document.getElementById('path-btn-text');
+  const sp = document.getElementById('path-spinner');
+  btn.textContent = 'Loading…'; sp.style.display = 'inline-block';
+
+  document.getElementById('path-empty').style.display = 'none';
+  document.getElementById('path-results').innerHTML = '';
+
+  try {
+    const res = await fetch(`${API}/find_paths`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({
+        skills: userSkills,
+        target_title: target,
+        include_undisclosed: document.getElementById('path-incl-undisclosed').checked,
+      }),
+    });
+    const data = await res.json();
+    if (data.error) throw new Error(data.error);
+    renderPaths(data);
+  } catch (e) {
+    document.getElementById('path-empty').style.display = 'block';
+    document.getElementById('path-empty').innerHTML = `<div class="icon">❌</div><div>${e.message}</div>`;
+  } finally {
+    btn.textContent = 'Find Career Path'; sp.style.display = 'none';
+  }
+}
+
+function renderPaths(data) {
+  const container = document.getElementById('path-results');
+  const paths = data.paths || [];
+  if (!paths.length) {
+    document.getElementById('path-empty').style.display = 'block';
+    return;
+  }
+
+  let html = `<div style="font-size:.85rem;color:var(--text-muted);margin-bottom:16px">
+    Found ${paths.length} path${paths.length!==1?'s':''} to <strong>${data.target}</strong>
+    <span class="badge-source" style="margin-left:8px">📋 JobStreet 2025</span>
+  </div>`;
+
+  paths.forEach((path, pi) => {
+    const steps = path.steps || [];
+    html += `<div class="card" style="margin-bottom:20px">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:14px">
+        <div style="font-weight:700">Path ${pi+1}
+          <span class="badge badge-gray" style="margin-left:8px">${steps.length} step${steps.length!==1?'s':''}</span>
+          <span class="badge badge-blue" style="margin-left:6px">~${path.total_weeks}w total</span>
+        </div>
+        <button class="btn btn-ghost btn-sm" onclick="showToast('Data refresh scheduled… 0 new postings found (data is current).')">🔄 Re-validate</button>
+      </div>
+
+      <!-- Diagram -->
+      <div class="path-diagram">
+        <div class="path-node">
+          <div class="path-node-box">
+            <div class="node-title" style="color:var(--text-muted)">You</div>
+            <div class="node-salary" style="color:var(--text-muted)">Current skills</div>
+          </div>
+        </div>`;
+
+    steps.forEach((step, si) => {
+      const stepId = `step-${pi}-${si}`;
+      const salStr = step.salary_min ? `RM ${step.salary_min.toLocaleString()}–${step.salary_max.toLocaleString()}` : 'Undisclosed';
+      html += `
+        <div class="path-arrow">→</div>
+        <div class="path-node" onclick="toggleStepDetail('${stepId}')">
+          <div class="path-node-box" id="box-${stepId}">
+            <div class="node-title">${step.title}</div>
+            <div class="node-salary">${salStr}</div>
+            <div class="node-gap">${step.skill_gap_pct}% gap · ${step.missing_weeks}w</div>
+          </div>
+        </div>`;
+    });
+
+    html += `</div><!-- end diagram -->`;
+
+    // Step details (expandable)
+    steps.forEach((step, si) => {
+      const stepId = `step-${pi}-${si}`;
+      const replColor = step.ai_replaceability < 35 ? 'var(--success)' : step.ai_replaceability < 65 ? 'var(--warning)' : 'var(--danger)';
+      const missingHtml = step.missing_skills.slice(0, 8).map(s => {
+        const w = (step.missing_skills_with_weeks || []).find(x => x.skill === s);
+        return `<span class="badge badge-gray" style="font-size:.72rem">${s}${w?` · ${w.weeks}w`:''}</span>`;
+      }).join(' ');
+      const whyId = `path-why-${stepId}`;
+
+      html += `
+      <div class="path-step-details" id="${stepId}" style="display:none">
+        <div style="font-weight:600;font-size:.95rem;margin-bottom:10px;padding-top:8px;border-top:1px solid var(--border)">
+          Step ${si+1}: ${step.title}
+        </div>
+        <div class="metric-row">
+          <div class="metric-item">
+            <div class="val">${step.salary_min ? 'RM ' + step.salary_median.toLocaleString() : 'N/A'}</div>
+            <div class="lbl">Median Salary</div>
+            <div class="freshness">JobStreet 2025</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">${step.skill_gap_pct}%</div>
+            <div class="lbl">Skill Gap</div>
+          </div>
+          <div class="metric-item">
+            <div class="val" style="color:${replColor}">${step.ai_replaceability}%</div>
+            <div class="lbl">AI Replaceability</div>
+            <div class="freshness">WEF 2025</div>
+          </div>
+          <div class="metric-item">
+            <div class="val">${step.confidence_score}%</div>
+            <div class="lbl">Confidence</div>
+            <div class="confidence-bar" style="width:80px"><div class="confidence-fill" style="width:${step.confidence_score}%;background:var(--primary)"></div></div>
+          </div>
+          <div class="metric-item">
+            <div class="val">${step.missing_weeks}w</div>
+            <div class="lbl">Est. Learning</div>
+          </div>
+        </div>
+        ${step.missing_skills.length ? `
+        <div style="margin:8px 0">
+          <span style="font-size:.78rem;color:var(--text-muted);margin-right:6px">Skills to gain:</span>${missingHtml}
+          ${step.missing_skills.length > 8 ? `<span class="badge badge-gray">+${step.missing_skills.length - 8} more</span>` : ''}
+        </div>
+        <button class="why-btn" style="margin-top:6px" onclick="toggleStepWhy('${whyId}', '${escapeJs(step.title)}', ${JSON.stringify(step.missing_skills).replace(/'/g, '\\\'')})">💡 Why these skills?</button>
+        <div class="why-panel" id="${whyId}"></div>
+        ` : '<div class="badge badge-green">✓ You already have all required skills for this role</div>'}
+      </div>`;
+    });
+
+    html += `</div>`;  // close card
+  });
+
+  container.innerHTML = html;
+}
+
+function toggleStepDetail(stepId) {
+  const el = document.getElementById(stepId);
+  const box = document.getElementById('box-' + stepId);
+  const isOpen = el.style.display !== 'none';
+  el.style.display = isOpen ? 'none' : 'block';
+  if (box) box.classList.toggle('active', !isOpen);
+}
+
+async function toggleStepWhy(whyId, title, missingSkills) {
+  const panel = document.getElementById(whyId);
+  if (panel.classList.contains('open')) { panel.classList.remove('open'); return; }
+  panel.classList.add('open');
+  panel.innerHTML = '<div style="font-size:.78rem;color:var(--text-muted)"><span class="spinner spinner-dark"></span> Generating AI explanation…</div>';
+  try {
+    const res = await fetch(`${API}/explain_path`, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify({ target_title: title, missing_skills: missingSkills }),
+    });
+    const data = await res.json();
+    if (data.error && !data.skills?.length) throw new Error(data.error);
+    renderWhyPanel(panel, title, data);
+  } catch (e) {
+    panel.innerHTML = `<div style="font-size:.82rem;color:var(--danger)">Could not generate explanation: ${e.message}</div>`;
+  }
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// MARKET DEMAND
+// ══════════════════════════════════════════════════════════════════════════
+async function loadDemand() {
+  const threshold = parseInt(document.getElementById('demand-threshold').value) || 7000;
+  const limit = parseInt(document.getElementById('demand-limit').value) || 30;
+  const btn = document.getElementById('demand-btn-text');
+  const sp = document.getElementById('demand-spinner');
+  btn.textContent = 'Loading…'; sp.style.display = 'inline-block';
+
+  try {
+    const res = await fetch(`${API}/skill_demand?threshold=${threshold}&limit=${limit}`);
+    const data = await res.json();
+    demandData = data.skills || [];
+
+    // Populate category filter
+    const cats = [...new Set(demandData.map(s => s.skill_category).filter(Boolean))].sort();
+    const catSel = document.getElementById('demand-category');
+    catSel.innerHTML = '<option value="">All categories</option>' +
+      cats.map(c => `<option value="${c}">${c}</option>`).join('');
+
+    document.getElementById('demand-meta').textContent =
+      `Source: ${data.source} · WEF AI scores: ${data.wef_source} · Min salary: RM ${threshold.toLocaleString()} · Data from 2025 – 0 months old`;
+
+    renderDemand();
+  } catch (e) {
+    showToast('Failed to load demand data: ' + e.message);
+  } finally {
+    btn.textContent = 'Load Data'; sp.style.display = 'none';
+  }
+}
+
+function renderDemand() {
+  const cat = document.getElementById('demand-category')?.value || '';
+  const filtered = cat ? demandData.filter(s => s.skill_category === cat) : demandData;
+  const empty = document.getElementById('demand-empty');
+  const results = document.getElementById('demand-results');
+
+  if (!filtered.length) {
+    empty.style.display = 'block'; results.innerHTML = ''; return;
+  }
+  empty.style.display = 'none';
+
+  const maxCount = Math.max(...filtered.map(s => s.demand_count));
+  results.innerHTML = `
+    <div style="display:flex;gap:20px;margin-bottom:12px;font-size:.78rem;color:var(--text-muted);flex-wrap:wrap">
+      <span>Bar = demand count</span>
+      <span style="color:var(--danger)">Red score = high AI replacement risk</span>
+      <span style="color:var(--success)">Green score = low AI replacement risk</span>
+      <span>↑↓ = demand trend (mock data)</span>
+    </div>
+    <div class="demand-grid">
+      ${filtered.map(s => renderDemandCard(s, maxCount)).join('')}
+    </div>
+    <div class="freshness" style="margin-top:12px">AI Replaceability: WEF Future of Jobs Report 2025 · Demand: JobStreet Job Listings 2025</div>`;
+}
+
+function renderDemandCard(s, maxCount) {
+  const repl = s.ai_replaceability_score;
+  const replColor = repl < 35 ? 'var(--success)' : repl < 65 ? 'var(--warning)' : 'var(--danger)';
+  const barPct = Math.round((s.demand_count / maxCount) * 100);
+  const trendHtml = s.trend === 'growing'
+    ? `<span class="trend-up">↑ +${s.trend_pct}%</span>`
+    : s.trend === 'declining'
+    ? `<span class="trend-down">↓ ${s.trend_pct}%</span>`
+    : `<span class="trend-stable">→ stable</span>`;
+  const catBadge = s.skill_category ? `<span class="badge badge-gray" style="font-size:.7rem">${s.skill_category}</span>` : '';
+
+  return `
+  <div class="demand-card">
+    <div style="min-width:140px">
+      <span style="font-weight:600;font-size:.9rem">${s.skill}</span>
+      <div style="margin-top:3px">${catBadge}</div>
+    </div>
+    <div class="demand-bar-wrap">
+      <div style="display:flex;justify-content:space-between;align-items:center;margin-bottom:3px">
+        <span style="font-size:.78rem;color:var(--text-muted)">${s.demand_count} jobs</span>
+        <span style="font-size:.78rem">${trendHtml}</span>
+      </div>
+      <div class="demand-bar">
+        <div class="demand-bar-fill" style="width:${barPct}%"></div>
+      </div>
+    </div>
+    <div style="min-width:100px;text-align:right">
+      <div style="font-weight:600;font-size:.9rem;color:${replColor}">${repl}%</div>
+      <div style="font-size:.72rem;color:var(--text-muted)">AI risk</div>
+    </div>
+  </div>`;
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// UTILS
+// ══════════════════════════════════════════════════════════════════════════
+function showToast(msg, duration = 3000) {
+  const t = document.getElementById('toast');
+  t.textContent = msg;
+  t.classList.add('show');
+  setTimeout(() => t.classList.remove('show'), duration);
+}
+
+function escapeJs(str) {
+  return str.replace(/\\/g, '\\\\').replace(/'/g, "\\'").replace(/"/g, '\\"');
+}
+
+// ══════════════════════════════════════════════════════════════════════════
+// STARTUP
+// ══════════════════════════════════════════════════════════════════════════
+init();
+</script>
 </body>
 </html>
