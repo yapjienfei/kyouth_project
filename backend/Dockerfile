@@ -10,10 +10,12 @@ RUN pip install --no-cache-dir \
     requests==2.32.3 \
     pdfplumber==0.11.4 \
     python-dotenv==1.0.1 \
-    "google-genai>=1.0.0"
+    "google-genai>=1.0.0" \
+    "psycopg2-binary>=2.9" \
+    "celery[redis]>=5.4" \
+    "redis>=5.0"
 
 COPY backend/ ./backend/
-COPY frontend/static/ ./frontend/static/
 COPY data/ ./data/
 COPY scripts/ ./scripts/
 

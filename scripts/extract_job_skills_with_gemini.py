@@ -131,6 +131,38 @@ def keyword_fallback(description: str) -> list[str]:
     return sorted(list(found))
 
 
+# Surface forms Gemini normalizes away — accepted as evidence during verification
+SURFACE_FORMS = {
+    "kubernetes": ["k8s"], "javascript": ["js", "es6"], "typescript": ["ts"],
+    "react": ["reactjs", "react.js"], "node.js": ["nodejs", "node js", "node"],
+    "postgresql": ["postgres"], "asp.net": [".net", "dotnet"], "html": ["html5"],
+    "css": ["css3"], "aws": ["amazon web services"], "gcp": ["google cloud"],
+    "azure": ["microsoft azure"], "ci/cd": ["cicd", "ci cd"],
+    "machine learning": ["ml"], "artificial intelligence": ["ai"],
+    "rest api": ["rest", "restful"],
+}
+
+
+def verify_skills(skills: list[str], description: str) -> list[str]:
+    """Hallucination guard: drop any skill Gemini returned that does not
+    actually appear in the job description (word-boundary match, including
+    known surface forms). A job with no real skills stays empty."""
+    if not description:
+        return []
+    text = description.lower()
+    kept = []
+    for s in skills:
+        if not isinstance(s, str):
+            continue
+        s = s.strip().lower()
+        forms = [s] + SURFACE_FORMS.get(s, [])
+        for form in forms:
+            if re.search(r"(?<!\w)" + re.escape(form) + r"(?!\w)", text):
+                kept.append(s)
+                break
+    return kept
+
+
 def extract_batch(jobs_batch: list[dict]) -> dict[int, list[str]]:
     """Send a batch of jobs to Gemini and return a dict mapping batch index -> skills."""
     jobs_text = ""
@@ -210,11 +242,18 @@ def main():
             # Map extracted skills back to the correct positions in processed_batch
             for offset, (orig_index, job) in enumerate(zip(need_indices_in_batch, needs_extraction)):
                 skills = extracted.get(offset, [])
-                # If Gemini returned empty, try fallback as a supplement
+                # Hallucination guard: only keep skills the description mentions
+                verified = verify_skills(skills, job.get("description", ""))
+                if len(verified) < len(skills):
+                    dropped = sorted(set(s.lower() for s in skills if isinstance(s, str)) - set(verified))
+                    print(f"    Dropped {len(skills) - len(verified)} hallucinated skill(s) "
+                          f"for '{job['title']}': {dropped[:6]}")
+                skills = verified
+                # If nothing verifiable came back, try keyword fallback
                 if not skills:
                     fallback_skills = keyword_fallback(job.get("description", ""))
                     if fallback_skills:
-                        print(f"    Gemini gave empty list for job '{job['title']}', using fallback: {fallback_skills}")
+                        print(f"    Gemini gave no verifiable skills for '{job['title']}', using fallback: {fallback_skills}")
                         skills = fallback_skills
                 processed_batch[orig_index]["skills_ai"] = skills
 
